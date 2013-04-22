@@ -1,3 +1,7 @@
+# Just a comment yo
+.DS_Store
+*.zip
+*.gz
 .htaccess
 wp-config.php
 wp-content/uploads/
@@ -12,3 +16,4 @@ wp-content/cache/
 wp-content/backups/
 sitemap.xml
 sitemap.xml.gz
+
