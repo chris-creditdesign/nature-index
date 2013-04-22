@@ -38,7 +38,7 @@ $(function() {
 });
 
 /*	1 - First  Load in JSON data */
-d3.json('data/ranking-country-global-2.json', draw);
+d3.json('data/ranking-country-global.json', draw);
 
 /*	2 - The draw function is called only once the JSON file has fully loaded 
 	and is responsible for building the barchart */
