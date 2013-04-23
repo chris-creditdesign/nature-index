@@ -28,7 +28,7 @@
 <div class="grid_12" id="content">
 
 <div class="outer-wrapper">
-<h1 class="page-header"><span id="count">Corrected count</span> <span id="year">2012</span> <span id="field">All fields</span></h1>
+<h1><span id="count">Corrected count</span> <span id="year">2012</span> <span id="field">All fields</span></h1>
 
 <div class="count-chart">
 	<div class="tooltip hidden">
@@ -36,46 +36,52 @@
 	</div>
 </div>
 
-<form class="count-select">
-	<input type="radio" name="mode" id="cc" value="cc" checked><label for="cc"> Corrected count</label>
-	<input type="radio" name="mode" id="ac" value="ac"><label for="ac"> Article count</label>	
-</form>
-
-<div class="year-wrapper">
-<form class="year-label">
-
-	<select name="selectYear" class="select-year">
-		<option value="2008">2008</option>
-		<option value="2009">2009</option>
-		<option value="2010">2010</option>
-		<option value="2011">2011</option>
-		<option value="2012" selected>2012</option>
-	</select>
-	<!-- <label for="selectYear">
-	<span class="year">2008</span>
-	<span class="year">2009</span>
-	<span class="year">2010</span>
-	<span class="year">2011</span>
-	<span class="year">2012</span>
-	</label> -->
-</form>
-</div><!--class="year-wrapper"-->
-<div class="field-wrapper">
-<form class="select-field">
-	<input type="radio" name="mode" id="phys" value="phys"><label for="phys">Physics</label>
-	<input type="radio" name="mode" id="life" value="life"><label for="life">Life sciences</label>
-	<input type="radio" name="mode" id="earth" value="earth"><label for="earth">Earth sciences</label>
-	<input type="radio" name="mode" id="chem" value="chem"><label for="chem">Chemistry</label>
-	<input type="radio" name="mode" id="all" value="all" checked><label for="all">All fields</label>
-
-</form>
+<div class="wrapper field-wrapper">
+	<h2>Field</h2>
+	<form class="select-field">
+		<input type="radio" name="mode" id="phys" value="phys"><label for="phys">Physics</label>
+		<input type="radio" name="mode" id="life" value="life"><label for="life">Life sciences</label>
+		<input type="radio" name="mode" id="earth" value="earth"><label for="earth">Earth sciences</label>
+		<input type="radio" name="mode" id="chem" value="chem"><label for="chem">Chemistry</label>
+		<input type="radio" name="mode" id="all" value="all" checked><label for="all">All fields</label>
+	</form>
 </div><!--class="field-wrapper"-->
 
-<form class="adjust-scale">
-<!-- <label>Adjust scale: <input  type="checkbox"/></label> -->
-<input type="checkbox" id="check" /><label for="check">Adjust scale</label>
-</form>
+<div class="wrapper year-wrapper">
+	<h2>Year</h2>
+	<span class="year-label" >
+		<span class="year">2008</span>
+		<span class="year">2009</span>
+		<span class="year">2010</span>
+		<span class="year">2011</span>
+		<span class="year">2012</span>
+	</span>
 
+	<form class="year-slider">
+		<select name="selectYear" class="select-year">
+			<option value="2008">2008</option>
+			<option value="2009">2009</option>
+			<option value="2010">2010</option>
+			<option value="2011">2011</option>
+			<option value="2012" selected>2012</option>
+		</select>
+	</form>
+</div><!--class="year-wrapper"-->
+
+<div class="wrapper count-wrapper">
+	<h2>Count</h2>
+	<form class="count-select">
+		<input type="radio" name="mode" id="cc" value="cc" checked><label for="cc"> Corrected count</label>
+		<input type="radio" name="mode" id="ac" value="ac"><label for="ac"> Article count</label>	
+	</form>
+</div><!--class="count-wrapper"-->
+
+<div class="wrapper scale-wrapper">
+	<h2>Scale</h2>
+	<form class="adjust-scale">
+		<input type="checkbox" id="check" /><label for="check">Adjust scale</label>
+	</form>
+</div><!--class="scale-wrapper"-->
 
 
 <script type="text/javascript" src="js/index.js"></script>

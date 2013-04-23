@@ -1,78 +1,64 @@
 .outer-wrapper {
 
 	height: 1100px;
-	/*position: relative;*/
 }
 
+.outer-wrapper h1 {
+	text-transform: uppercase;
+	font-size: 1.1em;
+	color: #555455;
+	letter-spacing: 0.1em;
+	padding: 0 0 2px 3px;
+	border-bottom: 2px solid #ADAAAC;
+}
+
+
+/* Main structural Divs
+----------------------------------*/
+
+/* BARCHART */
 .outer-wrapper .count-chart {
     position: relative;
 	height: 400px;
     width: 940px;
 }
 
-.outer-wrapper .tooltip {
-    position: absolute;
-    padding: 10px;
-    background-color: #000;
-    pointer-events: none;
-    opacity: 0;
+.outer-wrapper .field-wrapper h2,
+.outer-wrapper .year-wrapper h2,
+.outer-wrapper .count-wrapper h2,
+.outer-wrapper .scale-wrapper h2 {
+	text-transform: uppercase;
+	font-size: 1.1em;
+	letter-spacing: 0.1em;
+	color: #555455;
+	margin: 0 0 10px 0;
+	padding: 0 0 2px 3px;
+	border-bottom: 2px solid #ADAAAC;
 }
 
-.outer-wrapper .tooltip:before {
-    content: "";
-    position:absolute;
-    bottom: -10px;
-    left: 49%;
-    border-right: 0;
-    border-top: 10px solid #000;
-    border-bottom: 0;
-    border-left: 10px solid transparent;
+.outer-wrapper .wrapper {
+	width: 465px;
+	margin: 10px 0 10px;
 }
 
-.outer-wrapper form {
-    /*margin: 20px 0; */
+/* FIELD */
+.outer-wrapper .field-wrapper {
+	width: 465px;
+	float: left;
 }
 
-.outer-wrapper .tooltip.hidden {
-    display: none;
-}
-
-.outer-wrapper .tooltip p {
-    margin: 0;
-    color: #fff;
-    font-family: sans-serif;
-    font-size: 16px;
-    line-height: 20px;
-}   
-
-.outer-wrapper .axis path,
-.outer-wrapper .axis line {
-    fill: none;
-    stroke: black;
-    shape-rendering: crispEdges;
-}
-
-.outer-wrapper .axis text {
-    font-family: sans-serif;
-    font-size: 13px;
-    shape-rendering: crispEdges;
-}
-
+/* YEAR */
 .outer-wrapper .year-wrapper {
-    /*width: 400px;*/
-    margin: 30px 0;
+	float: right;
 }
 
 .outer-wrapper select.select-year {
-	/*width: 600px;*/
-	/*margin-left: 10px;*/
-    display: none;
+	display: none;
 }
 
-.outer-wrapper .year-label {                     
-	width:600px;
+.outer-wrapper .year-wrapper .year-label {                     
 	height:15px;
-	/*margin:20px 0 0 11px;*/
+	margin:20px 0 20px 8px;
 	display:block;
 	position:relative;
 	cursor:pointer;        
@@ -80,159 +66,35 @@
 	border:0 none;
 }
 
-.outer-wrapper .year {
-	width: 66px;
-	height: 20px;
+.outer-wrapper .year-wrapper .year {
+	width: 87px;
+	height: 35px;
 	float: left;
-	border-left: 1px solid black;
+	border-left: 2px solid #ADAAAC;
 	padding: 0 0 0 2px;
+	font-weight: normal;
+	font-size: 110%;
+	color: #555455;
 }
 
-.outer-wrapper .field-wrapper {
-    /*width: 400px;*/
-    margin: 30px 0;
+.outer-wrapper .year-wrapper .year-slider {                     
+	width:366px;
+	margin: 0 0 0 8px;
 }
 
-.outer-wrapper select#selectField {
-	width: 280px;
-	/*margin-left: 10px;*/
-}
-
-.outer-wrapper .field-label {                     
-    width:280px;
-    height:30px;
-    /*margin:20px  0 0 11px;*/
-    display:block;
-    position:relative;
-    cursor:pointer;        
-    text-decoration:none;
-    border:0 none;
-}
-
-.outer-wrapper .field {
-    width: 66px;
-    height: 35px;
-    float: left;
-    border-left: 1px solid black;
-    padding: 0 0 0 2px;
-
-}
-
-
-/* button sets */
-.ui-buttonset {
-    margin-right: 7px;
-}
-.ui-buttonset .ui-button {
-    margin-left: 0;
-    margin-right: -.3em;
-}
-
-
-/* Interaction states
-----------------------------------*/
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default {
-    border: 1px solid #fff;
-    background: #f5da0a 50% 50% repeat-x;
-    font-weight: normal;
-    color: #555555;
-}
-.ui-state-default a,
-.ui-state-default a:link,
-.ui-state-default a:visited {
-    color: #555555;
-    text-decoration: none;
-}
-.ui-state-hover,
-.ui-widget-content .ui-state-hover,
-.ui-widget-header .ui-state-hover,
-.ui-state-focus,
-.ui-widget-content .ui-state-focus,
-.ui-widget-header .ui-state-focus {
-    border: 1px solid #fff;
-    background: #a25bfb 50% 50% repeat-x;
-    font-weight: normal;
-    color: #212121;
-}
-.ui-state-hover a,
-.ui-state-hover a:hover,
-.ui-state-hover a:link,
-.ui-state-hover a:visited {
-    color: #212121;
-    text-decoration: none;
-}
-.ui-state-active,
-.ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active {
-    border: 1px solid #fff;
-    background: #8d69fc 50% 50% repeat-x;
-    font-weight: normal;
-    color: #212121;
-}
-.ui-state-active a,
-.ui-state-active a:link,
-.ui-state-active a:visited {
-    color: #212121;
-    text-decoration: none;
-}
-
-/* button text element */
-.ui-button .ui-button-text {
-    display: block;
-    line-height: normal;
-}
-.ui-button-text-only .ui-button-text {
-    padding: .4em 1em;
-}
-
-/* Component containers
-----------------------------------*/
-/*.ui-widget {
-    font-family: Verdana,Arial,sans-serif;
-    font-size: 1.1em;
-}
-.ui-widget .ui-widget {
-    font-size: 1em;
-}
-.ui-widget input,
-.ui-widget select,
-.ui-widget textarea,
-.ui-widget button {
-    font-family: Verdana,Arial,sans-serif;
-    font-size: 1em;
-}*/
-/*.ui-widget-content {
-    border: 1px solid #fff;
-    background: #ddd 50% 50% repeat-x;
-    color: #222222;
-}*/
-/*.ui-widget-content a {
-    color: #222222;
-}*/
-.ui-widget-header {
-    border: 1px solid #fff;
-    background: #666 50% 50% repeat-x;
-    color: #555455;
-    font-weight: bold;
-}
-/*.ui-widget-header a {
-    color: #222222;
-}*/
-
-.ui-slider {
+.outer-wrapper .year-wrapper .ui-slider {
     position: relative;
     text-align: left;
+    border:0 none;
 }
-.ui-slider .ui-slider-handle {
+.outer-wrapper .year-wrapper .ui-slider .ui-slider-handle {
     position: absolute;
     z-index: 2;
     width: 1.2em;
     height: 1.2em;
     cursor: pointer;
 }
-.ui-slider .ui-slider-range {
+.outer-wrapper .year-wrapper .ui-slider .ui-slider-range {
     position: absolute;
     z-index: 1;
     font-size: .7em;
@@ -241,78 +103,144 @@
     background-position: 0 0;
 }
 
-/* For IE8 - See #6727 */
-.ui-slider.ui-state-disabled .ui-slider-handle,
-.ui-slider.ui-state-disabled .ui-slider-range {
-    filter: inherit;
-}
-
-.ui-slider-horizontal {
+.outer-wrapper .year-wrapper .ui-slider-horizontal {
+	background: #E0DEDE;
     height: .8em;
 }
-.ui-slider-horizontal .ui-slider-handle {
+.outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-handle {
+	background: #A0BEC5;
     top: -.3em;
     margin-left: -.6em;
 }
-.ui-slider-horizontal .ui-slider-range {
+.outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-range {
     top: 0;
     height: 100%;
 }
-.ui-slider-horizontal .ui-slider-range-min {
+.outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-range-min {
+	background: #FAF6E1;
     left: 0;
 }
-.ui-slider-horizontal .ui-slider-range-max {
+.outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-range-max {
     right: 0;
 }
 
-.ui-button {
-    display: inline-block;
-    position: relative;
-    padding: 0;
-    line-height: normal;
-    margin-right: .1em;
-    cursor: pointer;
-    vertical-align: middle;
-    text-align: center;
-    overflow: visible; /* removes extra width in IE */
-}
-.ui-button,
-.ui-button:link,
-.ui-button:visited,
-.ui-button:hover,
-.ui-button:active {
-    text-decoration: none;
+/* COUNT */
+.outer-wrapper .count-wrapper {
+	float: right;
 }
 
+/* SCALE */
+.outer-wrapper .scale-wrapper {
+	clear: both;
+}
 
+/* JqueryUI
+----------------------------------*/
+.outer-wrapper .wrapper .ui-button {
+	width: 465px;
+	margin: 2px 0;
+	display: inline-block;
+	position: relative;
+	padding: 2px;
+	line-height: normal;
+	cursor: pointer;
+	vertical-align: middle;
+	text-align: center;
+	overflow: visible; /* removes extra width in IE */
+	-webkit-transition:all 0.2s ease;  
+	-moz-transition:all 0.2s ease;  
+	-o-transition:all 0.2s ease;  
+	transition:all 0.2s ease;  
+}
 
+.outer-wrapper .wrapper .ui-buttonset .ui-button {
+	width: 224px;
+}
 
+.outer-wrapper .wrapper .ui-button .ui-button-text {
+	text-transform: uppercase;
+	display: block;
+	line-height: normal;
+}
 
+.outer-wrapper .wrapper .ui-button-text-only .ui-button-text {
+	padding: .4em 1em;
+}
 
+.outer-wrapper .wrapper .ui-state-default {
+	border: 1px solid #fff;
+	background: #FAF6E1;
+	font-weight: normal;
+	color: #555455;
+}
 
+.outer-wrapper .wrapper .ui-buttonset  .ui-state-hover {
+	background: #E0DEDE;
+}
 
+/* No hover state for adjust scale */
+.outer-wrapper .wrapper .ui-state-hover {
+	background: #FAF6E1;
+}
 
+.outer-wrapper .wrapper .ui-state-active {
+	background: #A0BEC5;
+}
 
+.outer-wrapper .wrapper .ui-corner-all {
+	border-radius: 0;
+}
 
+/* Tooltip
+----------------------------------*/
+.outer-wrapper .count-chart .tooltip {
+    position: absolute;
+    padding: 10px;
+    background-color: #555455;
+    pointer-events: none;
+    opacity: 0;
+}
 
+.outer-wrapper .count-chart .tooltip:before {
+    content: "";
+    position:absolute;
+    bottom: -10px;
+    left: 49%;
+    border-right: 0;
+    border-top: 10px solid #555455;
+    border-bottom: 0;
+    border-left: 10px solid transparent;
+}
 
+.outer-wrapper .count-chart .tooltip.hidden {
+    display: none;
+}
 
+.outer-wrapper .count-chart .tooltip p {
+    margin: 0;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}   
 
+/* SVG axes
+----------------------------------*/
+.outer-wrapper .axis path,
+.outer-wrapper .axis line {
+    fill: none;
+    stroke: #555455;
+    shape-rendering: crispEdges;
+}
 
+.outer-wrapper .axis text {
+    font-family: sans-serif;
+    fill: #555455;
+    font-size: 13px;
+    shape-rendering: crispEdges;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.outer-wrapper .count-chart rect {
+	shape-rendering: crispEdges;
+}
 
