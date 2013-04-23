@@ -183,7 +183,7 @@ function draw(data) {
 	/* Define the X Ordinal Scale */
 	var xScale = d3.scale.ordinal()
 		.domain(data.year2012.map(function(d) { return d.country; }))
-		.rangeRoundBands([margin.left,(width + margin.right)], 0.02);				
+		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);				
 
 	//Define X axis
 	var xAxis = d3.svg.axis()
