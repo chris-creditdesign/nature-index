@@ -16,10 +16,6 @@ var displayField = "All fields";
 
 /*	Colours for the bars */
 var allBars = "#A0BEC5";
-var physBars = "#E9691B";
-var lifeBars = "#61AA6C";
-var earthBars = "#956939";
-var chemBars = "#BBD52D";
 
 /*	A to determine if the scale should be adjustedq§ */
 var adjustScaleCheck = false;
@@ -193,20 +189,21 @@ function draw(data) {
 	var xAxis = d3.svg.axis()
 		.scale(xScale)
 		.tickSize(3, 0)
-		.orient("bottom");	
+		.orient("bottom");
 
 	//Draw X axis
 	svg.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(" + 0 + "," + (height + margin.top) + ")")
-		.call(xAxis);
+		.call(xAxis);			
 
 	/*	Rotate the x axis text so that it is legible */
 	d3.selectAll(".x text")
 		.attr("text-anchor", "left")
 		.attr("transform", function(d) {
 			return "translate(" + (this.getBBox().width / 2 ) + "," + 2 + "), rotate( 45 " + this.getBBox().x + " " + this.getBBox().y + ")";
-		})
+		});
+
 
 	/*	Set up bars - one for each country in the chosen year */
 	var bars = svg.selectAll("rect")
@@ -311,7 +308,7 @@ function draw(data) {
 						.each("end", function() {
 							d3.select(".tooltip").classed("hidden", true);
 						});
-				});					
+				});
 
 	/* Transition the height of the bars to the ac or the cc value */
 	function updateBars() {
@@ -437,7 +434,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", physBars)	
 							.attr("y", function(d){
 								return margin.top + yScale(d.ccPhys); 
 							})
@@ -475,7 +471,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", lifeBars)
 							.attr("y", function(d){
 								return margin.top + yScale(d.ccLife); 
 							})
@@ -513,7 +508,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", earthBars)
 							.attr("y", function(d){
 								return margin.top + yScale(d.ccEarth); 
 							})
@@ -551,7 +545,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", chemBars)
 							.attr("y", function(d){
 								return margin.top + yScale(d.ccChem); 
 							})
@@ -588,7 +581,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", allBars)
 							.attr("y", function(d){
 								return margin.top + yScale(d.cc); 
 							})
@@ -633,7 +625,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", allBars)
 							.attr("y", function(d){
 								return margin.top + yScale(d.ac); 
 							})
@@ -671,7 +662,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", physBars)	
 							.attr("y", function(d){
 								return margin.top + yScale(d.acPhys); 
 							})
@@ -709,7 +699,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", "#90278E")
 							.attr("y", function(d){
 								return margin.top + yScale(d.acLife); 
 							})
@@ -747,7 +736,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", earthBars)
 							.attr("y", function(d){
 								return margin.top + yScale(d.acEarth); 
 							})
@@ -785,7 +773,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", chemBars)
 							.attr("y", function(d){
 								return margin.top + yScale(d.acChem); 
 							})
@@ -823,7 +810,6 @@ function draw(data) {
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", allBars)
 							.attr("y", function(d){
 								return margin.top + yScale(d.ac); 
 							})
@@ -862,7 +848,6 @@ function draw(data) {
 						.delay(function(d, i) { 
 							return i / numberOfBars * duration; 
 						})
-						.style("fill", allBars)
 						.attr("y", function(d){
 							return margin.top + yScale(d.cc); 
 						})
