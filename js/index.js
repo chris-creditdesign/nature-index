@@ -81,6 +81,17 @@ function draw(data) {
 	/* store this number to use to create a staggered transition */
 	var numberOfBars = data.year2008.length;
 
+	/* Create checkboxes for each country inside the country-select form */
+	d3.selectAll(".country-select")
+		.selectAll("label")
+		.data(data.year2012)
+		.enter()
+		.append("label")
+		.html(function (d) {
+			return "<input type='checkbox' value='" + d.country + "' checked>" + d.country;
+		});
+
+
 	/*	Set the display year and call updateYear()
 		When the slider or the select box are changed */
 

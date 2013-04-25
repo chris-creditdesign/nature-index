@@ -23,10 +23,7 @@
     width: 940px;
 }
 
-.outer-wrapper .field-wrapper h2,
-.outer-wrapper .year-wrapper h2,
-.outer-wrapper .count-wrapper h2,
-.outer-wrapper .scale-wrapper h2 {
+.outer-wrapper .wrapper h2 {
 	text-transform: uppercase;
 	font-size: 1.1em;
 	letter-spacing: 0.1em;
