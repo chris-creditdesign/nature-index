@@ -10,14 +10,14 @@ var count = "cc"
 var field = "all"
 /*	Global variable to control which year to disylay */
 var displayYear = 2012;
+/*	Global Array to hold all the data we currently want to display */
+var displayArray = [];
 /*	Global variables to control field and count text in axis label */
 var displayCount = "Corrected count";
 var displayField = "All fields";
-
 /*	Colours for the bars */
 var allBars = "#A0BEC5";
-
-/*	A to determine if the scale should be adjustedq§ */
+/*	A var to determine if the scale should be adjustedq */
 var adjustScaleCheck = false;
 			
 /*	Create SVG element */
@@ -26,19 +26,34 @@ var svg = d3.select(".count-chart")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
 
-/* JqueryUI create button */
+/* Create JqueryUI buttons */
 $(function() {
 	$( "#check" ).button();
 	$( ".count-select" ).buttonset();
 	$( ".select-field" ).buttonset();
 });
 
-/*	1 - First  Load in JSON data */
+/*	Load in JSON data then call draw() */
 d3.json('data/ranking-country-global.json', draw);
 
-/*	2 - The draw function is called only once the JSON file has fully loaded 
+/*	The draw function is called only once the JSON file has fully loaded 
 	and is responsible for building the barchart */
 function draw(data) {
+
+	/* store this number to use to create a staggered transition */
+	var numberOfBars = data.year2008.length;
+
+	/*	Set up bars - one for each country in the chosen year */
+	var bars = svg.selectAll("rect")
+				.data(data.year2012, function(d, i) {
+					return d.country;
+				})
+				.enter()
+				.append("rect")
+				.attr("width", 0)
+				.attr("x", 0)
+				.attr("height", 0)
+				.attr("y", 0);	
 
 	/* Two jqueryUI functions to build the year and field sliders */
 	function makeYearSlider () {
@@ -78,8 +93,54 @@ function draw(data) {
 		});
 	};
 
-	/* store this number to use to create a staggered transition */
-	var numberOfBars = data.year2008.length;
+	/*	function called to select a new year from the json file 
+		depending upon the value of display year and then call updateBars() */
+	function updateYear() {
+		switch (displayYear) { 
+			case "2008":
+				// bars.data(data.year2008, function(d, i) {
+				// 	return d.country;
+				// });
+				displayArray = data.year2008;
+				updateBars();
+				break;
+			case "2009":
+				// bars.data(data.year2009, function(d, i) {
+				// 	return d.country;
+				// });
+				displayArray = data.year2009;
+				updateBars();
+				break;
+			case "2010":
+				// bars.data(data.year2010, function(d, i) {
+				// 	return d.country;
+				// });
+				displayArray = data.year2010;
+				updateBars();
+				break;
+			case "2011":
+				// bars.data(data.year2011, function(d, i) {
+				// 	return d.country;
+				// });
+				displayArray = data.year2011;
+				updateBars();
+				break;
+			case "2012":
+				// bars.data(data.year2012, function(d, i) {
+				// 	return d.country;
+				// });
+				displayArray = data.year2012;
+				updateBars();
+				break; 											 
+			default:
+				// bars.data(data.year2012, function(d, i) {
+				// 	return d.country;
+				// });
+				displayArray = data.year2012;	
+				updateBars();
+				break;		
+		}
+	}
 
 	/* Create checkboxes for each country inside the country-select form */
 	d3.selectAll(".country-select")
@@ -91,84 +152,29 @@ function draw(data) {
 			return "<input type='checkbox' value='" + d.country + "' checked>" + d.country;
 		});
 
-
-	/*	Set the display year and call updateYear()
-		When the slider or the select box are changed */
-
-	d3.selectAll(".select-year").on("change", function(){
-		displayYear = this.value;
-		updateYear();
-	});
-
+	/*	When a field button is clicked update the field variable to represent the selected 
+		field and call updateBars() */
 	d3.selectAll(".select-field input").on("change", function(){
-		
 		field = this.value;
 		updateBars();
 	});
 
-	/*	function called to select a new year from the json file 
-		and transition the circle's radii to these values */
-	function updateYear() {
-
-		switch (displayYear) { 
-			case "2008":
-				bars.data(data.year2008, function(d, i) {
-					return d.country;
-				});
-				updateBars();
-				break;
-			case "2009":
-				bars.data(data.year2009, function(d, i) {
-					return d.country;
-				});
-				updateBars();
-				break;
-			case "2010":
-				bars.data(data.year2010, function(d, i) {
-					return d.country;
-				});
-				updateBars();
-				break;
-			case "2011":
-				bars.data(data.year2011, function(d, i) {
-					return d.country;
-				});
-				updateBars();
-				break;
-			case "2012":
-				bars.data(data.year2012, function(d, i) {
-					return d.country;
-				});
-				updateBars();
-				break; 											 
-			default:
-				bars.data(data.year2012, function(d, i) {
-					return d.country;
-				});			
-				updateBars();
-				break;		
-		}
-
-	}
-
 	/* 	When the CC or AC buttons are clicked update the count variable
-		and call update bars */
+		and call updateBars() */
 	d3.selectAll(".count-select input").on("change", function() {
 		count = this.value;
-		/* Redraw the graph - taking into account the count choice */
 		updateBars();
 	});
 
-	/* Event listner for when the user changes the adjust scale checkbox */
+	/* 	When the user changes the adjust scale checkbox update the var adjustScaleCheck
+		boolean and call updateBars() */
 	d3.selectAll(".adjust-scale input").on("change", function() {
 		adjustScaleCheck = d3.select(this).property("checked");
-
-		/* Redraw the graph - taking into account the adjust scale choice */
 		updateBars();
 	});
 
-	/* 	Define Y scale 
-		Use the extent values to define a scale for the bar's height */
+	/* 	Define Y scale range to go from height to 0
+		Do not define the domaine yet */
 	var yScale = d3.scale.linear()
 		.range([height , 0]);
 
@@ -178,7 +184,7 @@ function draw(data) {
 		.tickSize(3, 3)
 		.orient("left");
 
-	//Draw Y axis
+	//	Prepare the Y axis but do not call .call(yAxis) yet
 	svg.append("g")
 		.attr("class", "y axis")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -208,7 +214,7 @@ function draw(data) {
 		.attr("transform", "translate(" + 0 + "," + (height + margin.top) + ")")
 		.call(xAxis);			
 
-	/*	Rotate the x axis text so that it is legible */
+	/*	Rotate the x axis text by 45 degrees so that it is legible */
 	d3.selectAll(".x text")
 		.attr("text-anchor", "left")
 		.attr("transform", function(d) {
@@ -216,110 +222,99 @@ function draw(data) {
 		});
 
 
-	/*	Set up bars - one for each country in the chosen year */
-	var bars = svg.selectAll("rect")
-				.data(data.year2012, function(d, i) {
-					return d.country;
-				})
-				.enter()
-				.append("rect")
-				.attr("width", xScale.rangeBand())
-				.attr("x", function(d, i){
-					return xScale(i); 
-				})
-				// .style("opacity", 0.75)
-				.style("fill", allBars)
-				.on("mouseover", function(d) {
-					/* Get this bar's x/y values, then augment for the tooltip */
-					// var xPosition = parseFloat(d3.select(this).attr("x")) + (xScale.rangeBand()/2);
-					// var yPosition = parseInt(d3.select(this).attr("y") ) + (parseInt(d3.select(this).attr("height")) / 2);
-					// var yPosition = d3.mouse(this)[1];
-					var tooltipText = "";
 
-					/*	Find out if we are displaying the cc or the ac value
-						and add the correct text to the tooltipText var */
-					switch (count) { 
-						case "cc":
-							switch (field) {
-								case "all":
-									tooltipText =  "cc: " +  d.cc;
-									break;
-								case "phys":
-									tooltipText =  "cc: " +  d.ccPhys;						
-									break;
-								case "life":
-									tooltipText =  "cc: " +  d.ccLife;	
-									break;
-								case "earth":
-									tooltipText =  "cc: " +  d.ccEarth;	
-									break;
-								case "chem":
-									tooltipText =  "cc: " +  d.ccChem;	
-								break;
-								default:
-									tooltipText =  "cc: " +  d.cc;
-									break;																	
-							}
-							break;
+	/* Colour the bars and apply the tooltip function */
+	bars.style("fill", allBars)
+		.on("mouseover", function(d) {
+			
+			/*	Create a var to hold the tooltip text string */
+			var tooltipText = "";
 
-						case "ac":
-							switch (field) {
-								case "all":
-									tooltipText =  "ac: " +  d.ac;
-									break;
-								case "phys":
-									tooltipText =  "ac: " +  d.acPhys;
-									break;
-								case "life":
-									tooltipText =  "ac: " +  d.acLife;
-									break;
-								case "earth":
-									tooltipText =  "ac: " +  d.acEarth;
-									break;
-								case "chem":
-									tooltipText =  "ac: " +  d.acChem;
-									break;
-								default:
-									tooltipText =  "ac: " +  d.ac;
-									break;																	
-							}
+			/*	Find out if we are displaying the cc or the ac value
+				and add the correct text to the tooltipText var */
+			switch (count) { 
+				case "cc":
+					switch (field) {
+						case "all":
+							tooltipText =  "cc: " +  d.cc;
 							break;
+						case "phys":
+							tooltipText =  "cc: " +  d.ccPhys;						
+							break;
+						case "life":
+							tooltipText =  "cc: " +  d.ccLife;	
+							break;
+						case "earth":
+							tooltipText =  "cc: " +  d.ccEarth;	
+							break;
+						case "chem":
+							tooltipText =  "cc: " +  d.ccChem;	
+						break;
 						default:
 							tooltipText =  "cc: " +  d.cc;
-							break;		
+							break;																	
 					}
+					break;
+
+				case "ac":
+					switch (field) {
+						case "all":
+							tooltipText =  "ac: " +  d.ac;
+							break;
+						case "phys":
+							tooltipText =  "ac: " +  d.acPhys;
+							break;
+						case "life":
+							tooltipText =  "ac: " +  d.acLife;
+							break;
+						case "earth":
+							tooltipText =  "ac: " +  d.acEarth;
+							break;
+						case "chem":
+							tooltipText =  "ac: " +  d.acChem;
+							break;
+						default:
+							tooltipText =  "ac: " +  d.ac;
+							break;																	
+					}
+					break;
+				default:
+					tooltipText =  "cc: " +  d.cc;
+					break;		
+			}
 
 
-					/* Update the tooltip text */
-					d3.select(".tooltip")
-						.select(".value")
-						.html(d.country + "<br /> " + tooltipText);
+			/* Update the tooltip text */
+			d3.select(".tooltip")
+				.select(".value")
+				.html(d.country + "<br /> " + tooltipText);
 
-					var xPosition = parseInt(d3.select(this).attr("x")) - (parseInt($(".tooltip").css("width"))/2);
-					var yPosition = parseInt(d3.select(this).attr("y") ) - (parseInt($(".tooltip").css("height"))) - 30;
+			/* Get this bar's x/y values, then augment for the tooltip */
+			var xPosition = parseInt(d3.select(this).attr("x")) - (parseInt($(".tooltip").css("width"))/2);
+			var yPosition = parseInt(d3.select(this).attr("y") ) - (parseInt($(".tooltip").css("height"))) - 30;
 
-					/* Update the tooltip position and value */
-					d3.select(".tooltip")
-						.style("left", xPosition + "px")
-						.style("top", yPosition + "px");
+			/* Update the tooltip position and value */
+			d3.select(".tooltip")
+				.style("left", xPosition + "px")
+				.style("top", yPosition + "px");
 
-					/* Show the tooltip */
-					d3.select(".tooltip")
-						.classed("hidden", false)
-						.transition()
-						.duration(duration)
-						.style("opacity", 1);
-				})
-				.on("mouseout", function() {
-					/* Hide the tooltip */
-					d3.select(".tooltip")
-						.transition()
-						.duration(duration)
-						.style("opacity", 0)
-						.each("end", function() {
-							d3.select(".tooltip").classed("hidden", true);
-						});
+			/* Show the tooltip */
+			d3.select(".tooltip")
+				.classed("hidden", false)
+				.transition()
+				.duration(duration)
+				.style("opacity", 1);
+		})
+		.on("mouseout", function() {
+			/* Hide the tooltip */
+			d3.select(".tooltip")
+				.transition()
+				.duration(duration)
+				.style("opacity", 0)
+				.each("end", function() {
+					d3.select(".tooltip").classed("hidden", true);
 				});
+		});
 
 	/* Transition the height of the bars to the ac or the cc value */
 	function updateBars() {
@@ -380,34 +375,43 @@ function draw(data) {
 					case "all":
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.cc;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.cc;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.cc;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.cc;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.cc;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.cc;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.cc;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.cc;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.cc;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
 							})
-							.style("fill", allBars)
+							.attr("width", xScale.rangeBand())
+							.attr("x", function(d, i){
+								return xScale(i); 
+							})
 							.attr("y", function(d){
 								return margin.top + yScale(d.cc); 
 							})
@@ -418,29 +422,35 @@ function draw(data) {
 					case "phys":
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.ccPhys;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.ccPhys;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.ccPhys;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.ccPhys;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccPhys;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccPhys;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.ccPhys;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.ccPhys;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.ccPhys;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.ccPhys;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.ccPhys;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccPhys;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccPhys;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -455,29 +465,35 @@ function draw(data) {
 					case "life":
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.ccLife;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.ccLife;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.ccLife;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.ccLife;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccLife;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccLife;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.ccLife;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.ccLife;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.ccLife;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.ccLife;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.ccLife;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccLife;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccLife;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -492,29 +508,35 @@ function draw(data) {
 					case "earth":
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.ccEarth;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.ccEarth;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.ccEarth;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.ccEarth;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccEarth;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccEarth;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.ccEarth;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.ccEarth;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.ccEarth;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.ccEarth;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.ccEarth;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccEarth;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccEarth;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -529,29 +551,35 @@ function draw(data) {
 					case "chem":
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.ccChem;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.ccChem;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.ccChem;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.ccChem;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccChem;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccChem;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.ccChem;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.ccChem;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.ccChem;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.ccChem;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.ccChem;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccChem;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ccChem;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -565,29 +593,35 @@ function draw(data) {
 					default:
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.cc;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.cc;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.cc;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.cc;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.cc;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.cc;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.cc;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.cc;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.cc;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -609,29 +643,35 @@ function draw(data) {
 					case "all":
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.ac;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.ac;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.ac;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.ac;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ac;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ac;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.ac;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.ac;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.ac;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.ac;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.ac;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ac;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ac;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -646,29 +686,35 @@ function draw(data) {
 					case "phys":
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.acPhys;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.acPhys;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.acPhys;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.acPhys;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.acPhys;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.acPhys;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.acPhys;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.acPhys;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.acPhys;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.acPhys;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.acPhys;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.acPhys;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.acPhys;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -683,29 +729,35 @@ function draw(data) {
 					case "life":
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.acLife;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.acLife;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.acLife;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.acLife;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.acLife;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.acLife;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.acLife;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.acLife;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.acLife;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.acLife;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.acLife;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.acLife;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.acLife;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -720,29 +772,35 @@ function draw(data) {
 					case "earth":
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.acEarth;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.acEarth;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.acEarth;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.acEarth;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.acEarth;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.acEarth;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.acEarth;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.acEarth;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.acEarth;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.acEarth;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.acEarth;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.acEarth;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.acEarth;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -757,29 +815,35 @@ function draw(data) {
 					case "chem":
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.acChem;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.acChem;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.acChem;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.acChem;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.acChem;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.acChem;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.acChem;} )]);
+							// switch (displayYear) { 
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.acChem;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.acChem;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.acChem;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.acChem;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.acChem;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.acChem;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -794,29 +858,35 @@ function draw(data) {
 					default:
 
 						if (adjustScaleCheck) {
-							switch (displayYear) { 
-								case "2008":
-									yScale.domain([0, d3.max(data.year2008, function(d) { return d.ac;} )]);
-									break;
-								case "2009":
-									yScale.domain([0, d3.max(data.year2009, function(d) { return d.ac;} )]);
-									break;
-								case "2010":
-									yScale.domain([0, d3.max(data.year2010, function(d) { return d.ac;} )]);
-									break;
-								case "2011":
-									yScale.domain([0, d3.max(data.year2011, function(d) { return d.ac;} )]);
-									break;
-								case "2012":
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ac;} )]);
-									break; 											 
-								default:
-									yScale.domain([0, d3.max(data.year2012, function(d) { return d.ac;} )]);
-									break;		
-							}
+							yScale.domain([0, d3.max(displayArray, function(d) { return d.ac;} )]);
+							// switch (displayYear) {
+							// 	case "2008":
+							// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.ac;} )]);
+							// 		break;
+							// 	case "2009":
+							// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.ac;} )]);
+							// 		break;
+							// 	case "2010":
+							// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.ac;} )]);
+							// 		break;
+							// 	case "2011":
+							// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.ac;} )]);
+							// 		break;
+							// 	case "2012":
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ac;} )]);
+							// 		break; 											 
+							// 	default:
+							// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.ac;} )]);
+							// 		break;		
+							// }
 						};
 
-						bars.transition()
+						bars.data(displayArray, function(d, i) {
+								return d.country;
+							})
+							// .enter()
+							// .append("rect")
+							.transition()
 							.duration(duration)
 							.delay(function(d, i) { 
 								return i / numberOfBars * duration; 
@@ -832,39 +902,45 @@ function draw(data) {
 				break;
 			default:
 				if (adjustScaleCheck) {
-					switch (displayYear) { 
-						case "2008":
-							yScale.domain([0, d3.max(data.year2008, function(d) { return d.cc;} )]);
-							break;
-						case "2009":
-							yScale.domain([0, d3.max(data.year2009, function(d) { return d.cc;} )]);
-							break;
-						case "2010":
-							yScale.domain([0, d3.max(data.year2010, function(d) { return d.cc;} )]);
-							break;
-						case "2011":
-							yScale.domain([0, d3.max(data.year2011, function(d) { return d.cc;} )]);
-							break;
-						case "2012":
-							yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
-							break; 											 
-						default:
-							yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
-							break;		
-					}
+					yScale.domain([0, d3.max(displayArray, function(d) { return d.cc;} )]);
+					// switch (displayYear) { 
+					// 	case "2008":
+					// 		yScale.domain([0, d3.max(data.year2008, function(d) { return d.cc;} )]);
+					// 		break;
+					// 	case "2009":
+					// 		yScale.domain([0, d3.max(data.year2009, function(d) { return d.cc;} )]);
+					// 		break;
+					// 	case "2010":
+					// 		yScale.domain([0, d3.max(data.year2010, function(d) { return d.cc;} )]);
+					// 		break;
+					// 	case "2011":
+					// 		yScale.domain([0, d3.max(data.year2011, function(d) { return d.cc;} )]);
+					// 		break;
+					// 	case "2012":
+					// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
+					// 		break; 											 
+					// 	default:
+					// 		yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
+					// 		break;		
+					// }
 				};
 
-				bars.transition()
-						.duration(duration)
-						.delay(function(d, i) { 
-							return i / numberOfBars * duration; 
-						})
-						.attr("y", function(d){
-							return margin.top + yScale(d.cc); 
-						})
-						.attr("height", function(d){
-							return height  - yScale(d.cc)
-						});
+				bars.data(displayArray, function(d, i) {
+						return d.country;
+					})
+					// .enter()
+					// .append("rect")
+					.transition()
+					.duration(duration)
+					.delay(function(d, i) { 
+						return i / numberOfBars * duration; 
+					})
+					.attr("y", function(d){
+						return margin.top + yScale(d.cc); 
+					})
+					.attr("height", function(d){
+						return height  - yScale(d.cc)
+					});
 
 			break;		
 		}
@@ -878,8 +954,11 @@ function draw(data) {
 
 	}
 
-	/* An inital call of updateCircles() to show the circles on page load */
-	updateBars();
+	/* An inital call of updateYear()  */
+	updateYear();
+
+	/* An inital call of updateBars() */
+	// updateBars();
 
 	/* Build the slider */
 	makeYearSlider();
