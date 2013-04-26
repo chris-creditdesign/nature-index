@@ -44,7 +44,7 @@ function draw(data) {
 	var numberOfBars = data.year2008.length;
 
 	/*	Set up bars - one for each country in the chosen year */
-	var bars = svg.selectAll("rect")
+	svg.selectAll("rect")
 				.data(data.year2012, function(d, i) {
 					return d.country;
 				})
@@ -103,6 +103,30 @@ function draw(data) {
 		.html(function (d) {
 			return "<input type='checkbox' value='" + d.country + "' checked>" + d.country;
 		});
+
+	d3.selectAll(".country-select input").on("change", update);		
+
+	function update() {
+		console.log(this.value);
+
+		console.log(displayArray.length);
+
+		displayArray.shift();
+
+		console.log(displayArray.length);
+
+		/* Redefine the X Ordinal Scale */
+		xScale.domain(displayArray.map(function(d) { return d.country; }))
+			.rangeRoundBands([margin.left,(width + margin.right)], 0.1);	
+
+		//Draw X axis
+		svg.transition()
+			.duration(duration)
+			.call(xAxis);
+
+		updateBars();
+	}
+
 
 	/*	When a field button is clicked update the field variable to represent the selected 
 		field and call updateDisplayArray() */
@@ -223,6 +247,22 @@ function draw(data) {
 			}
 		};
 
+		// for (var i = 0; i < displayArray.length; i++) {
+		// 	var countryName = displayArray[i].country;
+		// };
+
+		/* Try to loop through all the objects and remove them from the array if their corresponding
+			chectbox is unchecked */
+
+		if (d3.select(".country-select label [value=" + USA + "]").property("checked")) {
+			console.log("Yes it's checked");
+		} else (
+			console.log("Nope it ain't!")
+		);
+
+		// d3.selectAll(".country-select label [value=USA]")
+		// 	.style("opacity",0);
+
 		updateBars();
 	}
 
@@ -276,98 +316,7 @@ function draw(data) {
 
 
 
-	/* Colour the bars and apply the tooltip function */
-	bars.style("fill", allBars)
-		.on("mouseover", function(d) {
-			
-			/*	Create a var to hold the tooltip text string */
-			var tooltipText = "";
 
-			/*	Find out if we are displaying the cc or the ac value
-				and add the correct text to the tooltipText var */
-			switch (count) { 
-				case "cc":
-					switch (field) {
-						case "all":
-							tooltipText =  "cc: " +  d.cc;
-							break;
-						case "phys":
-							tooltipText =  "cc: " +  d.ccPhys;						
-							break;
-						case "life":
-							tooltipText =  "cc: " +  d.ccLife;	
-							break;
-						case "earth":
-							tooltipText =  "cc: " +  d.ccEarth;	
-							break;
-						case "chem":
-							tooltipText =  "cc: " +  d.ccChem;	
-						break;
-						default:
-							tooltipText =  "cc: " +  d.cc;
-							break;																	
-					}
-					break;
-
-				case "ac":
-					switch (field) {
-						case "all":
-							tooltipText =  "ac: " +  d.ac;
-							break;
-						case "phys":
-							tooltipText =  "ac: " +  d.acPhys;
-							break;
-						case "life":
-							tooltipText =  "ac: " +  d.acLife;
-							break;
-						case "earth":
-							tooltipText =  "ac: " +  d.acEarth;
-							break;
-						case "chem":
-							tooltipText =  "ac: " +  d.acChem;
-							break;
-						default:
-							tooltipText =  "ac: " +  d.ac;
-							break;																	
-					}
-					break;
-				default:
-					tooltipText =  "cc: " +  d.cc;
-					break;		
-			}
-
-
-			/* Update the tooltip text */
-			d3.select(".tooltip")
-				.select(".value")
-				.html(d.country + "<br /> " + tooltipText);
-
-			/* Get this bar's x/y values, then augment for the tooltip */
-			var xPosition = parseInt(d3.select(this).attr("x")) - (parseInt($(".tooltip").css("width"))/2);
-			var yPosition = parseInt(d3.select(this).attr("y") ) - (parseInt($(".tooltip").css("height"))) - 30;
-
-			/* Update the tooltip position and value */
-			d3.select(".tooltip")
-				.style("left", xPosition + "px")
-				.style("top", yPosition + "px");
-
-			/* Show the tooltip */
-			d3.select(".tooltip")
-				.classed("hidden", false)
-				.transition()
-				.duration(duration)
-				.style("opacity", 1);
-		})
-		.on("mouseout", function() {
-			/* Hide the tooltip */
-			d3.select(".tooltip")
-				.transition()
-				.duration(duration)
-				.style("opacity", 0)
-				.each("end", function() {
-					d3.select(".tooltip").classed("hidden", true);
-				});
-		});
 
 	/* Transition the height of the bars to the ac or the cc value */
 	function updateBars() {
@@ -424,14 +373,109 @@ function draw(data) {
 			yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
 		};
 
-		bars.data(displayArray, function(d, i) {
-				return d.country;
+		//Select…
+		var bars = svg.selectAll("rect")
+				.data(displayArray, function(d, i) {
+					return d.country;
+				})
+
+		/* Colour the bars and apply the tooltip function */
+		bars.style("fill", allBars)
+			.on("mouseover", function(d) {
+				
+				/*	Create a var to hold the tooltip text string */
+				var tooltipText = "";
+
+				/*	Find out if we are displaying the cc or the ac value
+					and add the correct text to the tooltipText var */
+				switch (count) { 
+					case "cc":
+						switch (field) {
+							case "all":
+								tooltipText =  "cc: " +  d.cc;
+								break;
+							case "phys":
+								tooltipText =  "cc: " +  d.ccPhys;						
+								break;
+							case "life":
+								tooltipText =  "cc: " +  d.ccLife;	
+								break;
+							case "earth":
+								tooltipText =  "cc: " +  d.ccEarth;	
+								break;
+							case "chem":
+								tooltipText =  "cc: " +  d.ccChem;	
+							break;
+							default:
+								tooltipText =  "cc: " +  d.cc;
+								break;																	
+						}
+						break;
+
+					case "ac":
+						switch (field) {
+							case "all":
+								tooltipText =  "ac: " +  d.ac;
+								break;
+							case "phys":
+								tooltipText =  "ac: " +  d.acPhys;
+								break;
+							case "life":
+								tooltipText =  "ac: " +  d.acLife;
+								break;
+							case "earth":
+								tooltipText =  "ac: " +  d.acEarth;
+								break;
+							case "chem":
+								tooltipText =  "ac: " +  d.acChem;
+								break;
+							default:
+								tooltipText =  "ac: " +  d.ac;
+								break;																	
+						}
+						break;
+					default:
+						tooltipText =  "cc: " +  d.cc;
+						break;		
+				}
+
+
+				/* Update the tooltip text */
+				d3.select(".tooltip")
+					.select(".value")
+					.html(d.country + "<br /> " + tooltipText);
+
+				/* Get this bar's x/y values, then augment for the tooltip */
+				var xPosition = parseInt(d3.select(this).attr("x")) - (parseInt($(".tooltip").css("width"))/2);
+				var yPosition = parseInt(d3.select(this).attr("y") ) - (parseInt($(".tooltip").css("height"))) - 30;
+
+				/* Update the tooltip position and value */
+				d3.select(".tooltip")
+					.style("left", xPosition + "px")
+					.style("top", yPosition + "px");
+
+				/* Show the tooltip */
+				d3.select(".tooltip")
+					.classed("hidden", false)
+					.transition()
+					.duration(duration)
+					.style("opacity", 1);
 			})
-			.transition()
-			.duration(duration)
-			.delay(function(d, i) { 
-				return i / numberOfBars * duration; 
-			})
+			.on("mouseout", function() {
+				/* Hide the tooltip */
+				d3.select(".tooltip")
+					.transition()
+					.duration(duration)
+					.style("opacity", 0)
+					.each("end", function() {
+						d3.select(".tooltip").classed("hidden", true);
+					});
+			});
+
+
+		//Enter…
+		bars.enter()
+			.append("rect")
 			.attr("width", xScale.rangeBand())
 			.attr("x", function(d, i){
 				return xScale(i); 
@@ -443,6 +487,26 @@ function draw(data) {
 				return height - yScale(d.choice);
 			});
 
+		//Update…
+		bars.transition()
+			.duration(duration)
+			.attr("width", xScale.rangeBand())
+			.attr("x", function(d, i){
+				return xScale(i); 
+			})
+			.attr("y", function(d){
+				return margin.top + yScale(d.choice); 
+			})
+			.attr("height", function(d){
+				return height - yScale(d.choice);
+			});
+					
+			//Exit…
+			bars.exit()
+				.transition()
+				.style("opacity", 0)
+				.remove();
+
 		/* Call the Y axis to adjust it to the new scale */
 		svg.select(".outer-wrapper .y")
 			.transition()
@@ -452,11 +516,13 @@ function draw(data) {
 
 	}
 
+	/* Build the slider */
+	makeYearSlider();
+
 	/* An inital call of updateDisplayArray()  */
 	updateDisplayArray();
 
-	/* Build the slider */
-	makeYearSlider();
+
 
 
 }
