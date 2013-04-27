@@ -379,7 +379,7 @@
 			"lat":47.162494,
 			"lon":19.503304 
 		},		{
-			"country":"New Zealand",
+			"country":"New_Zealand",
 			"cc":4.142605,		
 			"ac":10,
 			"ccPhys":0.161111,					
@@ -802,7 +802,7 @@
 			"lat":47.162494,
 			"lon":19.503304 
 		},		{
-			"country":"New Zealand",
+			"country":"New_Zealand",
 			"cc":4.033374,			
 			"ac":14,
 			"ccPhys":0.729798,			
@@ -1225,7 +1225,7 @@
 			"lat":47.162494,
 			"lon":19.503304 
 		},		{
-			"country":"New Zealand",
+			"country":"New_Zealand",
 			"cc":7.3139014,					
 			"ac":27,
 			"ccPhys":2.800001,			
@@ -1648,7 +1648,7 @@
 			"lat":47.162494,
 			"lon":19.503304 
 		},		{
-			"country":"New Zealand",
+			"country":"New_Zealand",
 			"cc":5.303388,					
 			"ac":28,
 			"ccPhys":1.257367,				
@@ -2071,7 +2071,7 @@
 			"lat":47.162494,
 			"lon":19.503304 
 		},		{
-			"country":"New Zealand",
+			"country":"New_Zealand",
 			"cc":4.64025902,
 			"ac":24,
 			"ccPhys":0.1898506,				
