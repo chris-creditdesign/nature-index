@@ -278,7 +278,6 @@ function draw(data) {
 			if (d3.select(".country-select label [value=" + countryName + "]").property("checked")) {
 				displayArray.push(checkArray[i]);
 			} 
-
 			// else {
 			// 	// console.log("Nope " + countryName + " ain't checked!");
 			// 	displayArray.splice(i, 1);
@@ -404,8 +403,8 @@ function draw(data) {
 
 		//Draw X axis
 		svg.select(".outer-wrapper .x")
-			.transition()
-			.duration(duration)
+			// .transition()
+			// .duration(duration)
 			.call(xAxis);
 
 		/*	Rotate the x axis text by 45 degrees so that it is legible */
@@ -416,35 +415,21 @@ function draw(data) {
 			});
 
 		//Select…
-		var bars = svg.selectAll("rect")
-				.data(displayArray, function(d, i) {
-					return d.country;
-				});
+		// var bars = svg.selectAll("rect")
+		// 		.data(displayArray, function(d, i) {
+		// 			return d.country;
+		// 		});
 
-		//Enter…
-		bars.enter()
-			.append("rect")
-			// .transition()
-			// .duration(duration)
-			.attr("x", function(d, i){
-				console.log("Enter xScale(0) = " + xScale(0));
-				console.log("Enter xScale(1) = " + xScale(1));
-				return xScale(i); 
-			})
-			.attr("width", xScale.rangeBand())
-			.attr("y", function(d){
-				return margin.top + yScale(d.choice); 
-			})
-			.attr("height", function(d){
-				return height - yScale(d.choice);
-			});	
+		var bars = svg.selectAll("rect")
+				.data(displayArray);
+
+
 
 		//Update…
 		bars.transition()
 			.duration(duration)
 			.attr("x", function(d, i){
-				console.log("Update xScale(0) = " + xScale(0));
-				console.log("Update xScale(1) = " + xScale(1));
+
 				return xScale(i); 
 			})
 			.attr("width", xScale.rangeBand())
@@ -454,12 +439,28 @@ function draw(data) {
 			.attr("height", function(d){
 				return height - yScale(d.choice);
 			});
+
+		//Enter…
+		bars.enter()
+			.append("rect")
+			.transition()
+			.duration(duration)
+			.attr("x", function(d, i){
+				return xScale(i); 
+			})
+			.attr("width", xScale.rangeBand())
+			.attr("y", function(d){
+				return margin.top + yScale(d.choice); 
+			})
+			.attr("height", function(d){
+				return height - yScale(d.choice);
+			});				
 	
-			//Exit…
-			bars.exit()
-				.transition()
-				.style("opacity", 0)
-				.remove();
+		//Exit…
+		bars.exit()
+			.transition()
+			.style("opacity", 0)
+			.remove();
 
 
 
