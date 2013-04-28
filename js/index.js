@@ -274,7 +274,6 @@ function draw(data) {
 		for (var i = 0; i < checkArray.length; i++) {
 			var countryName = checkArray[i].country;
 			// var countryName = "New_Zealand";
-			console.log(countryName);
 
 			if (d3.select(".country-select label [value=" + countryName + "]").property("checked")) {
 				displayArray.push(checkArray[i]);
@@ -318,7 +317,9 @@ function draw(data) {
 	/* Define the X Ordinal Scale */
 	var xScale = d3.scale.ordinal()
 		.domain(data.year2012.map(function(d) { return d.country; }))
-		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);				
+		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);
+
+	// console.log(data.year2012.map(function(d) { return d.country; }));				
 
 	//Define X axis
 	var xAxis = d3.svg.axis()
@@ -395,61 +396,11 @@ function draw(data) {
 			yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
 		};
 
-
-
-		//Select…
-		var bars = svg.selectAll("rect")
-				.data(displayArray, function(d, i) {
-					return d.country;
-				});
-
-
-
-
-		//Enter…
-		bars.enter()
-			.append("rect")
-			.transition()
-			.duration(duration)
-			.attr("width", xScale.rangeBand())
-			.attr("x", function(d, i){
-				
-				return xScale(i); 
-			})
-			.attr("y", function(d){
-				return margin.top + yScale(d.choice); 
-			})
-			.attr("height", function(d){
-				return height - yScale(d.choice);
-			});	
-
-		//Update…
-		bars.transition()
-			.duration(duration)
-			.attr("width", xScale.rangeBand())
-			.attr("x", function(d, i){
-				// console.log(i + "  " + xScale(i));
-				return xScale(i); 
-			})
-			.attr("y", function(d){
-				return margin.top + yScale(d.choice); 
-			})
-			.attr("height", function(d){
-				return height - yScale(d.choice);
-			});
-	
-			//Exit…
-			bars.exit()
-				.transition()
-				.style("opacity", 0)
-				.remove();
-
 		/* Redefine the X Ordinal Scale */
 		xScale.domain(displayArray.map(function(d) { return d.country; }))
 			.rangeRoundBands([margin.left,(width + margin.right)], 0.1);
 
-
-		// console.log(displayArray.map(function(d) { return d.country; }));
+		// console.log(xScale.domain());
 
 		//Draw X axis
 		svg.select(".outer-wrapper .x")
@@ -463,6 +414,54 @@ function draw(data) {
 			.attr("transform", function(d) {
 				return "translate(" + (this.getBBox().width / 2 ) + "," + 2 + "), rotate( 45 " + this.getBBox().x + " " + this.getBBox().y + ")";
 			});
+
+		//Select…
+		var bars = svg.selectAll("rect")
+				.data(displayArray, function(d, i) {
+					return d.country;
+				});
+
+		//Enter…
+		bars.enter()
+			.append("rect")
+			// .transition()
+			// .duration(duration)
+			.attr("x", function(d, i){
+				console.log("Enter xScale(0) = " + xScale(0));
+				console.log("Enter xScale(1) = " + xScale(1));
+				return xScale(i); 
+			})
+			.attr("width", xScale.rangeBand())
+			.attr("y", function(d){
+				return margin.top + yScale(d.choice); 
+			})
+			.attr("height", function(d){
+				return height - yScale(d.choice);
+			});	
+
+		//Update…
+		bars.transition()
+			.duration(duration)
+			.attr("x", function(d, i){
+				console.log("Update xScale(0) = " + xScale(0));
+				console.log("Update xScale(1) = " + xScale(1));
+				return xScale(i); 
+			})
+			.attr("width", xScale.rangeBand())
+			.attr("y", function(d){
+				return margin.top + yScale(d.choice); 
+			})
+			.attr("height", function(d){
+				return height - yScale(d.choice);
+			});
+	
+			//Exit…
+			bars.exit()
+				.transition()
+				.style("opacity", 0)
+				.remove();
+
+
 
 		/* Call the Y axis to adjust it to the new scale */
 		svg.select(".outer-wrapper .y")
@@ -480,57 +479,7 @@ function draw(data) {
 
 				/*	Find out if we are displaying the cc or the ac value
 					and add the correct text to the tooltipText var */
-				switch (count) { 
-					case "cc":
-						switch (field) {
-							case "all":
-								tooltipText =  "cc: " +  d.cc;
-								break;
-							case "phys":
-								tooltipText =  "cc: " +  d.ccPhys;						
-								break;
-							case "life":
-								tooltipText =  "cc: " +  d.ccLife;	
-								break;
-							case "earth":
-								tooltipText =  "cc: " +  d.ccEarth;	
-								break;
-							case "chem":
-								tooltipText =  "cc: " +  d.ccChem;	
-							break;
-							default:
-								tooltipText =  "cc: " +  d.cc;
-								break;																	
-						}
-						break;
-
-					case "ac":
-						switch (field) {
-							case "all":
-								tooltipText =  "ac: " +  d.ac;
-								break;
-							case "phys":
-								tooltipText =  "ac: " +  d.acPhys;
-								break;
-							case "life":
-								tooltipText =  "ac: " +  d.acLife;
-								break;
-							case "earth":
-								tooltipText =  "ac: " +  d.acEarth;
-								break;
-							case "chem":
-								tooltipText =  "ac: " +  d.acChem;
-								break;
-							default:
-								tooltipText =  "ac: " +  d.ac;
-								break;																	
-						}
-						break;
-					default:
-						tooltipText =  "cc: " +  d.cc;
-						break;		
-				}
-
+				count === "cc" ? tooltipText =  "cc: " +  d.choice : tooltipText =  "ac: " +  d.choice;;
 
 				/* Update the tooltip text */
 				d3.select(".tooltip")
