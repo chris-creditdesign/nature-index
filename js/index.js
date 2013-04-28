@@ -321,9 +321,13 @@ function draw(data) {
 		.style("text-anchor", "middle");						
 
 	/* Define the X Ordinal Scale */
+	// var xScale = d3.scale.ordinal()
+	// 	.domain(data.year2012.map(function(d) { return d.country; }))
+	// 	.rangeRoundBands([margin.left,(width + margin.right)], 0.1);
+
 	var xScale = d3.scale.ordinal()
-		.domain(data.year2012.map(function(d) { return d.country; }))
-		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);
+		.domain(d3.range(data.year2012.length))
+		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);	
 
 	// console.log(data.year2012.map(function(d) { return d.country; }));				
 
@@ -403,8 +407,11 @@ function draw(data) {
 		};
 
 		/* Redefine the X Ordinal Scale */
-		xScale.domain(displayArray.map(function(d) { return d.country; }))
-			.rangeRoundBands([margin.left,(width + margin.right)], 0.1);
+		// xScale.domain(displayArray.map(function(d) { return d.country; }))
+			// .rangeRoundBands([margin.left,(width + margin.right)], 0.1);
+
+		xScale.domain(d3.range(displayArray.length))
+			.rangeRoundBands([margin.left,(width + margin.right)], 0.1);			
 
 		// console.log(xScale.domain());
 
@@ -422,13 +429,13 @@ function draw(data) {
 		// 	});
 
 		//Select…
-		// var bars = svg.selectAll("rect")
-		// 		.data(displayArray, function(d, i) {
-		// 			return d.country;
-		// 		});
-
 		var bars = svg.selectAll("rect")
-				.data(displayArray);
+				.data(displayArray, function(d, i) {
+					return d.country;
+				});
+
+		// var bars = svg.selectAll("rect")
+		// 		.data(displayArray);
 
 		//Update…
 		bars.transition()
@@ -494,6 +501,7 @@ function draw(data) {
 			.append("text")
 			// .transition()
 			// .duration(duration)
+			// .delay(500)
 			.text(function(d) { return d.country; })
 			.attr("y", 0)
 			.attr("x", function(d, i){
