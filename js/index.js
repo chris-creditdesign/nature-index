@@ -211,9 +211,9 @@ function draw(data) {
 					};
 					break;
 				case "earth":
-					for (var i = 0; i < displayArray.length; i++) {
-						displayArray[i].choice = yearArray[i].ccEarth;
-						displayArray[i].country = yearArray[i].country;
+					for (var i = 0; i < checkArray.length; i++) {
+						checkArray[i].choice = yearArray[i].ccEarth;
+						checkArray[i].country = yearArray[i].country;
 					};
 					break;
 				case "chem":
@@ -274,6 +274,7 @@ function draw(data) {
 		for (var i = 0; i < checkArray.length; i++) {
 			var countryName = checkArray[i].country;
 			// var countryName = "New_Zealand";
+			console.log(countryName);
 
 			if (d3.select(".country-select label [value=" + countryName + "]").property("checked")) {
 				displayArray.push(checkArray[i]);
@@ -427,7 +428,7 @@ function draw(data) {
 			.duration(duration)
 			.attr("width", xScale.rangeBand())
 			.attr("x", function(d, i){
-				console.log(i + "  " + xScale(i));
+				// console.log(i + "  " + xScale(i));
 				return xScale(i); 
 			})
 			.attr("y", function(d){
