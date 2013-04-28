@@ -55,7 +55,14 @@ function draw(data) {
 				.attr("width", 0)
 				.attr("x", 0)
 				.attr("height", 0)
-				.attr("y", 0);	
+				.attr("y", 0);
+
+	/* Add a group for each row the text */
+	var groups = svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(" + 0 + "," + (height + margin.top + 15) + ")");
+
+		
 
 	/* Two jqueryUI functions to build the year and field sliders */
 	function makeYearSlider () {
@@ -321,16 +328,16 @@ function draw(data) {
 	// console.log(data.year2012.map(function(d) { return d.country; }));				
 
 	//Define X axis
-	var xAxis = d3.svg.axis()
-		.scale(xScale)
-		.tickSize(3, 0)
-		.orient("bottom");
+	// var xAxis = d3.svg.axis()
+		// .scale(xScale)
+		// .tickSize(3, 0)
+		// .orient("bottom");
 
 	//Draw X axis
-	svg.append("g")
-		.attr("class", "x axis")
-		.attr("transform", "translate(" + 0 + "," + (height + margin.top) + ")")
-		.call(xAxis);			
+	// svg.append("g")
+	// 	.attr("class", "x axis")
+	// 	.attr("transform", "translate(" + 0 + "," + (height + margin.top) + ")")
+	// 	.call(xAxis);			
 
 
 
@@ -401,18 +408,18 @@ function draw(data) {
 
 		// console.log(xScale.domain());
 
-		//Draw X axis
-		svg.select(".outer-wrapper .x")
-			// .transition()
-			// .duration(duration)
-			.call(xAxis);
+
+		// svg.select(".outer-wrapper .x")
+		// 	// .transition()
+		// 	// .duration(duration)
+		// 	.call(xAxis);
 
 		/*	Rotate the x axis text by 45 degrees so that it is legible */
-		d3.selectAll(".x text")
-			.attr("text-anchor", "left")
-			.attr("transform", function(d) {
-				return "translate(" + (this.getBBox().width / 2 ) + "," + 2 + "), rotate( 45 " + this.getBBox().x + " " + this.getBBox().y + ")";
-			});
+		// d3.selectAll(".x text")
+		// 	.attr("text-anchor", "left")
+		// 	.attr("transform", function(d) {
+		// 		return "translate(" + (this.getBBox().width / 2 ) + "," + 2 + "), rotate( 45 " + this.getBBox().x + " " + this.getBBox().y + ")";
+		// 	});
 
 		//Select…
 		// var bars = svg.selectAll("rect")
@@ -422,8 +429,6 @@ function draw(data) {
 
 		var bars = svg.selectAll("rect")
 				.data(displayArray);
-
-
 
 		//Update…
 		bars.transition()
@@ -438,7 +443,8 @@ function draw(data) {
 			})
 			.attr("height", function(d){
 				return height - yScale(d.choice);
-			});
+			});	
+
 
 		//Enter…
 		bars.enter()
@@ -454,15 +460,71 @@ function draw(data) {
 			})
 			.attr("height", function(d){
 				return height - yScale(d.choice);
-			});				
-	
+			});							
+
 		//Exit…
 		bars.exit()
 			.transition()
 			.style("opacity", 0)
 			.remove();
 
+		// bars.sort(function(a, b) {
+		// 	return d3.descending(a.choice, b.choice);
+		// });
 
+		// var text = groups.selectAll("text")
+		// 		.data(displayArray, function(d, i) {
+		// 			return d.country;
+		// 		});
+
+		var text = groups.selectAll("text")
+			.data(displayArray);
+
+
+
+		//Update…	
+		text.text(function(d) { return d.country; })
+			.attr("y", 0)
+			.attr("x", function(d, i){
+				return xScale(i); 
+			});
+
+		//Enter…
+		text.enter()
+			.append("text")
+			// .transition()
+			// .duration(duration)
+			.text(function(d) { return d.country; })
+			.attr("y", 0)
+			.attr("x", function(d, i){
+				return xScale(i); 
+			});				
+	
+		//Exit…
+		text.exit()
+			.transition()
+			.duration(duration)
+			.style("opacity", 0)
+			.remove();
+
+
+
+							
+		/*	Rotate the x axis text by 45 degrees so that it is legible */
+		d3.selectAll(".x text")
+			.attr("text-anchor", "left")
+			.attr("transform", function(d, i) {
+				console.log("this.getBBox().x " + this.getBBox().x);
+				console.log("this.getBBox().y " + this.getBBox().y);
+				console.log("this.getBBox().width " + this.getBBox().width);
+				// return "translate(" + (this.getBBox().width / 2 ) + "," + 2 + "), rotate( 45 " + this.getBBox().x + " " + this.getBBox().y + ")";
+				return "translate(" + (xScale.rangeBand() / 2 ) + "," + 2 + "), rotate( 45 " + xScale(i) + " " + this.getBBox().y + ")";
+
+			});
+
+		// text.sort(function(a, b) {
+		// 	return d3.descending(a.choice, b.choice);
+		// });
 
 		/* Call the Y axis to adjust it to the new scale */
 		svg.select(".outer-wrapper .y")
@@ -472,7 +534,6 @@ function draw(data) {
 			
 		/* Colour the bars and apply the tooltip function */
 		bars.style("fill", allBars)
-			.style("opacity", 0.25)
 			.on("mouseover", function(d) {
 				
 				/*	Create a var to hold the tooltip text string */
