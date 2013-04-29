@@ -18,21 +18,31 @@ var checkArray = [];
 var displayCount = "Corrected count";
 var displayField = "All fields";
 /*	Colours for the bars */
-var allBars = "#A0BEC5";
+var allBars = "#D35400";
 /*	A var to determine if the scale should be adjustedq */
 			
 /*	Create SVG element */
 var svg = d3.select(".count-chart")
 		.append("svg")
 		.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
+		.attr("height", height + margin.top + margin.bottom);
+
+/* Add a group for each row the text */
+var blocks = svg.append("g")
+	.style("fill", allBars);
+
+/* Add a group for each row the text */
+var groups = svg.append("g")
+	.attr("class", "x axis")
+	.attr("transform", "translate(" + 0 + "," + (height + margin.top + 15) + ")");
 
 /* Create JqueryUI buttons */
-$(function() {
+function buildUIelements() {
 	$( "#check" ).button();
 	$( ".count-select" ).buttonset();
 	$( ".select-field" ).buttonset();
-});
+	$( ".country-select" ).buttonset();
+};
 
 /*	Load in JSON data then call draw() */
 d3.json('data/ranking-country-global.json', draw);
@@ -55,12 +65,6 @@ function draw(data) {
 				.attr("x", 0)
 				.attr("height", 0)
 				.attr("y", 0);
-
-	/* Add a group for each row the text */
-	var groups = svg.append("g")
-		.attr("class", "x axis")
-		.attr("transform", "translate(" + 0 + "," + (height + margin.top + 15) + ")");
-
 		
 
 	/* Two jqueryUI functions to build the year and field sliders */
@@ -101,18 +105,6 @@ function draw(data) {
 		});
 	};
 
-	/* Create checkboxes for each country inside the country-select form */
-	d3.selectAll(".country-select")
-		.selectAll("label")
-		.data(data.year2012)
-		.enter()
-		.append("label")
-		.html(function (d) {
-			return "<input type='checkbox' value='" + d.country + "' checked>" + d.country;
-		});
-
-	d3.selectAll(".country-select input").on("change", updateDisplayArray);		
-
 	/*	When a field button is clicked update the field variable to represent the selected 
 		field and call updateDisplayArray() */
 	d3.selectAll(".select-field input").on("change", function(){
@@ -133,6 +125,9 @@ function draw(data) {
 		adjustScaleCheck = d3.select(this).property("checked");
 		updateDisplayArray();
 	});
+
+	/*	Call updateDisplayArray() when one of the checkboxes is clicked */
+	d3.selectAll(".country-select input").on("change", updateDisplayArray);			
 
 	/*	function called copy the relevant year's data into the displayArray array
 		then add a property called choice that holds the relevant count and field value */
@@ -252,7 +247,7 @@ function draw(data) {
 		for (var i = 0; i < checkArray.length; i++) {
 			var countryName = checkArray[i].country;
 
-			if (d3.select(".country-select label [value=" + countryName + "]").property("checked")) {
+			if (d3.select(".country-select [value=" + countryName + "]").property("checked")) {
 				displayArray.push(checkArray[i]);
 			}
 		};
@@ -348,7 +343,7 @@ function draw(data) {
 			.rangeRoundBands([margin.left,(width + margin.right)], 0.1);			
 
 		/*	Select… */
-		var bars = svg.selectAll("rect")
+		var bars = blocks.selectAll("rect")
 				.data(displayArray, function(d, i) {
 					return d.country;
 				});
@@ -442,8 +437,7 @@ function draw(data) {
 			.call(yAxis);
 			
 		/* Colour the bars and apply the tooltip function */
-		bars.style("fill", allBars)
-			.on("mouseover", function(d) {
+		bars.on("mouseover", function(d) {
 				
 				/*	Create a var to hold the tooltip text string */
 				var tooltipText = "";
@@ -492,8 +486,7 @@ function draw(data) {
 	/* An inital call of updateDisplayArray()  */
 	updateDisplayArray();
 
-
-
+	buildUIelements();
 
 }
 

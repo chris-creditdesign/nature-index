@@ -6,10 +6,18 @@
 .outer-wrapper h1 {
 	text-transform: uppercase;
 	font-size: 1.1em;
-	color: #555455;
+	color: #666;
 	letter-spacing: 0.1em;
 	padding: 0 0 2px 3px;
-	border-bottom: 2px solid #ADAAAC;
+}
+
+.outer-wrapper .wrapper p {
+	font-size: 1.1em;
+	line-height: 1.4em;
+	padding: 10px 0 0;
+	text-align: center;
+	font-weight: normal;
+	color: #666;
 }
 
 
@@ -23,26 +31,36 @@
     width: 940px;
 }
 
+.outer-wrapper .wrapper {
+	width: 275px;
+	margin: 10px 0 10px;
+	/*background: #ecf0f1;*/
+}
+
 .outer-wrapper .wrapper h2 {
 	text-transform: uppercase;
 	font-size: 1.1em;
 	letter-spacing: 0.1em;
-	color: #555455;
-	margin: 0 0 10px 0;
-	padding: 0 0 2px 3px;
-	border-bottom: 2px solid #ADAAAC;
+	text-align: center;
+	color: #666;
+	padding: 10px 0 5px;
 }
 
-.outer-wrapper .wrapper {
-	width: 465px;
-	margin: 10px 0 10px;
+/* COUNTRY */
+.outer-wrapper .country-wrapper {
+	width: 390px;
+	float: left;
 }
 
 /* FIELD */
 .outer-wrapper .field-wrapper {
-	width: 465px;
 	float: left;
 }
+
+/* COUNT */
+/*.outer-wrapper .count-wrapper {
+	float: right;
+}*/
 
 /* YEAR */
 .outer-wrapper .year-wrapper {
@@ -55,7 +73,7 @@
 
 .outer-wrapper .year-wrapper .year-label {                     
 	height:15px;
-	margin:20px 0 20px 8px;
+	margin:0px 0px 10px;
 	display:block;
 	position:relative;        
 	text-decoration:none;
@@ -63,19 +81,18 @@
 }
 
 .outer-wrapper .year-wrapper .year {
-	width: 87px;
-	height: 35px;
+	text-align: center;
+	width: 52px;
 	float: left;
-	border-left: 2px solid #ADAAAC;
 	padding: 0 0 0 2px;
 	font-weight: normal;
 	font-size: 110%;
-	color: #555455;
+	color: #666;
 }
 
 .outer-wrapper .year-wrapper .year-slider {                     
-	width:366px;
-	margin: 0 0 0 8px;
+	width:220px;
+	margin: 0 0 0 24px;
 }
 
 .outer-wrapper .year-wrapper .ui-slider {
@@ -100,36 +117,40 @@
 }
 
 .outer-wrapper .year-wrapper .ui-slider-horizontal {
-	background: #E0DEDE;
+	background: #ECF0F1;
     height: .8em;
 }
 .outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-handle {
-	background: #A0BEC5;
-    top: -.3em;
+	background: #d35400;
+    top: -.2em;
     margin-left: -.6em;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 }
 .outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-range {
     top: 0;
     height: 100%;
 }
 .outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-range-min {
-	background: #FAF6E1;
+	background: #f1c40f;
     left: 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
 }
 .outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-range-max {
     right: 0;
 }
 
-/* COUNT */
-.outer-wrapper .count-wrapper {
-	float: right;
-}
+
 
 /* JqueryUI
 ----------------------------------*/
 .outer-wrapper .wrapper .ui-button {
-	width: 465px;
-	margin: 2px 0;
+	width: 200px;
+	margin: 4px 35px;
 	display: inline-block;
 	position: relative;
 	padding: 2px;
@@ -142,10 +163,9 @@
 	-moz-transition:all 0.2s ease;  
 	-o-transition:all 0.2s ease;  
 	transition:all 0.2s ease;  
-}
-
-.outer-wrapper .wrapper .ui-buttonset .ui-button {
-	width: 224px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .outer-wrapper .wrapper .ui-button .ui-button-text {
@@ -155,41 +175,69 @@
 }
 
 .outer-wrapper .wrapper .ui-button-text-only .ui-button-text {
-	padding: .4em 1em;
+	padding: 0.4em 1em;
 }
 
 .outer-wrapper .wrapper .ui-state-default {
-	border: 1px solid #fff;
-	background: #FAF6E1;
+	border: none;
+	background: #f1c40f;
 	font-weight: normal;
-	color: #555455;
+	color: #666;
 }
 
 .outer-wrapper .wrapper .ui-buttonset  .ui-state-hover {
-	background: #E0DEDE;
+	background: #f39c12;
 }
 
-/* No hover state for adjust scale */
-.outer-wrapper .wrapper .ui-state-hover {
-	background: #FAF6E1;
-}
 
 .outer-wrapper .wrapper .ui-state-active {
-	background: #A0BEC5;
+	background: #d35400;
+	color: #ECF0F1;
 }
 
-.outer-wrapper .wrapper .ui-corner-all {
-	border-radius: 0;
+/*	Special rules for the country buttons */
+.outer-wrapper .wrapper .country-select.ui-buttonset label {
+	width: 113px;
+	margin: 4px;
+	padding: 1px;
 }
+
+.outer-wrapper .wrapper .country-select.ui-buttonset .ui-button-text {
+	text-transform: none;
+	display: block;
+	line-height: normal;
+	padding: 0.1em;
+
+}
+
+.outer-wrapper .wrapper .country-select .ui-state-default {
+	border: 2px solid #f1c40f;
+	background: white;
+}
+
+.outer-wrapper .wrapper .country-select.ui-buttonset .ui-state-hover {
+	background: #f1c40f;
+	border: 2px solid #f1c40f;
+}
+
+
+.outer-wrapper .wrapper .country-select .ui-state-active {
+	border: 2px solid #d35400;
+	background: #d35400;
+	color: #ECF0F1;
+}
+
+
 
 /* Tooltip
 ----------------------------------*/
 .outer-wrapper .count-chart .tooltip {
     position: absolute;
     padding: 10px;
-    background-color: #555455;
+    background-color: #666;
     pointer-events: none;
     opacity: 0;
+    z-index: 100;
 }
 
 .outer-wrapper .count-chart .tooltip:before {
@@ -198,7 +246,7 @@
     bottom: -10px;
     left: 49%;
     border-right: 0;
-    border-top: 10px solid #555455;
+    border-top: 10px solid #666;
     border-bottom: 0;
     border-left: 10px solid transparent;
 }
@@ -209,7 +257,7 @@
 
 .outer-wrapper .count-chart .tooltip p {
     margin: 0;
-    color: #fff;
+    color: #ECF0F1;
     font-family: sans-serif;
     font-size: 16px;
     line-height: 20px;
@@ -220,18 +268,22 @@
 .outer-wrapper .axis path,
 .outer-wrapper .axis line {
     fill: none;
-    stroke: #555455;
+    stroke: #666;
     shape-rendering: crispEdges;
 }
 
 .outer-wrapper .axis text {
     font-family: sans-serif;
-    fill: #555455;
+    fill: #666;
     font-size: 13px;
     shape-rendering: crispEdges;
 }
 
 .outer-wrapper .count-chart rect {
 	shape-rendering: crispEdges;
+}
+
+.outer-wrapper .count-chart rect:hover {
+	fill: #f1c40f;
 }
 
