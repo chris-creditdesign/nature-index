@@ -434,23 +434,10 @@ function draw(data) {
 					return d.country;
 				});
 
+	
+
 		// var bars = svg.selectAll("rect")
 		// 		.data(displayArray);
-
-		//Update…
-		bars.transition()
-			.duration(duration)
-			.attr("x", function(d, i){
-
-				return xScale(i); 
-			})
-			.attr("width", xScale.rangeBand())
-			.attr("y", function(d){
-				return margin.top + yScale(d.choice); 
-			})
-			.attr("height", function(d){
-				return height - yScale(d.choice);
-			});	
 
 
 		//Enter…
@@ -467,7 +454,30 @@ function draw(data) {
 			})
 			.attr("height", function(d){
 				return height - yScale(d.choice);
-			});							
+			});			
+
+		//Update…
+		bars.sort(function(a, b) {
+			return d3.descending(a.choice, b.choice);
+			})
+			.transition()
+			.duration(duration)
+			.attr("x", function(d, i){
+
+				return xScale(i); 
+			})
+			.attr("width", xScale.rangeBand())
+			.attr("y", function(d){
+				return margin.top + yScale(d.choice); 
+			})
+			.attr("height", function(d){
+				return height - yScale(d.choice);
+			});	
+
+		// bars.sort(function(a, b) {
+		// 	return d3.descending(a.choice, b.choice);
+		// });	
+						
 
 		//Exit…
 		bars.exit()
@@ -475,9 +485,7 @@ function draw(data) {
 			.style("opacity", 0)
 			.remove();
 
-		// bars.sort(function(a, b) {
-		// 	return d3.descending(a.choice, b.choice);
-		// });
+
 
 		// var text = groups.selectAll("text")
 		// 		.data(displayArray, function(d, i) {
@@ -487,6 +495,9 @@ function draw(data) {
 		var text = groups.selectAll("text")
 			.data(displayArray);
 
+		text.sort(function(a, b) {
+			return d3.descending(a.choice, b.choice);
+		});
 
 
 		//Update…	
@@ -530,9 +541,7 @@ function draw(data) {
 
 			});
 
-		// text.sort(function(a, b) {
-		// 	return d3.descending(a.choice, b.choice);
-		// });
+
 
 		/* Call the Y axis to adjust it to the new scale */
 		svg.select(".outer-wrapper .y")
