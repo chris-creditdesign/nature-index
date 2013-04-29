@@ -94,7 +94,6 @@ function draw(data) {
 						displayYear = "2012";
 						break;																	
 				};
-				// updateYear();
 				updateDisplayArray()
 			}
 		});
@@ -115,33 +114,10 @@ function draw(data) {
 
 	d3.selectAll(".country-select input").on("change", updateDisplayArray);		
 
-	// function update() {
-	// 	console.log(this.value);
-
-	// 	console.log(displayArray.length);
-
-	// 	displayArray.shift();
-
-	// 	console.log(displayArray.length);
-
-	// 	/* Redefine the X Ordinal Scale */
-	// 	xScale.domain(displayArray.map(function(d) { return d.country; }))
-	// 		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);	
-
-	// 	//Draw X axis
-	// 	svg.transition()
-	// 		.duration(duration)
-	// 		.call(xAxis);
-
-	// 	updateBars();
-	// }
-
-
 	/*	When a field button is clicked update the field variable to represent the selected 
 		field and call updateDisplayArray() */
 	d3.selectAll(".select-field input").on("change", function(){
 		field = this.value;
-		// updateBars();
 		updateDisplayArray();
 	});
 
@@ -149,7 +125,6 @@ function draw(data) {
 		and call updateDisplayArray() */
 	d3.selectAll(".count-select input").on("change", function() {
 		count = this.value;
-		// updateBars();
 		updateDisplayArray();
 	});
 
@@ -157,7 +132,6 @@ function draw(data) {
 		boolean and call updateDisplayArray() */
 	d3.selectAll(".adjust-scale input").on("change", function() {
 		adjustScaleCheck = d3.select(this).property("checked");
-		// updateBars();
 		updateDisplayArray();
 	});
 
@@ -280,17 +254,10 @@ function draw(data) {
 
 		for (var i = 0; i < checkArray.length; i++) {
 			var countryName = checkArray[i].country;
-			// var countryName = "New_Zealand";
 
 			if (d3.select(".country-select label [value=" + countryName + "]").property("checked")) {
 				displayArray.push(checkArray[i]);
-			} 
-			// else {
-			// 	// console.log("Nope " + countryName + " ain't checked!");
-			// 	displayArray.splice(i, 1);
-
-			// 	// displayArray[i].choice = 0;
-			// };
+			}
 		};
 
 		updateBars();
@@ -301,13 +268,13 @@ function draw(data) {
 	var yScale = d3.scale.linear()
 		.range([height , 0]);
 
-	//	Define Y axis
+	/*	Define Y axis */
 	var yAxis = d3.svg.axis()
 		.scale(yScale)
 		.tickSize(3, 3)
 		.orient("left");
 
-	//	Prepare the Y axis but do not call .call(yAxis) yet
+	/*	Prepare the Y axis but do not call .call(yAxis) yet */
 	svg.append("g")
 		.attr("class", "y axis")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -320,33 +287,9 @@ function draw(data) {
 		.attr("dy", ".9em")
 		.style("text-anchor", "middle");						
 
-	/* Define the X Ordinal Scale */
-	// var xScale = d3.scale.ordinal()
-	// 	.domain(data.year2012.map(function(d) { return d.country; }))
-	// 	.rangeRoundBands([margin.left,(width + margin.right)], 0.1);
-
 	var xScale = d3.scale.ordinal()
 		.domain(d3.range(data.year2012.length))
 		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);	
-
-	// console.log(data.year2012.map(function(d) { return d.country; }));				
-
-	//Define X axis
-	// var xAxis = d3.svg.axis()
-		// .scale(xScale)
-		// .tickSize(3, 0)
-		// .orient("bottom");
-
-	//Draw X axis
-	// svg.append("g")
-	// 	.attr("class", "x axis")
-	// 	.attr("transform", "translate(" + 0 + "," + (height + margin.top) + ")")
-	// 	.call(xAxis);			
-
-
-
-
-
 
 
 	/* Transition the height of the bars to the ac or the cc value */
@@ -406,41 +349,16 @@ function draw(data) {
 			yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
 		};
 
-		/* Redefine the X Ordinal Scale */
-		// xScale.domain(displayArray.map(function(d) { return d.country; }))
-			// .rangeRoundBands([margin.left,(width + margin.right)], 0.1);
-
 		xScale.domain(d3.range(displayArray.length))
 			.rangeRoundBands([margin.left,(width + margin.right)], 0.1);			
 
-		// console.log(xScale.domain());
-
-
-		// svg.select(".outer-wrapper .x")
-		// 	// .transition()
-		// 	// .duration(duration)
-		// 	.call(xAxis);
-
-		/*	Rotate the x axis text by 45 degrees so that it is legible */
-		// d3.selectAll(".x text")
-		// 	.attr("text-anchor", "left")
-		// 	.attr("transform", function(d) {
-		// 		return "translate(" + (this.getBBox().width / 2 ) + "," + 2 + "), rotate( 45 " + this.getBBox().x + " " + this.getBBox().y + ")";
-		// 	});
-
-		//Select…
+		/*	Select… */
 		var bars = svg.selectAll("rect")
 				.data(displayArray, function(d, i) {
 					return d.country;
 				});
 
-	
-
-		// var bars = svg.selectAll("rect")
-		// 		.data(displayArray);
-
-
-		//Enter…
+		/* Enter… */
 		bars.enter()
 			.append("rect")
 			.transition()
@@ -456,7 +374,7 @@ function draw(data) {
 				return height - yScale(d.choice);
 			});			
 
-		//Update…
+		/* 	Update… */
 		bars.sort(function(a, b) {
 			return d3.descending(a.choice, b.choice);
 			})
@@ -474,23 +392,12 @@ function draw(data) {
 				return height - yScale(d.choice);
 			});	
 
-		// bars.sort(function(a, b) {
-		// 	return d3.descending(a.choice, b.choice);
-		// });	
-						
-
-		//Exit…
+		/*	Exit… */
 		bars.exit()
 			.transition()
 			.style("opacity", 0)
 			.remove();
 
-
-
-		// var text = groups.selectAll("text")
-		// 		.data(displayArray, function(d, i) {
-		// 			return d.country;
-		// 		});
 
 		var text = groups.selectAll("text")
 			.data(displayArray);
@@ -500,43 +407,33 @@ function draw(data) {
 		});
 
 
-		//Update…	
+		/* Update…	*/
 		text.text(function(d) { return d.country; })
 			.attr("y", 0)
 			.attr("x", function(d, i){
 				return xScale(i); 
 			});
 
-		//Enter…
+		/*	Enter… */
 		text.enter()
 			.append("text")
-			// .transition()
-			// .duration(duration)
-			// .delay(500)
 			.text(function(d) { return d.country; })
 			.attr("y", 0)
 			.attr("x", function(d, i){
 				return xScale(i); 
 			});				
 	
-		//Exit…
+		/* Exit… */
 		text.exit()
 			.transition()
 			.duration(duration)
 			.style("opacity", 0)
 			.remove();
-
-
-
-							
+					
 		/*	Rotate the x axis text by 45 degrees so that it is legible */
 		d3.selectAll(".x text")
 			.attr("text-anchor", "left")
 			.attr("transform", function(d, i) {
-				console.log("this.getBBox().x " + this.getBBox().x);
-				console.log("this.getBBox().y " + this.getBBox().y);
-				console.log("this.getBBox().width " + this.getBBox().width);
-				// return "translate(" + (this.getBBox().width / 2 ) + "," + 2 + "), rotate( 45 " + this.getBBox().x + " " + this.getBBox().y + ")";
 				return "translate(" + (xScale.rangeBand() / 2 ) + "," + 2 + "), rotate( 45 " + xScale(i) + " " + this.getBBox().y + ")";
 
 			});
@@ -591,9 +488,6 @@ function draw(data) {
 						d3.select(".tooltip").classed("hidden", true);
 					});
 			});
-
-			// svg.call(xAxis);
-
 
 	}
 
