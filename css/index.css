@@ -125,12 +125,6 @@
 	float: right;
 }
 
-/* SCALE */
-.outer-wrapper .scale-wrapper {
-	width: 940px;
-	clear: both;
-}
-
 /* JqueryUI
 ----------------------------------*/
 .outer-wrapper .wrapper .ui-button {

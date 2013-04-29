@@ -20,7 +20,6 @@ var displayField = "All fields";
 /*	Colours for the bars */
 var allBars = "#A0BEC5";
 /*	A var to determine if the scale should be adjustedq */
-var adjustScaleCheck = false;
 			
 /*	Create SVG element */
 var svg = d3.select(".count-chart")
@@ -170,7 +169,6 @@ function draw(data) {
 		}
 
 		if (count === "cc") {
-			yScale.domain([0, d3.max(data.year2012, function(d) { return d.cc;} )]);
 			switch (field) {
 				case "all":
 					for (var i = 0; i < checkArray.length; i++) {
@@ -210,7 +208,6 @@ function draw(data) {
 					};										
 			}
 		} else if (count === "ac"){
-			yScale.domain([0, d3.max(data.year2012, function(d) { return d.ac;} )]);
 			switch (field) {
 				case "all":
 					for (var i = 0; i < checkArray.length; i++) {
@@ -345,9 +342,7 @@ function draw(data) {
 		d3.selectAll(".y .axisLabel text")
 			.text(displayCount + " " + displayYear + " " + displayField);
 
-		if (adjustScaleCheck) {
-			yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
-		};
+		yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
 
 		xScale.domain(d3.range(displayArray.length))
 			.rangeRoundBands([margin.left,(width + margin.right)], 0.1);			
