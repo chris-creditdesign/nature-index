@@ -11,9 +11,7 @@
 			"ccEarth":157.4314452,		
 			"acEarth":237,
 			"ccChem":68.1356452,		
-			"acChem":84,
-			"lat":40.647304,
-			"lon":-100.722656
+			"acChem":84
 		},		{
 			"country":"UK",						
 			"cc":221.2112013,	
@@ -25,9 +23,7 @@
 			"ccEarth":43.4885628,		
 			"acEarth":95,
 			"ccChem":9.9303401,			
-			"acChem":20,
-			"lat":52.696361,
-			"lon":-1.318359
+			"acChem":20
 		},		{
 			"country":"Germany",				
 			"cc":191.8621982,	
@@ -39,9 +35,7 @@
 			"ccEarth":28.2342794,		
 			"acEarth":71,
 			"ccChem":7.332738,			
-			"acChem":14,
-			"lat":50.792047,
-			"lon":10.151367
+			"acChem":14
 		},		{
 			"country":"Japan",					
 			"cc":156.5865389,	
@@ -53,9 +47,7 @@
 			"ccEarth":13.8951823,		
 			"acEarth":26,
 			"ccChem":6.1113426,			
-			"acChem":8,			
-			"lat":36.385913,
-			"lon":138.647461
+			"acChem":8			
 		},		{
 			"country":"France",					
 			"cc":107.2630804,	
@@ -67,9 +59,7 @@
 			"ccEarth":22.417866,		
 			"acEarth":55,
 			"ccChem":5.3805589,			
-			"acChem":12,			
-			"lat":47.010226,
-			"lon":2.241211
+			"acChem":12			
 		},		{
 			"country":"China",					
 			"cc":37.3792416,	
@@ -81,9 +71,7 @@
 			"ccEarth":4.8843591,		
 			"acEarth":19,
 			"ccChem":2.7509593,			
-			"acChem":8,			
-			"lat":35.86166,
-			"lon":104.195397 
+			"acChem":8			
 		},		{
 			"country":"Switzerland",			
 			"cc":57.70785971,	
@@ -95,9 +83,7 @@
 			"ccEarth":11.5466498,		
 			"acEarth":32,
 			"ccChem":3.032189,			
-			"acChem":5,
-			"lat":46.818188,
-			"lon":8.227512
+			"acChem":5
 		},		{
 			"country":"Canada",					
 			"cc":70.1354906,	
@@ -109,9 +95,7 @@
 			"ccEarth":12.218808,		
 			"acEarth":27,
 			"ccChem":2.304488,			
-			"acChem":4,			
-			"lat":55.677584,
-			"lon":-101.601562 
+			"acChem":4			
 		},		{
 			"country":"Netherlands",			
 			"cc":40.8232491,	
@@ -123,9 +107,7 @@
 			"ccEarth":12.967872,		
 			"acEarth":30,
 			"ccChem":2.3181821,			
-			"acChem":3,			
-			"lat":52.132633,
-			"lon":5.291266 
+			"acChem":3			
 		},		{
 			"country":"Australia",				
 			"cc":35.7223883,	
@@ -137,9 +119,7 @@
 			"ccEarth":12.5430689,		
 			"acEarth":30,
 			"ccChem":1.396672,			
-			"acChem":4,			
-			"lat":-24.527135,
-			"lon":135.439453
+			"acChem":4			
 		},		{
 			"country":"Spain",					
 			"cc":27.2993689,	
@@ -151,9 +131,7 @@
 			"ccEarth":2.869067,			
 			"acEarth":9,
 			"ccChem":1.404762,			
-			"acChem":3,			
-			"lat":40.463667,
-			"lon":-3.74922 
+			"acChem":3			
 		},		{
 			"country":"Italy",					
 			"cc":41.5214699,	
@@ -165,9 +143,7 @@
 			"ccEarth":5.4578991,		
 			"acEarth":17,
 			"ccChem":2.7509593,			
-			"acChem":8,			
-			"lat":41.87194,
-			"lon":12.56738 
+			"acChem":8			
 		},		{
 			"country":"Korea",					
 			"cc":16.0452811,	
@@ -179,9 +155,7 @@
 			"ccEarth":1.090909,			
 			"acEarth":2,
 			"ccChem":0.303409,			
-			"acChem":4,
-			"lat":35.907757,
-			"lon":127.766922 
+			"acChem":4
 		},		{
 			"country":"Israel",					
 			"cc":27.2436399,	
@@ -193,9 +167,7 @@
 			"ccEarth":0.38652,			
 			"acEarth":5,
 			"ccChem":1.4821436,			
-			"acChem":5,
-			"lat":31.046051,
-			"lon":34.851612
+			"acChem":5
 		},		{
 			"country":"Belgium",				
 			"cc":14.3786687,	
@@ -207,9 +179,7 @@
 			"ccEarth":1.7771852,		
 			"acEarth":12,
 			"ccChem":0.375,				
-			"acChem":1,			
-			"lat":50.503887,
-			"lon":4.469936 
+			"acChem":1			
 		},		{
 			"country":"Sweden",					
 			"cc":25.0590731,	
@@ -221,9 +191,7 @@
 			"ccEarth":3.9188857,		
 			"acEarth":15,
 			"ccChem":0.516667,			
-			"acChem":3,			
-			"lat":60.128161,
-			"lon":18.643501 
+			"acChem":3			
 		},		{
 			"country":"Austria",				
 			"cc":21.6749691,	
@@ -235,9 +203,7 @@
 			"ccEarth":2.010695,			
 			"acEarth":4,
 			"ccChem":0.010695,			
-			"acChem":1,			
-			"lat":47.516231,
-			"lon":14.550072 
+			"acChem":1			
 		},		{
 			"country":"Denmark",				
 			"cc":12.4245333,	
@@ -249,9 +215,7 @@
 			"ccEarth":3.2745793,		
 			"acEarth":13,
 			"ccChem":0,
-			"acChem":0,			
-			"lat":56.26392,
-			"lon":9.501785 
+			"acChem":0			
 		},		{
 			"country":"Singapore",				
 			"cc":8.8164016,		
@@ -263,9 +227,7 @@
 			"ccEarth":0.123478,			
 			"acEarth":2,
 			"ccChem":0.08,				
-			"acChem":1,
-			"lat":1.352083,
-			"lon":103.819836 
+			"acChem":1
 		},		{
 			"country":"Ireland",				
 			"cc":2.5213226,		
@@ -277,9 +239,7 @@
 			"ccEarth":0.2321429,		
 			"acEarth":2,
 			"ccChem":0,				
-			"acChem":0,			
-			"lat":53.330873,
-			"lon":-7.822266 
+			"acChem":0			
 		},		{
 			"country":"Taiwan",					
 			"cc":6.0106435,		
@@ -291,9 +251,7 @@
 			"ccEarth":0.7744231,		
 			"acEarth":6,
 			"ccChem":0.09091,			
-			"acChem":1,			
-			"lat":23.69781,
-			"lon":120.960515
+			"acChem":1			
 		},		{
 			"country":"Norway",					
 			"cc":5.2920367,		
@@ -305,9 +263,7 @@
 			"ccEarth":3.2122041,		
 			"acEarth":6,
 			"ccChem":1.0102561,			
-			"acChem":2,			
-			"lat":60.472024,
-			"lon":8.468946 
+			"acChem":2			
 		},		{
 			"country":"Finland",				
 			"cc":7.38282397,	
@@ -319,9 +275,7 @@
 			"ccEarth":0.5631271,		
 			"acEarth":3,
 			"ccChem":0.333333,			
-			"acChem":1,			
-			"lat":61.92411,
-			"lon":25.748151 
+			"acChem":1			
 		},		{
 			"country":"India",					
 			"cc":5.1033496,		
@@ -333,9 +287,7 @@
 			"ccEarth":0.0398525,		
 			"acEarth":2,
 			"ccChem":0.016043,			
-			"acChem":1,
-			"lat":22.268764,
-			"lon":78.574219 
+			"acChem":1
 		},		{
 			"country":"Russia",					
 			"cc":5.0073683,		
@@ -347,9 +299,7 @@
 			"ccEarth":1.1387676,		
 			"acEarth":9,
 			"ccChem":0.181016,			
-			"acChem":2,
-			"lat":61.52401,
-			"lon":105.318756 
+			"acChem":2
 		},		{
 			"country":"Brazil",					
 			"cc":2.2173104,		
@@ -361,9 +311,7 @@
 			"ccEarth":1.0531311,		
 			"acEarth":5,
 			"ccChem":0,
-			"acChem":0,		
-			"lat":-14.235004,
-			"lon":-51.92528
+			"acChem":0		
 		},		{ 
 			"country":"Hungary",				
 			"cc":2.3929951,		
@@ -375,9 +323,7 @@
 			"ccEarth":0.3409091,		
 			"acEarth":2,
 			"ccChem":0.285714,			
-			"acChem":1,			
-			"lat":47.162494,
-			"lon":19.503304 
+			"acChem":1			
 		},		{
 			"country":"New_Zealand",
 			"cc":4.142605,		
@@ -389,9 +335,7 @@
 			"ccEarth":2.027778,			
 			"acEarth":3,
 			"ccChem":0,
-			"acChem":0,		
-			"lat":-40.900557,
-			"lon":174.885971 
+			"acChem":0		
 		},		{
 			"country":"Greece",					
 			"cc":2.7680712,		
@@ -403,9 +347,7 @@
 			"ccEarth":0.4502035,		
 			"acEarth":6,
 			"ccChem":0,
-			"acChem":0,		
-			"lat":39.074208,
-			"lon":21.824312 
+			"acChem":0		
 		},		{
 			"country":"Iceland",				
 			"cc":7.87436538,	
@@ -417,9 +359,7 @@
 			"ccEarth":0,		
 			"acEarth":0,
 			"ccChem":0,
-			"acChem":0,			
-			"lat":64.963051,
-			"lon":-19.020835 
+			"acChem":0			
 		}
 		],
 	"year2009": [
@@ -434,9 +374,7 @@
 			"ccEarth":149.2518707,			
 			"acEarth":222,
 			"ccChem":104.6596238,				
-			"acChem":120,
-			"lat":40.647304,
-			"lon":-100.722656
+			"acChem":120
 		},		{
 			"country":"UK",							
 			"cc":207.1362461,		
@@ -448,9 +386,7 @@
 			"ccEarth":37.8404622,			
 			"acEarth":75,
 			"ccChem":17.1925788,				
-			"acChem":30,
-			"lat":52.696361,
-			"lon":-1.318359
+			"acChem":30
 		},		{
 			"country":"Germany",					
 			"cc":207.69633,			
@@ -462,9 +398,7 @@
 			"ccEarth":18.9481494,			
 			"acEarth":53,
 			"ccChem":12.7649283,				
-			"acChem":22,
-			"lat":50.792047,
-			"lon":10.151367
+			"acChem":22
 		},		{
 			"country":"Japan",						
 			"cc":153.8270536,		
@@ -476,9 +410,7 @@
 			"ccEarth":12.01460927,			
 			"acEarth":22,
 			"ccChem":19.8423833,				
-			"acChem":26,			
-			"lat":36.385913,
-			"lon":138.647461
+			"acChem":26			
 		},		{
 			"country":"France",						
 			"cc":106.6963403,		
@@ -490,9 +422,7 @@
 			"ccEarth":17.5226673,			
 			"acEarth":49,
 			"ccChem":5.5122439,					
-			"acChem":14,			
-			"lat":47.010226,
-			"lon":2.241211
+			"acChem":14			
 		},		{
 			"country":"China",						
 			"cc":44.3037228,		
@@ -504,9 +434,7 @@
 			"ccEarth":8.2220467,			
 			"acEarth":16,
 			"ccChem":5.3775831,					
-			"acChem":11,			
-			"lat":35.86166,
-			"lon":104.195397 
+			"acChem":11			
 		},		{
 			"country":"Switzerland",				
 			"cc":61.6505916,		
@@ -518,9 +446,7 @@
 			"ccEarth":6.4989323,			
 			"acEarth":21,
 			"ccChem":5.731855,					
-			"acChem":10,			
-			"lat":46.818188,
-			"lon":8.227512
+			"acChem":10			
 		},		{
 			"country":"Canada",						
 			"cc":81.1440333,		
@@ -532,9 +458,7 @@
 			"ccEarth":15.612554,			
 			"acEarth":44,
 			"ccChem":5.13492,					
-			"acChem":8,			
-			"lat":55.677584,
-			"lon":-101.601562 
+			"acChem":8			
 		},		{
 			"country":"Netherlands",				
 			"cc":59.38428397,		
@@ -546,9 +470,7 @@
 			"ccEarth":7.3924607,			
 			"acEarth":21,
 			"ccChem":4.6242415,					
-			"acChem":7,		
-			"lat":52.132633,
-			"lon":5.291266 
+			"acChem":7		
 		},		{
 			"country":"Australia",					
 			"cc":42.5623116,		
@@ -560,9 +482,7 @@
 			"ccEarth":7.1638131,			
 			"acEarth":20,
 			"ccChem":1.553968,					
-			"acChem":3,			
-			"lat":-24.527135,
-			"lon":135.439453
+			"acChem":3			
 		},		{
 			"country":"Spain",						
 			"cc":35.37666096,		
@@ -574,9 +494,7 @@
 			"ccEarth":4.425142,				
 			"acEarth":13,
 			"ccChem":4.638789,					
-			"acChem":8,
-			"lat":40.463667,
-			"lon":-3.74922 
+			"acChem":8
 		},		{
 			"country":"Italy",						
 			"cc":45.68908058,		
@@ -588,9 +506,7 @@
 			"ccEarth":6.95098062,			
 			"acEarth":24,
 			"ccChem":1.752778,					
-			"acChem":5,			
-			"lat":41.87194,
-			"lon":12.56738 
+			"acChem":5			
 		},		{
 			"country":"Korea",						
 			"cc":28.5604523,		
@@ -602,9 +518,7 @@
 			"ccEarth":3.083333,				
 			"acEarth":5,
 			"ccChem":3.183335,					
-			"acChem":5,			
-			"lat":35.907757,
-			"lon":127.766922 
+			"acChem":5			
 		},		{
 			"country":"Israel",						
 			"cc":24.6901427,		
@@ -616,9 +530,7 @@
 			"ccEarth":2.730357,				
 			"acEarth":6,
 			"ccChem":1.7880946,					
-			"acChem":4,
-			"lat":31.046051,
-			"lon":34.851612
+			"acChem":4
 		},		{
 			"country":"Belgium",					
 			"cc":19.0126126,		
@@ -630,9 +542,7 @@
 			"ccEarth":3.2755367,			
 			"acEarth":10,
 			"ccChem":0.73077,					
-			"acChem":2,			
-			"lat":50.503887,
-			"lon":4.469936 
+			"acChem":2			
 		},		{
 			"country":"Sweden",						
 			"cc":22.81578641,		
@@ -644,9 +554,7 @@
 			"ccEarth":3.2988407,			
 			"acEarth":12,
 			"ccChem":0.996032,					
-			"acChem":3,
-			"lat":60.128161,
-			"lon":18.643501 
+			"acChem":3
 		},		{
 			"country":"Austria",					
 			"cc":16.6875811,		
@@ -658,9 +566,7 @@
 			"ccEarth":0.2750581,			
 			"acEarth":3,
 			"ccChem":0.3094016,					
-			"acChem":3,
-			"lat":47.516231,
-			"lon":14.550072 
+			"acChem":3
 		},		{
 			"country":"Denmark",					
 			"cc":18.006068,			
@@ -672,9 +578,7 @@
 			"ccEarth":5.3036977,			
 			"acEarth":11,
 			"ccChem":2.0625,					
-			"acChem":4,			
-			"lat":56.26392,
-			"lon":9.501785 
+			"acChem":4			
 		},		{
 			"country":"Singapore",					
 			"cc":9.174614,			
@@ -686,9 +590,7 @@
 			"ccEarth":0,
 			"acEarth":0,
 			"ccChem":0.8924,					
-			"acChem":4,
-			"lat":1.352083,
-			"lon":103.819836 
+			"acChem":4
 		},		{
 			"country":"Ireland",					
 			"cc":3.76934205,		
@@ -700,9 +602,7 @@
 			"ccEarth":0.152795,				
 			"acEarth":3,
 			"ccChem":0,
-			"acChem":0,
-			"lat":53.330873,
-			"lon":-7.822266 
+			"acChem":0
 		},		{
 			"country":"Taiwan",						
 			"cc":3.00191,			
@@ -714,9 +614,7 @@
 			"ccEarth":0.434295,				
 			"acEarth":3,
 			"ccChem":0.0625,					
-			"acChem":1,
-			"lat":23.69781,
-			"lon":120.960515
+			"acChem":1
 		},		{
 			"country":"Norway",						
 			"cc":9.425463,			
@@ -728,9 +626,7 @@
 			"ccEarth":4.7267396,			
 			"acEarth":7,
 			"ccChem":0,
-			"acChem":0,
-			"lat":60.472024,
-			"lon":8.468946 
+			"acChem":0
 		},		{
 			"country":"Finland",					
 			"cc":9.2152767,			
@@ -742,9 +638,7 @@
 			"ccEarth":1.44524,				
 			"acEarth":6,
 			"ccChem":0.389287,					
-			"acChem":3,
-			"lat":61.92411,
-			"lon":25.748151 
+			"acChem":3
 		},		{
 			"country":"India",
 			"cc":0,
@@ -756,9 +650,7 @@
 			"ccEarth":1.086382,				
 			"acEarth":5,
 			"ccChem":0.535714,					
-			"acChem":2,			
-			"lat":22.268764,
-			"lon":78.574219 
+			"acChem":2			
 		},		{
 			"country":"Russia",						
 			"cc":4.3789831,			
@@ -770,9 +662,7 @@
 			"ccEarth":1.621375,				
 			"acEarth":11,
 			"ccChem":0.175,						
-			"acChem":2,
-			"lat":61.52401,
-			"lon":105.318756 
+			"acChem":2
 		},		{
 			"country":"Brazil",						
 			"cc":2.8999466,			
@@ -784,9 +674,7 @@
 			"ccEarth":0.711111,				
 			"acEarth":3,
 			"ccChem":0,
-			"acChem":0,
-			"lat":-14.235004,
-			"lon":-51.92528
+			"acChem":0
 		},		{ 
 			"country":"Hungary",					
 			"cc":2.6517171,			
@@ -798,9 +686,7 @@
 			"ccEarth":0.32428,				
 			"acEarth":2,
 			"ccChem":0.318182,					
-			"acChem":1,
-			"lat":47.162494,
-			"lon":19.503304 
+			"acChem":1
 		},		{
 			"country":"New_Zealand",
 			"cc":4.033374,			
@@ -812,9 +698,7 @@
 			"ccEarth":2.030555,				
 			"acEarth":5,
 			"ccChem":0,
-			"acChem":0,
-			"lat":-40.900557,
-			"lon":174.885971 
+			"acChem":0
 		},		{
 			"country":"Greece",						
 			"cc":2.8772954,			
@@ -826,9 +710,7 @@
 			"ccEarth":0.166667,				
 			"acEarth":1,
 			"ccChem":0,
-			"acChem":0,
-			"lat":39.074208,
-			"lon":21.824312 
+			"acChem":0
 		},		{
 			"country":"Iceland",					
 			"cc":7.31796956,		
@@ -840,9 +722,7 @@
 			"ccEarth":0.015873,				
 			"acEarth":1,
 			"ccChem":0,
-			"acChem":0,
-			"lat":64.963051,
-			"lon":-19.020835 
+			"acChem":0
 		}
 		],				
 	"year2010": [
@@ -857,9 +737,7 @@
 			"ccEarth":171.6969881,					
 			"acEarth":247,
 			"ccChem":182.91856,						
-			"acChem":216,			
-			"lat":40.647304,
-			"lon":-100.722656
+			"acChem":216			
 		},		{
 			"country":"UK",									
 			"cc":240.3893865,				
@@ -871,9 +749,7 @@
 			"ccEarth":38.8228456,					
 			"acEarth":88,
 			"ccChem":39.5688853,					
-			"acChem":65,
-			"lat":52.696361,
-			"lon":-1.318359
+			"acChem":65
 		},		{
 			"country":"Germany",							
 			"cc":234.9805097,				
@@ -885,9 +761,7 @@
 			"ccEarth":27.3458528,					
 			"acEarth":67,
 			"ccChem":36.837695,						
-			"acChem":65,
-			"lat":50.792047,
-			"lon":10.151367
+			"acChem":65
 		},		{
 			"country":"Japan",								
 			"cc":173.0053415,				
@@ -899,9 +773,7 @@
 			"ccEarth":15.53696,						
 			"acEarth":27,
 			"ccChem":38.8329006,					
-			"acChem":49,			
-			"lat":36.385913,
-			"lon":138.647461
+			"acChem":49			
 		},		{
 			"country":"France",								
 			"cc":111.2185662,				
@@ -913,9 +785,7 @@
 			"ccEarth":18.271451,					
 			"acEarth":52,
 			"ccChem":15.718781,						
-			"acChem":33,			
-			"lat":47.010226,
-			"lon":2.241211
+			"acChem":33			
 		},		{
 			"country":"China",								
 			"cc":68.0822251,				
@@ -927,9 +797,7 @@
 			"ccEarth":5.9826896,					
 			"acEarth":18,
 			"ccChem":13.127844,						
-			"acChem":27,			
-			"lat":35.86166,
-			"lon":104.195397 
+			"acChem":27			
 		},		{
 			"country":"Switzerland",						
 			"cc":67.95784872,				
@@ -941,9 +809,7 @@
 			"ccEarth":7.475232,						
 			"acEarth":26,
 			"ccChem":11.157365,						
-			"acChem":24,			
-			"lat":46.818188,
-			"lon":8.227512
+			"acChem":24			
 		},		{
 			"country":"Canada",								
 			"cc":97.12343473,				
@@ -955,9 +821,7 @@
 			"ccEarth":11.6567906,					
 			"acEarth":33,
 			"ccChem":13.422497,						
-			"acChem":23,			
-			"lat":55.677584,
-			"lon":-101.601562 
+			"acChem":23			
 		},		{
 			"country":"Netherlands",						
 			"cc":55.17997473,				
@@ -969,9 +833,7 @@
 			"ccEarth":6.5338709,					
 			"acEarth":27,
 			"ccChem":4.882061,						
-			"acChem":11,		
-			"lat":52.132633,
-			"lon":5.291266 
+			"acChem":11		
 		},		{
 			"country":"Australia",							
 			"cc":39.62557205,				
@@ -983,9 +845,7 @@
 			"ccEarth":12.7545427,					
 			"acEarth":35,
 			"ccChem":5.447343,						
-			"acChem":12,			
-			"lat":-24.527135,
-			"lon":135.439453
+			"acChem":12			
 		},		{
 			"country":"Spain",								
 			"cc":40.16744672,				
@@ -997,9 +857,7 @@
 			"ccEarth":7.873141,						
 			"acEarth":21,
 			"ccChem":4.889472,						
-			"acChem":13,			
-			"lat":40.463667,
-			"lon":-3.74922 
+			"acChem":13			
 		},		{
 			"country":"Italy",								
 			"cc":48.12317037,				
@@ -1011,9 +869,7 @@
 			"ccEarth":3.7284472,					
 			"acEarth":18,
 			"ccChem":4.407481,						
-			"acChem":11,			
-			"lat":41.87194,
-			"lon":12.56738 
+			"acChem":11			
 		},		{
 			"country":"Korea",								
 			"cc":24.80326409,				
@@ -1025,9 +881,7 @@
 			"ccEarth":1.325714,						
 			"acEarth":4,
 			"ccChem":3.83,							
-			"acChem":9,
-			"lat":35.907757,
-			"lon":127.766922 
+			"acChem":9
 		},		{
 			"country":"Israel",								
 			"cc":25.3092474,				
@@ -1039,9 +893,7 @@
 			"ccEarth":1.4694818,					
 			"acEarth":7,
 			"ccChem":0.716884,						
-			"acChem":4,			
-			"lat":31.046051,
-			"lon":34.851612
+			"acChem":4			
 		},		{
 			"country":"Belgium",							
 			"cc":18.5620893,				
@@ -1053,9 +905,7 @@
 			"ccEarth":3.872648,						
 			"acEarth":12,
 			"ccChem":2.421428,						
-			"acChem":5,
-			"lat":50.503887,
-			"lon":4.469936 
+			"acChem":5
 		},		{
 			"country":"Sweden",								
 			"cc":23.79005261,				
@@ -1067,9 +917,7 @@
 			"ccEarth":2.841168,						
 			"acEarth":14,
 			"ccChem":3.425595,						
-			"acChem":5,			
-			"lat":60.128161,
-			"lon":18.643501 
+			"acChem":5			
 		},		{
 			"country":"Austria",							
 			"cc":19.62623795,				
@@ -1081,9 +929,7 @@
 			"ccEarth":0.9796206,					
 			"acEarth":8,
 			"ccChem":1.093651,						
-			"acChem":4,			
-			"lat":47.516231,
-			"lon":14.550072 
+			"acChem":4			
 		},		{
 			"country":"Denmark",							
 			"cc":20.68735699,				
@@ -1095,9 +941,7 @@
 			"ccEarth":3.970274,						
 			"acEarth":13,
 			"ccChem":2.27619,						
-			"acChem":4,			
-			"lat":56.26392,
-			"lon":9.501785 
+			"acChem":4			
 		},		{
 			"country":"Singapore",							
 			"cc":11.2626457,				
@@ -1109,9 +953,7 @@
 			"ccEarth":0,
 			"acEarth":0,
 			"ccChem":2.616666,						
-			"acChem":4,
-			"lat":1.352083,
-			"lon":103.819836 
+			"acChem":4
 		},		{
 			"country":"Ireland",							
 			"cc":7.28617099,				
@@ -1123,9 +965,7 @@
 			"ccEarth":2.191666,						
 			"acEarth":7,
 			"ccChem":1.285714,						
-			"acChem":2,			
-			"lat":53.330873,
-			"lon":-7.822266 
+			"acChem":2			
 		},		{
 			"country":"Taiwan",								
 			"cc":2.934963,					
@@ -1137,9 +977,7 @@
 			"ccEarth":0.498269,						
 			"acEarth":5,
 			"ccChem":0.15625,						
-			"acChem":2,			
-			"lat":23.69781,
-			"lon":120.960515
+			"acChem":2			
 		},		{
 			"country":"Norway",								
 			"cc":6.41524985,				
@@ -1151,9 +989,7 @@
 			"ccEarth":3.005554,						
 			"acEarth":9,
 			"ccChem":0.729167,						
-			"acChem":3,			
-			"lat":60.472024,
-			"lon":8.468946 
+			"acChem":3			
 		},		{
 			"country":"Finland",							
 			"cc":9.413501928,				
@@ -1165,9 +1001,7 @@
 			"ccEarth":0.818312,						
 			"acEarth":3,
 			"ccChem":1.410257,						
-			"acChem":3,			
-			"lat":61.92411,
-			"lon":25.748151 
+			"acChem":3			
 		},		{
 			"country":"India",								
 			"cc":1.22214367,				
@@ -1179,9 +1013,7 @@
 			"ccEarth":0.083333,						
 			"acEarth":1,
 			"ccChem":0.476191,						
-			"acChem":2,
-			"lat":22.268764,
-			"lon":78.574219 
+			"acChem":2
 		},		{
 			"country":"Russia",								
 			"cc":5.399872,					
@@ -1193,9 +1025,7 @@
 			"ccEarth":0,
 			"acEarth":0,
 			"ccChem":0.698902,						
-			"acChem":6,			
-			"lat":61.52401,
-			"lon":105.318756 
+			"acChem":6			
 		},		{
 			"country":"Brazil",								
 			"cc":2.584821,					
@@ -1207,9 +1037,7 @@
 			"ccEarth":0.138998,						
 			"acEarth":3,
 			"ccChem":0,
-			"acChem":0,
-			"lat":-14.235004,
-			"lon":-51.92528
+			"acChem":0
 		},		{ 
 			"country":"Hungary",							
 			"cc":2.0527205,					
@@ -1221,9 +1049,7 @@
 			"ccEarth":0.4967945,					
 			"acEarth":3,
 			"ccChem":0,
-			"acChem":0,
-			"lat":47.162494,
-			"lon":19.503304 
+			"acChem":0
 		},		{
 			"country":"New_Zealand",
 			"cc":7.3139014,					
@@ -1235,9 +1061,7 @@
 			"ccEarth":4.266667,						
 			"acEarth":12,
 			"ccChem":0.166667,						
-			"acChem":1,
-			"lat":-40.900557,
-			"lon":174.885971 
+			"acChem":1
 		},		{
 			"country":"Greece",								
 			"cc":0.514621,					
@@ -1249,9 +1073,7 @@
 			"ccEarth":0.083333,						
 			"acEarth":1,
 			"ccChem":0,
-			"acChem":0,
-			"lat":39.074208,
-			"lon":21.824312 
+			"acChem":0
 		},		{
 			"country":"Iceland",							
 			"cc":5.10276168,				
@@ -1263,9 +1085,7 @@
 			"ccEarth":0.8125,						
 			"acEarth":1,
 			"ccChem":0,
-			"acChem":0,
-			"lat":64.963051,
-			"lon":-19.020835 
+			"acChem":0
 		}
 		],				
 	"year2011": [
@@ -1280,9 +1100,7 @@
 			"ccEarth":167.2691234,			
 			"acEarth":270,
 			"ccChem":219.070207,		
-			"acChem":279,
-			"lat":40.647304,
-			"lon":-100.722656
+			"acChem":279
 		},		{
 			"country":"UK",								
 			"cc":284.2192034,				
@@ -1294,9 +1112,7 @@
 			"ccEarth":43.6580913,			
 			"acEarth":99,
 			"ccChem":49.022872,			
-			"acChem":79,
-			"lat":52.696361,
-			"lon":-1.318359
+			"acChem":79
 		},		{
 			"country":"Germany",						
 			"cc":252.3012712,				
@@ -1308,9 +1124,7 @@
 			"ccEarth":27.544968,			
 			"acEarth":75,
 			"ccChem":38.438236,			
-			"acChem":67,
-			"lat":50.792047,
-			"lon":10.151367
+			"acChem":67
 		},		{
 			"country":"Japan",							
 			"cc":216.59796,					
@@ -1322,9 +1136,7 @@
 			"ccEarth":22.172022,			
 			"acEarth":36,
 			"ccChem":48.5191845,		
-			"acChem":68,
-			"lat":36.385913,
-			"lon":138.647461
+			"acChem":68
 		},		{
 			"country":"France",							
 			"cc":128.3729659,				
@@ -1336,9 +1148,7 @@
 			"ccEarth":22.9797766,			
 			"acEarth":64,
 			"ccChem":11.896641,			
-			"acChem":29,
-			"lat":47.010226,
-			"lon":2.241211
+			"acChem":29
 		},		{
 			"country":"China",							
 			"cc":110.0374706,				
@@ -1350,9 +1160,7 @@
 			"ccEarth":14.119086,			
 			"acEarth":35,
 			"ccChem":25.520351,			
-			"acChem":47,
-			"lat":35.86166,
-			"lon":104.195397 
+			"acChem":47
 		},		{
 			"country":"Switzerland",					
 			"cc":84.3094725,				
@@ -1364,9 +1172,7 @@
 			"ccEarth":11.7018205,			
 			"acEarth":36,
 			"ccChem":9.665597,			
-			"acChem":22,
-			"lat":46.818188,
-			"lon":8.227512
+			"acChem":22
 		},		{
 			"country":"Canada",							
 			"cc":108.6627289,				
@@ -1378,9 +1184,7 @@
 			"ccEarth":22.392889,			
 			"acEarth":60,
 			"ccChem":13.935732,			
-			"acChem":28,
-			"lat":55.677584,
-			"lon":-101.601562 
+			"acChem":28
 		},		{
 			"country":"Netherlands",					
 			"cc":63.89200396,				
@@ -1392,9 +1196,7 @@
 			"ccEarth":5.38072676,			
 			"acEarth":27,
 			"ccChem":10.718887,			
-			"acChem":17,
-			"lat":52.132633,
-			"lon":5.291266 
+			"acChem":17
 		},		{
 			"country":"Australia",						
 			"cc":64.62643532,				
@@ -1406,9 +1208,7 @@
 			"ccEarth":19.3235066,			
 			"acEarth":49,
 			"ccChem":8.22448,			
-			"acChem":16,
-			"lat":-24.527135,
-			"lon":135.439453
+			"acChem":16
 		},		{
 			"country":"Spain",							
 			"cc":54.61603402,				
@@ -1420,9 +1220,7 @@
 			"ccEarth":7.497462,				
 			"acEarth":27,
 			"ccChem":8.483137,			
-			"acChem":19,
-			"lat":40.463667,
-			"lon":-3.74922 
+			"acChem":19
 		},		{
 			"country":"Italy",							
 			"cc":51.33750017,				
@@ -1434,9 +1232,7 @@
 			"ccEarth":6.881494,				
 			"acEarth":30,
 			"ccChem":4.765593,			
-			"acChem":10,
-			"lat":41.87194,
-			"lon":12.56738 
+			"acChem":10
 		},		{
 			"country":"Korea",							
 			"cc":41.005119,					
@@ -1448,9 +1244,7 @@
 			"ccEarth":1.541293,				
 			"acEarth":6,
 			"ccChem":10.356848,			
-			"acChem":20,
-			"lat":35.907757,
-			"lon":127.766922 
+			"acChem":20
 		},		{
 			"country":"Israel",							
 			"cc":29.59600202,				
@@ -1462,9 +1256,7 @@
 			"ccEarth":3.925093,				
 			"acEarth":10,
 			"ccChem":3.643056,			
-			"acChem":7,
-			"lat":31.046051,
-			"lon":34.851612
+			"acChem":7
 		},		{
 			"country":"Belgium",						
 			"cc":23.66445005,				
@@ -1476,9 +1268,7 @@
 			"ccEarth":2.885616,				
 			"acEarth":15,
 			"ccChem":4.148148,			
-			"acChem":8,
-			"lat":50.503887,
-			"lon":4.469936 
+			"acChem":8
 		},		{
 			"country":"Sweden",							
 			"cc":23.85587884,				
@@ -1490,9 +1280,7 @@
 			"ccEarth":3.697185,				
 			"acEarth":12,
 			"ccChem":3.300043,			
-			"acChem":10,
-			"lat":60.128161,
-			"lon":18.643501 
+			"acChem":10
 		},		{
 			"country":"Austria",						
 			"cc":27.29111801,				
@@ -1504,9 +1292,7 @@
 			"ccEarth":0.970869,				
 			"acEarth":7,
 			"ccChem":2.979948,			
-			"acChem":12,
-			"lat":47.516231,
-			"lon":14.550072 
+			"acChem":12
 		},		{
 			"country":"Denmark",						
 			"cc":20.79774993,				
@@ -1518,9 +1304,7 @@
 			"ccEarth":4.478901,				
 			"acEarth":13,
 			"ccChem":3.140776,			
-			"acChem":8,
-			"lat":56.26392,
-			"lon":9.501785 
+			"acChem":8
 		},		{
 			"country":"Singapore",						
 			"cc":13.48785303,				
@@ -1532,9 +1316,7 @@
 			"ccEarth":0.727273,				
 			"acEarth":3,
 			"ccChem":2.138097,			
-			"acChem":3,
-			"lat":1.352083,
-			"lon":103.819836 
+			"acChem":3
 		},		{
 			"country":"Ireland",						
 			"cc":3.149395,					
@@ -1546,9 +1328,7 @@
 			"ccEarth":0.749207,				
 			"acEarth":4,
 			"ccChem":0.816667,			
-			"acChem":4,
-			"lat":53.330873,
-			"lon":-7.822266 
+			"acChem":4
 		},		{
 			"country":"Taiwan",							
 			"cc":9.6843193,					
@@ -1560,9 +1340,7 @@
 			"ccEarth":0.417815,				
 			"acEarth":3,
 			"ccChem":2.633614,			
-			"acChem":5,
-			"lat":23.69781,
-			"lon":120.960515
+			"acChem":5
 		},		{
 			"country":"Norway",							
 			"cc":9.266718,					
@@ -1574,9 +1352,7 @@
 			"ccEarth":3.013024,				
 			"acEarth":12,
 			"ccChem":1.39394,			
-			"acChem":2,
-			"lat":60.472024,
-			"lon":8.468946 
+			"acChem":2
 		},		{
 			"country":"Finland",						
 			"cc":10.98450604,				
@@ -1588,9 +1364,7 @@
 			"ccEarth":1.768003,				
 			"acEarth":7,
 			"ccChem":1.675794,			
-			"acChem":4,
-			"lat":61.92411,
-			"lon":25.748151 
+			"acChem":4
 		},		{
 			"country":"India",							
 			"cc":8.534637,					
@@ -1602,9 +1376,7 @@
 			"ccEarth":1.459209,				
 			"acEarth":6,
 			"ccChem":2.94508,			
-			"acChem":6,
-			"lat":22.268764,
-			"lon":78.574219 
+			"acChem":6
 		},		{
 			"country":"Russia",							
 			"cc":4.118015,					
@@ -1616,9 +1388,7 @@
 			"ccEarth":1.333946,				
 			"acEarth":8,
 			"ccChem":0.076923,			
-			"acChem":1,
-			"lat":61.52401,
-			"lon":105.318756 
+			"acChem":1
 		},		{
 			"country":"Brazil",							
 			"cc":3.7442175,					
@@ -1630,9 +1400,7 @@
 			"ccEarth":1.3316205,			
 			"acEarth":9,
 			"ccChem":0,
-			"acChem":0,
-			"lat":-14.235004,
-			"lon":-51.92528
+			"acChem":0
 		},		{ 
 			"country":"Hungary",						
 			"cc":1.238781,					
@@ -1644,9 +1412,7 @@
 			"ccEarth":0.071429,				
 			"acEarth":1,
 			"ccChem":0,
-			"acChem":0,
-			"lat":47.162494,
-			"lon":19.503304 
+			"acChem":0
 		},		{
 			"country":"New_Zealand",
 			"cc":5.303388,					
@@ -1658,9 +1424,7 @@
 			"ccEarth":2.784967,				
 			"acEarth":10,
 			"ccChem":0.291667,			
-			"acChem":1,
-			"lat":-40.900557,
-			"lon":174.885971 
+			"acChem":1
 		},		{
 			"country":"Greece",							
 			"cc":3.01147906,				
@@ -1672,9 +1436,7 @@
 			"ccEarth":0.142241,				
 			"acEarth":2,
 			"ccChem":0.841271,			
-			"acChem":2,
-			"lat":39.074208,
-			"lon":21.824312 
+			"acChem":2
 		},		{
 			"country":"Iceland",						
 			"cc":4.42700274,				
@@ -1686,9 +1448,7 @@
 			"ccEarth":0.821428,				
 			"acEarth":2,
 			"ccChem":0,
-			"acChem":0,
-			"lat":64.963051,
-			"lon":-19.020835 
+			"acChem":0
 		}
 		],				
 	"year2012": [
@@ -1703,9 +1463,7 @@
 			"ccEarth":208.263171,				
 			"acEarth":336,
 			"ccChem":262.0092947,				
-			"acChem":336,
-			"lat":40.647304,
-			"lon":-100.722656
+			"acChem":336
 		},		{
 			"country":"UK",
 			"cc":303.34250477,
@@ -1717,9 +1475,7 @@
 			"ccEarth":59.85015799,				
 			"acEarth":151,
 			"ccChem":47.9866773,				
-			"acChem":83,
-			"lat":52.696361,
-			"lon":-1.318359
+			"acChem":83
 		},		{
 			"country":"Germany",
 			"cc":277.812351221,
@@ -1731,9 +1487,7 @@
 			"ccEarth":37.19765977,				
 			"acEarth":105,
 			"ccChem":45.6508855,				
-			"acChem":81,
-			"lat":50.792047,
-			"lon":10.151367
+			"acChem":81
 		},		{
 			"country":"Japan",
 			"cc":234.39538755,
@@ -1745,9 +1499,7 @@
 			"ccEarth":20.11927429,				
 			"acEarth":47,
 			"ccChem":54.8856068,				
-			"acChem":80,
-			"lat":36.385913,
-			"lon":138.647461
+			"acChem":80
 		},		{
 			"country":"France",
 			"cc":151.65295873,
@@ -1759,9 +1511,7 @@
 			"ccEarth":34.11937651,				
 			"acEarth":87,
 			"ccChem":16.2255807,				
-			"acChem":46,
-			"lat":47.010226,
-			"lon":2.241211
+			"acChem":46
 		},		{
 			"country":"China",
 			"cc":150.02839994,
@@ -1773,9 +1523,7 @@
 			"ccEarth":20.29080569,				
 			"acEarth":48,
 			"ccChem":27.4418238,				
-			"acChem":52,
-			"lat":35.86166,
-			"lon":104.195397 
+			"acChem":52
 		},		{
 			"country":"Switzerland",
 			"cc":109.12767945,
@@ -1787,9 +1535,7 @@
 			"ccEarth":14.93044093,				
 			"acEarth":44,
 			"ccChem":22.146816,					
-			"acChem":38,
-			"lat":46.818188,
-			"lon":8.227512
+			"acChem":38
 		},		{
 			"country":"Canada",
 			"cc":82.37728621,
@@ -1801,9 +1547,7 @@
 			"ccEarth":20.66075496,				
 			"acEarth":70,
 			"ccChem":13.3535224,				
-			"acChem":24,
-			"lat":55.677584,
-			"lon":-101.601562 
+			"acChem":24
 		},		{
 			"country":"Netherlands",
 			"cc":74.0740374,
@@ -1815,9 +1559,7 @@
 			"ccEarth":10.94359555,				
 			"acEarth":41,
 			"ccChem":13.8920905,				
-			"acChem":27,
-			"lat":52.132633,
-			"lon":5.291266 
+			"acChem":27
 		},		{
 			"country":"Australia",
 			"cc":68.26359375,
@@ -1829,9 +1571,7 @@
 			"ccEarth":23.12012689,				
 			"acEarth":72,
 			"ccChem":8.2848849,					
-			"acChem":19,
-			"lat":-24.527135,
-			"lon":135.439453
+			"acChem":19
 		},		{
 			"country":"Spain",
 			"cc":57.20728376,
@@ -1843,9 +1583,7 @@
 			"ccEarth":10.77495267,				
 			"acEarth":35,
 			"ccChem":9.0936846,					
-			"acChem":18,
-			"lat":40.463667,
-			"lon":-3.74922 
+			"acChem":18
 		},		{
 			"country":"Italy",
 			"cc":56.82360206,
@@ -1857,9 +1595,7 @@
 			"ccEarth":5.87799178,				
 			"acEarth":36,
 			"ccChem":7.1598317,					
-			"acChem":20,
-			"lat":41.87194,
-			"lon":12.56738 
+			"acChem":20
 		},		{
 			"country":"Korea",
 			"cc":40.82214958,
@@ -1871,9 +1607,7 @@
 			"ccEarth":0.29391136,				
 			"acEarth":5,
 			"ccChem":14.803274,					
-			"acChem":33,
-			"lat":35.907757,
-			"lon":127.766922 
+			"acChem":33
 		},		{
 			"country":"Israel",
 			"cc":38.07505731,
@@ -1885,9 +1619,7 @@
 			"ccEarth":1.8983656,				
 			"acEarth":8,
 			"ccChem":4.990875,					
-			"acChem":9,
-			"lat":31.046051,
-			"lon":34.851612
+			"acChem":9
 		},		{
 			"country":"Belgium",
 			"cc":32.47625951,
@@ -1899,9 +1631,7 @@
 			"ccEarth":2.19461436,				
 			"acEarth":16,
 			"ccChem":4.0421356,					
-			"acChem":10,
-			"lat":50.503887,
-			"lon":4.469936 
+			"acChem":10
 		},		{
 			"country":"Sweden",
 			"cc":30.77088456,
@@ -1913,9 +1643,7 @@
 			"ccEarth":5.58553564,				
 			"acEarth":25,
 			"ccChem":6.2073264,					
-			"acChem":17,
-			"lat":60.128161,
-			"lon":18.643501 
+			"acChem":17
 		},		{
 			"country":"Austria",
 			"cc":29.02784469,
@@ -1927,9 +1655,7 @@
 			"ccEarth":4.33728023,				
 			"acEarth":21,
 			"ccChem":2.338889,					
-			"acChem":6,
-			"lat":47.516231,
-			"lon":14.550072 
+			"acChem":6
 		},		{
 			"country":"Denmark",
 			"cc":26.58846474,
@@ -1941,9 +1667,7 @@
 			"ccLife":12.83403945,			
 			"acLife":58,
 			"ccChem":2.4867421,					
-			"acChem":6,
-			"lat":56.26392,
-			"lon":9.501785 
+			"acChem":6
 		},		{
 			"country":"Singapore",
 			"cc":21.19009274,
@@ -1955,9 +1679,7 @@
 			"ccLife":8.23117101,			
 			"acLife":38,
 			"ccChem":4.599494,					
-			"acChem":7,			
-			"lat":1.352083,
-			"lon":103.819836 
+			"acChem":7			
 		},		{
 			"country":"Ireland",
 			"cc":14.04646183,
@@ -1969,9 +1691,7 @@
 			"ccLife":10.45561883,			
 			"acLife":37,
 			"ccChem":2.835595,					
-			"acChem":7,
-			"lat":53.330873,
-			"lon":-7.822266 
+			"acChem":7
 		},		{
 			"country":"Taiwan",
 			"cc":11.68194267,
@@ -1983,9 +1703,7 @@
 			"ccLife":6.49802955,			
 			"acLife":19,
 			"ccChem":4.4055726,					
-			"acChem":10,
-			"lat":23.69781,
-			"lon":120.960515
+			"acChem":10
 		},		{
 			"country":"Norway",
 			"cc":10.36429083,
@@ -1997,9 +1715,7 @@
 			"ccLife":4.64495883,			
 			"acLife":28,
 			"ccChem":2.226009,					
-			"acChem":5,
-			"lat":60.472024,
-			"lon":8.468946 
+			"acChem":5
 		},		{
 			"country":"Finland",
 			"cc":10.11790618,
@@ -2011,9 +1727,7 @@
 			"ccLife":5.54246288,			
 			"acLife":34,
 			"ccChem":1.014568,					
-			"acChem":4,
-			"lat":61.92411,
-			"lon":25.748151 
+			"acChem":4
 		},		{
 			"country":"India",
 			"cc":8.2401518,
@@ -2025,9 +1739,7 @@
 			"ccLife":6.4925619,				
 			"acLife":15,
 			"ccChem":0.425,						
-			"acChem":2,
-			"lat":22.268764,
-			"lon":78.574219 
+			"acChem":2
 		},		{
 			"country":"Russia",
 			"cc":6.92811773,
@@ -2039,9 +1751,7 @@
 			"ccLife":1.90567953,			
 			"acLife":17,
 			"ccChem":1.6393446,					
-			"acChem":7,
-			"lat":61.52401,
-			"lon":105.318756 
+			"acChem":7
 		},		{
 			"country":"Brazil",
 			"cc":5.71450036,
@@ -2053,9 +1763,7 @@
 			"ccLife":2.6602429,				
 			"acLife":24,
 			"ccChem":0.0555556,					
-			"acChem":1,
-			"lat":-14.235004,
-			"lon":-51.92528
+			"acChem":1
 		},		{ 
 			"country":"Hungary",
 			"cc":5.6498777,
@@ -2067,9 +1775,7 @@
 			"ccLife":3.1872767,				
 			"acLife":9,
 			"ccChem":0.469697,					
-			"acChem":2,
-			"lat":47.162494,
-			"lon":19.503304 
+			"acChem":2
 		},		{
 			"country":"New_Zealand",
 			"cc":4.64025902,
@@ -2081,9 +1787,7 @@
 			"ccLife":1.96168132,			
 			"acLife":9,
 			"ccChem":0.20202,					
-			"acChem":2,
-			"lat":-40.900557,
-			"lon":174.885971 
+			"acChem":2
 		},		{
 			"country":"Greece",
 			"cc":4.21568594,
@@ -2095,9 +1799,7 @@
 			"ccLife":1.39908334,			
 			"acLife":14,
 			"ccChem":0.6000003,					
-			"acChem":2,
-			"lat":39.074208,
-			"lon":21.824312 
+			"acChem":2
 		},		{
 			"country":"Iceland",
 			"cc":4.1452498,
@@ -2109,9 +1811,7 @@
 			"ccLife":4.0312668,				
 			"acLife":23,
 			"ccChem":0,
-			"acChem":0,
-			"lat":64.963051,
-			"lon":-19.020835 
+			"acChem":0
 		}
 		]					
 }
