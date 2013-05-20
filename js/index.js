@@ -14,6 +14,9 @@ var displayYear = "2012";
 var displayArray = [];
 var yearArray = [];
 var checkArray = [];
+/*	Arrays used to build the continent checkboxes */
+var continentArray = [];
+var uniqueContinentArray = [];
 /*	Global variables to control field and count text in axis label */
 var displayCount = "Corrected count";
 var displayField = "All fields";
@@ -70,6 +73,30 @@ function draw(data) {
 	/* store this number to use to create a staggered transition */
 	var numberOfBars = data.year2008.length;
 
+	/*	Create an array containing each continent and the use $.each and $.inArray
+		to remove all duplicates. The result will be stored in uniqueContinentArray */
+	for (var i = 0; i < numberOfBars; i++) {
+		continentArray.push(data.year2008[i].continent);
+	};
+
+	$.each(continentArray, function(i, el){
+		if($.inArray(el, uniqueContinentArray) === -1) {
+			uniqueContinentArray.push(el);
+		}
+	});
+
+	/* Create checkboxes for each continent inside the continent-select form */
+	d3.selectAll(".continent-select")
+		.selectAll("label")
+		.data(uniqueContinentArray)
+		.enter()
+		.append("label")
+		.attr("class", "checkbox")
+		.html(function (d) {
+    		return "<input type='checkbox' value='" + d + "' data-continent='" + d + "' checked>" + d;
+		});
+
+
 	/* Create checkboxes for each country inside the country-select form */
 	d3.selectAll(".country-select")
 		.selectAll("label")
@@ -78,7 +105,7 @@ function draw(data) {
 		.append("label")
 		.attr("class", "checkbox")
 		.html(function (d) {
-    		return "<input type='checkbox' value='" + d.country + "' checked>" + d.country;
+    		return "<input type='checkbox' value='" + d.country + "' data-continent='" + d.continent + "' checked>" + d.country;
 		});
 
 	/* Add a span containing the svg circle to replace the checkbox icon */
