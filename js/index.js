@@ -18,7 +18,7 @@ var checkArray = [];
 var displayCount = "Corrected count";
 var displayField = "All fields";
 /*	Colours for the bars */
-var allBars = "#D35400";
+var allBars = "#E67E22";
 /*	A var to determine if the scale should be adjustedq */
 			
 /*	Create SVG element */
@@ -41,7 +41,29 @@ function buildUIelements() {
 	$( "#check" ).button();
 	$( ".count-select" ).buttonset();
 	$( ".select-field" ).buttonset();
-	$( ".country-select" ).buttonset();
+	// $( ".country-select" ).buttonset();
+};
+
+// Create custom checkboxes
+function setupLabel() {
+	// Checkbox
+	var checkBox = ".checkbox";
+	var checkBoxInput = checkBox + " input[type='checkbox']";
+	var checkBoxChecked = "checked";
+	var checkBoxDisabled = "disabled";
+
+	// Checkboxes
+	if ($(checkBoxInput).length) {
+		$(checkBox).each(function(){
+			$(this).removeClass(checkBoxChecked);
+		});
+		$(checkBoxInput + ":checked").each(function(){
+			$(this).parent(checkBox).addClass(checkBoxChecked);
+		});
+		$(checkBoxInput + ":disabled").each(function(){
+			$(this).parent(checkBox).addClass(checkBoxDisabled);
+		});
+    };
 };
 
 /*	Load in JSON data then call draw() */
@@ -54,18 +76,12 @@ function draw(data) {
 	/* store this number to use to create a staggered transition */
 	var numberOfBars = data.year2008.length;
 
-	/*	Set up bars - one for each country in the chosen year */
-	svg.selectAll("rect")
-				.data(data.year2012, function(d, i) {
-					return d.country;
-				})
-				.enter()
-				.append("rect")
-				.attr("width", 0)
-				.attr("x", 0)
-				.attr("height", 0)
-				.attr("y", 0);
-		
+	// First let's prepend icons (needed for effects)
+	$(".checkbox").prepend("<span class='icon'></span>");
+
+	$(".checkbox").click(function(){
+		setupLabel();
+	});
 
 	/* Two jqueryUI functions to build the year and field sliders */
 	function makeYearSlider () {
@@ -119,15 +135,48 @@ function draw(data) {
 		updateDisplayArray();
 	});
 
-	/* 	When the user changes the adjust scale checkbox update the var adjustScaleCheck
-		boolean and call updateDisplayArray() */
-	d3.selectAll(".adjust-scale input").on("change", function() {
-		adjustScaleCheck = d3.select(this).property("checked");
-		updateDisplayArray();
-	});
-
 	/*	Call updateDisplayArray() when one of the checkboxes is clicked */
-	d3.selectAll(".country-select input").on("change", updateDisplayArray);			
+	d3.selectAll(".country-select input").on("change", updateDisplayArray);	
+
+	/*	Set up bars - one for each country in the chosen year */
+	svg.selectAll("rect")
+				.data(data.year2012, function(d, i) {
+					return d.country;
+				})
+				.enter()
+				.append("rect")
+				.attr("width", 0)
+				.attr("x", 0)
+				.attr("height", 0)
+				.attr("y", 0);
+
+	/* 	Define Y scale range to go from height to 0
+		Do not define the domaine yet */
+	var yScale = d3.scale.linear()
+		.range([height , 0]);
+
+	/*	Define Y axis */
+	var yAxis = d3.svg.axis()
+		.scale(yScale)
+		.tickSize(3, 3)
+		.orient("left");
+
+	/*	Prepare the Y axis but do not call .call(yAxis) yet */
+	svg.append("g")
+		.attr("class", "y axis")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+	  .append("g")
+		.attr("class", "axisLabel")
+	  .append("text")
+		.attr("transform", "rotate(-90)")
+		.attr("y", -margin.left)
+		.attr("x", -height/2)
+		.attr("dy", ".9em")
+		.style("text-anchor", "middle");						
+
+	var xScale = d3.scale.ordinal()
+		.domain(d3.range(data.year2012.length))
+		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);			
 
 	/*	function called copy the relevant year's data into the displayArray array
 		then add a property called choice that holds the relevant count and field value */
@@ -253,90 +302,12 @@ function draw(data) {
 		};
 
 		updateBars();
+		updateHeader();
 	}
-
-	/* 	Define Y scale range to go from height to 0
-		Do not define the domaine yet */
-	var yScale = d3.scale.linear()
-		.range([height , 0]);
-
-	/*	Define Y axis */
-	var yAxis = d3.svg.axis()
-		.scale(yScale)
-		.tickSize(3, 3)
-		.orient("left");
-
-	/*	Prepare the Y axis but do not call .call(yAxis) yet */
-	svg.append("g")
-		.attr("class", "y axis")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-	  .append("g")
-		.attr("class", "axisLabel")
-	  .append("text")
-		.attr("transform", "rotate(-90)")
-		.attr("y", -margin.left)
-		.attr("x", -height/2)
-		.attr("dy", ".9em")
-		.style("text-anchor", "middle");						
-
-	var xScale = d3.scale.ordinal()
-		.domain(d3.range(data.year2012.length))
-		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);	
 
 
 	/* Transition the height of the bars to the ac or the cc value */
 	function updateBars() {
-
-
-
-		/* Update the header */
-		d3.select(".outer-wrapper #year").html([displayYear]);
-
-		switch (count) { 
-			case "cc":
-				d3.select(".outer-wrapper #count").html(["Corrected count"]);
-				displayCount = "Corrected count";
-				break;
-			case "ac":
-				d3.select(".outer-wrapper #count").html(["Article count"]);
-				displayCount = "Article count";
-				break;
-			default:
-				d3.select(".outer-wrapper #count").html(["Corrected count"]);
-				displayCount = "Corrected count";
-			break;		
-		}
-
-		switch (field) {
-			case "all":
-				d3.select(".outer-wrapper #field").html(["All fields"]);
-				displayField = "All fields";
-				break;
-			case "phys":
-				d3.select(".outer-wrapper #field").html(["Physics"]);
-				displayField = "Physics";
-				break;
-			case "life":
-				d3.select(".outer-wrapper #field").html(["Life sciences"]);
-				displayField = "Life sciences";
-				break;
-			case "earth":
-				d3.select(".outer-wrapper #field").html(["Earth sciences"]);
-				displayField = "Earth sciences";
-				break;
-			case "chem":
-				d3.select(".outer-wrapper #field").html(["Chemistry"]);
-				displayField = "Chemistry";
-				break;
-			default:
-				d3.select(".outer-wrapper #field").html(["All fields"]);
-				displayField = "All fields";
-				break;																	
-		}
-
-		d3.selectAll(".y .axisLabel text")
-			.text(displayCount + " " + displayYear + " " + displayField);
-
 		yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
 
 		xScale.domain(d3.range(displayArray.length))
@@ -480,13 +451,67 @@ function draw(data) {
 
 	}
 
+	function updateHeader() {
+		/* Update the header */
+		d3.select(".outer-wrapper #year").html([displayYear]);
+
+		switch (count) { 
+			case "cc":
+				d3.select(".outer-wrapper #count").html(["Corrected count"]);
+				displayCount = "Corrected count";
+				break;
+			case "ac":
+				d3.select(".outer-wrapper #count").html(["Article count"]);
+				displayCount = "Article count";
+				break;
+			default:
+				d3.select(".outer-wrapper #count").html(["Corrected count"]);
+				displayCount = "Corrected count";
+			break;		
+		}
+
+		switch (field) {
+			case "all":
+				d3.select(".outer-wrapper #field").html(["All fields"]);
+				displayField = "All fields";
+				break;
+			case "phys":
+				d3.select(".outer-wrapper #field").html(["Physics"]);
+				displayField = "Physics";
+				break;
+			case "life":
+				d3.select(".outer-wrapper #field").html(["Life sciences"]);
+				displayField = "Life sciences";
+				break;
+			case "earth":
+				d3.select(".outer-wrapper #field").html(["Earth sciences"]);
+				displayField = "Earth sciences";
+				break;
+			case "chem":
+				d3.select(".outer-wrapper #field").html(["Chemistry"]);
+				displayField = "Chemistry";
+				break;
+			default:
+				d3.select(".outer-wrapper #field").html(["All fields"]);
+				displayField = "All fields";
+				break;																	
+		}
+
+		d3.selectAll(".y .axisLabel text")
+			.text(displayCount + " " + displayYear + " " + displayField);
+	}
+
 	/* Build the slider */
 	makeYearSlider();
 
 	/* An inital call of updateDisplayArray()  */
 	updateDisplayArray();
 
+	/* Build the jQueryUI elements */
 	buildUIelements();
+
+	/* Build the custom checkboxes */
+	setupLabel();
 
 }
 

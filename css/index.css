@@ -49,18 +49,73 @@
 /* COUNTRY */
 .outer-wrapper .country-wrapper {
 	width: 390px;
+	height: 100px;
 	float: left;
 }
+
+.outer-wrapper form.country-select label {
+	float: left; 
+	width: 90px; 
+	margin: 0 10px 0 0;
+	display: block;
+	cursor: pointer; 
+}
+
+	/* FlatUI
+	----------------------------------*/
+
+	.outer-wrapper form.country-select .checkbox {
+		margin-bottom: 6px;
+		padding-left: 30px;
+		position: relative;
+		-webkit-transition: 0.25s;
+		-moz-transition: 0.25s;
+		-o-transition: 0.25s;
+		transition: 0.25s;
+		-webkit-backface-visibility: hidden; 
+	}
+
+	.checkbox:hover {
+		color: #e67e22; 
+	}
+
+	.checkbox input[type="checkbox"] {
+		outline: none !important;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		zoom: 1;
+		float: left;
+		margin-left: -40px;
+	}
+
+	.checkbox.checked .icon {
+		background-position: -60px -30px;
+		opacity: 1;
+		display: block\9; 
+	}
+
+	.checkbox .icon {
+		background: url("../images/checkbox.png") -90px 0 no-repeat;
+		display: block;
+		height: 20px;
+		left: 0;
+		opacity: 1;
+		position: absolute;
+		top: -3px;
+		width: 20px;
+		-webkit-transition: opacity 0.1s linear;
+		-moz-transition: opacity 0.1s linear;
+		-o-transition: opacity 0.1s linear;
+		transition: opacity 0.1s linear;
+		-webkit-backface-visibility: hidden; 
+	}
+		
+
 
 /* FIELD */
 .outer-wrapper .field-wrapper {
 	float: left;
 }
-
-/* COUNT */
-/*.outer-wrapper .count-wrapper {
-	float: right;
-}*/
 
 /* YEAR */
 .outer-wrapper .year-wrapper {
@@ -121,7 +176,7 @@
     height: .8em;
 }
 .outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-handle {
-	background: #d35400;
+	background: #E67E22;
     top: -.2em;
     margin-left: -.6em;
 	-moz-border-radius: 10px;
@@ -146,11 +201,13 @@
 
 
 
+
+
 /* JqueryUI
 ----------------------------------*/
 .outer-wrapper .wrapper .ui-button {
 	width: 200px;
-	margin: 4px 35px;
+	margin: 0 35px;
 	display: inline-block;
 	position: relative;
 	padding: 2px;
@@ -163,9 +220,23 @@
 	-moz-transition:all 0.2s ease;  
 	-o-transition:all 0.2s ease;  
 	transition:all 0.2s ease;  
-	-moz-border-radius: 5px;
+/*	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	border-radius: 5px;*/
+}
+
+/*	This is the first button */
+.outer-wrapper .wrapper .ui-corner-left {
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+}
+
+/*	This is the last button */
+.outer-wrapper .wrapper .ui-corner-right {
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
 }
 
 .outer-wrapper .wrapper .ui-button .ui-button-text {
@@ -180,52 +251,22 @@
 
 .outer-wrapper .wrapper .ui-state-default {
 	border: none;
-	background: #f1c40f;
+	background: #ecf0f1;
 	font-weight: normal;
 	color: #666;
 }
 
 .outer-wrapper .wrapper .ui-buttonset  .ui-state-hover {
-	background: #f39c12;
+	background: #f1c40f;
 }
 
 
 .outer-wrapper .wrapper .ui-state-active {
-	background: #d35400;
+	background: #E67E22;
 	color: #ECF0F1;
 }
 
-/*	Special rules for the country buttons */
-.outer-wrapper .wrapper .country-select.ui-buttonset label {
-	width: 113px;
-	margin: 4px;
-	padding: 1px;
-}
 
-.outer-wrapper .wrapper .country-select.ui-buttonset .ui-button-text {
-	text-transform: none;
-	display: block;
-	line-height: normal;
-	padding: 0.1em;
-
-}
-
-.outer-wrapper .wrapper .country-select .ui-state-default {
-	border: 2px solid #f1c40f;
-	background: white;
-}
-
-.outer-wrapper .wrapper .country-select.ui-buttonset .ui-state-hover {
-	background: #f1c40f;
-	border: 2px solid #f1c40f;
-}
-
-
-.outer-wrapper .wrapper .country-select .ui-state-active {
-	border: 2px solid #d35400;
-	background: #d35400;
-	color: #ECF0F1;
-}
 
 
 
