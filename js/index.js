@@ -70,10 +70,19 @@ function draw(data) {
 	/* store this number to use to create a staggered transition */
 	var numberOfBars = data.year2008.length;
 
-	// First let's prepend icons (needed for effects)
+	/* Create checkboxes for each country inside the country-select form */
+	d3.selectAll(".country-select")
+		.selectAll("label")
+		.data(data.year2012)
+		.enter()
+		.append("label")
+		.attr("class", "checkbox")
+		.html(function (d) {
+    		return "<input type='checkbox' value='" + d.country + "' checked>" + d.country;
+		});
+
+	/* Add a span containing the svg circle to replace the checkbox icon */
 	$(".checkbox").prepend("<span class='icon'>	<svg height='20' width='20'><circle cx='10' cy='10' r='10' class='dots'></circle></svg></span>");
-
-
 
 	$(".checkbox").click(function(){
 		setupLabel();
@@ -131,8 +140,11 @@ function draw(data) {
 		updateDisplayArray();
 	});
 
-	/*	Call updateDisplayArray() when one of the checkboxes is clicked */
-	d3.selectAll(".country-select input").on("change", updateDisplayArray);	
+	/*	Call updateDisplayArray() when one of the country checkboxes is clicked */
+	d3.selectAll(".country-select input").on("change", updateDisplayArray);
+
+	/*	Call updateContinent() when one of the checkboxes is clicked */
+	d3.selectAll(".continent-select input").on("change", updateContinent);	
 
 	/*	Set up bars - one for each country in the chosen year */
 	svg.selectAll("rect")
@@ -172,11 +184,17 @@ function draw(data) {
 
 	var xScale = d3.scale.ordinal()
 		.domain(d3.range(data.year2012.length))
-		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);			
+		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);
+
+	function updateContinent() {
+		console.log("updateContinent() is fireing!");
+	}			
 
 	/*	function called copy the relevant year's data into the displayArray array
 		then add a property called choice that holds the relevant count and field value */
 	function updateDisplayArray() {
+
+		console.log("updateDisplayArray() is fireing!");
 
 		displayArray = [];
 		yearArray = [];
