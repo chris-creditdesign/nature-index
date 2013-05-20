@@ -46,11 +46,18 @@
 	padding: 10px 0 5px;
 }
 
+
 /* COUNTRY */
 .outer-wrapper .country-wrapper {
 	width: 390px;
 	height: 100px;
 	float: left;
+	clear: left;
+}
+
+.outer-wrapper form.country-select{
+	float: left;
+	margin: 0 0 10px 0;
 }
 
 .outer-wrapper form.country-select label {
@@ -88,14 +95,7 @@
 		margin-left: -40px;
 	}
 
-	.checkbox.checked .icon {
-		background-position: -60px -30px;
-		opacity: 1;
-		display: block\9; 
-	}
-
 	.checkbox .icon {
-		background: url("../images/checkbox.png") -90px 0 no-repeat;
 		display: block;
 		height: 20px;
 		left: 0;
@@ -108,6 +108,14 @@
 		-o-transition: opacity 0.1s linear;
 		transition: opacity 0.1s linear;
 		-webkit-backface-visibility: hidden; 
+	}
+
+	.outer-wrapper .checkbox.checked .icon .dots {
+		fill: #E67E22;
+	}
+
+	.outer-wrapper .checkbox .icon .dots {
+		fill: #ecf0f1;
 	}
 		
 

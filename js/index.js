@@ -46,22 +46,16 @@ function buildUIelements() {
 
 // Create custom checkboxes
 function setupLabel() {
-	// Checkbox
 	var checkBox = ".checkbox";
 	var checkBoxInput = checkBox + " input[type='checkbox']";
 	var checkBoxChecked = "checked";
-	var checkBoxDisabled = "disabled";
 
-	// Checkboxes
 	if ($(checkBoxInput).length) {
 		$(checkBox).each(function(){
 			$(this).removeClass(checkBoxChecked);
 		});
 		$(checkBoxInput + ":checked").each(function(){
 			$(this).parent(checkBox).addClass(checkBoxChecked);
-		});
-		$(checkBoxInput + ":disabled").each(function(){
-			$(this).parent(checkBox).addClass(checkBoxDisabled);
 		});
     };
 };
@@ -77,7 +71,9 @@ function draw(data) {
 	var numberOfBars = data.year2008.length;
 
 	// First let's prepend icons (needed for effects)
-	$(".checkbox").prepend("<span class='icon'></span>");
+	$(".checkbox").prepend("<span class='icon'>	<svg height='20' width='20'><circle cx='10' cy='10' r='10' class='dots'></circle></svg></span>");
+
+
 
 	$(".checkbox").click(function(){
 		setupLabel();
