@@ -17,6 +17,9 @@ var checkArray = [];
 /*	Arrays used to build the country and continent checkboxes */
 var continentArray = [];
 var uniqueContinentArray = [];
+
+var totalBarArray = [];
+var addingBars = true;
 /*	Global variables to control field and count text in axis label */
 var displayCount = "Corrected count";
 var displayField = "All fields";
@@ -81,6 +84,10 @@ function draw(data) {
 
 	/* store this number to use to create a staggered transition */
 	var numberOfBars = data.year2008.length;
+
+
+	totalBarArray.push(numberOfBars);
+
 
 	/*	Create an array containing each continent and the use $.each and $.inArray
 		to remove all duplicates. The result will be stored in uniqueContinentArray */
@@ -278,43 +285,40 @@ function draw(data) {
 				checkArray.push({});
 		}
 
+		for (var i = 0; i < checkArray.length; i++) {
+			checkArray[i].country = yearArray[i].country;
+		};
+
 		if (count === "cc") {
 			switch (field) {
 				case "all":
 					for (var i = 0; i < checkArray.length; i++) {
-
 						checkArray[i].choice = yearArray[i].cc;
-						checkArray[i].country = yearArray[i].country;
 					};
 					break;
 				case "phys":
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].ccPhys;
-						checkArray[i].country = yearArray[i].country;
 					};				
 					break;
 				case "life":
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].ccLife;
-						checkArray[i].country = yearArray[i].country;
 					};
 					break;
 				case "earth":
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].ccEarth;
-						checkArray[i].country = yearArray[i].country;
 					};
 					break;
 				case "chem":
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].ccChem;
-						checkArray[i].country = yearArray[i].country;
 					};
 				break;
 				default:
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].cc;
-						checkArray[i].country = yearArray[i].country;
 					};										
 			}
 		} else if (count === "ac"){
@@ -322,37 +326,31 @@ function draw(data) {
 				case "all":
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].ac;
-						checkArray[i].country = yearArray[i].country;
 					};
 					break;
 				case "phys":
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].acPhys;
-						checkArray[i].country = yearArray[i].country;
 					};				
 					break;
 				case "life":
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].acLife;
-						checkArray[i].country = yearArray[i].country;
 					};
 					break;
 				case "earth":
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].acEarth;
-						checkArray[i].country = yearArray[i].country;
 					};
 					break;
 				case "chem":
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].acChem;
-						checkArray[i].country = yearArray[i].country;
 					};
 				break;
 				default:
 					for (var i = 0; i < checkArray.length; i++) {
 						checkArray[i].choice = yearArray[i].ac;
-						checkArray[i].country = yearArray[i].country;
 					};										
 			}
 		};
@@ -374,6 +372,9 @@ function draw(data) {
 
 	/* Transition the height of the bars to the ac or the cc value */
 	function updateBars() {
+
+
+
 		yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
 
 
@@ -390,6 +391,19 @@ function draw(data) {
 					return d.country;
 				});
 
+
+		/*	Find out if bars are beingin taken away if so  addingBars = false; 
+			in order to alter the delay of the exiting bars	*/
+		totalBarArray.push(bars[0].length);
+
+		if ( totalBarArray.slice(-2)[1] >= totalBarArray.slice(-2)[0] ) {
+			addingBars = true;
+		} else {
+			addingBars = false;
+		}
+
+		totalBarArray.shift();
+
 		/* Enter… */
 		bars.enter()
 			.append("rect")
@@ -400,7 +414,6 @@ function draw(data) {
 			.attr("y", height + margin.top)
 			.attr("height", 0 )	
 			.transition()
-			.delay(duration)
 			.duration(duration)
 			.attr("x", function(d, i){
 				return xScale(i); 
@@ -419,7 +432,13 @@ function draw(data) {
 			})
 			.transition()
 			.duration(duration)
-			.delay(duration)
+			.delay(function() {
+				if (!addingBars) {
+					return duration; 
+				} else {
+					return 0;
+				}
+			})
 			.attr("x", function(d, i){
 
 				return xScale(i); 
@@ -444,11 +463,9 @@ function draw(data) {
 			})
 			.attr("y", height + margin.top)
 			.attr("height", 0 )	
-			// .style("opacity", 0)
 			.remove();
 
-		/*	Possibly a good way to find out if bars are being added or subtracted
-			console.log(bars[0].length); */
+
 
 
 		// var text = groups.selectAll("text")
