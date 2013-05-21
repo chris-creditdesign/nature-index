@@ -224,17 +224,30 @@ function draw(data) {
 		.domain(d3.range(data.year2012.length))
 		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);
 
+	/*	Function called when a continent button is clicked to turn on and off groups of countries */
 	function updateContinent() {
 		var thisContinent = $(this).val();
-		console.log(thisContinent);
+		//console.log($(this).prop("checked"))
+
+		/*	Loop through the countries if the data attribute for continent matches the
+			value of the continent check box then make its propenty "checked" match the 
+			continent checkbox calling the function i.e. turn it on or off */
+		for (var i = 0; i < $(".country-select input").length; i++) {
+			var checkBoxes = $(".country-select input").eq(i);
+
+			if (thisContinent === checkBoxes.data('continent') ) {
+				checkBoxes.prop("checked", $(this).prop("checked"));
+			}
+			
+		};
+
+		updateDisplayArray();
+		setupLabel();
 	}			
 
 	/*	function called copy the relevant year's data into the displayArray array
 		then add a property called choice that holds the relevant count and field value */
 	function updateDisplayArray() {
-
-		var thisContinent = $(this).data('continent');
-		console.log(thisContinent);
 
 		displayArray = [];
 		yearArray = [];
