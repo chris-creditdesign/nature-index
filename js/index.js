@@ -37,7 +37,7 @@ var blocks = svg.append("g")
 /* Add a group for each row the text */
 var groups = svg.append("g")
 	.attr("class", "x axis")
-	.attr("transform", "translate(" + 0 + "," + (height + margin.top + 15) + ")");
+	// .attr("transform", "translate(" + 0 + "," + (height + margin.top + 15) + ")");
 
 /* Create JqueryUI buttons */
 function buildUIelements() {
@@ -451,50 +451,11 @@ function draw(data) {
 			console.log(bars[0].length); */
 
 
-		var text = groups.selectAll("text")
-				.data(displayArray, function(d, i) {
-					return d.country;
-				});
+		// var text = groups.selectAll("text")
+		// 		.data(displayArray, function(d, i) {
+		// 			return d.country;
+		// 		});
 
-		text.sort(function(a, b) {
-			return d3.descending(a.choice, b.choice);
-		});
-
-
-		/* Update…	*/
-		text.style("opacity", 0)
-			.text(function(d) { return d.country; })
-			.attr("y", 0)
-			.attr("x", function(d, i){
-				return xScale(i); 
-			});
-
-		/*	Enter… */
-		text.enter()
-			.append("text")
-			.text(function(d) { return d.country; })
-			.attr("y", 0)
-			.attr("x", function(d, i){
-				return xScale(i); 
-			})
-			.style("opacity", 0);
-	
-		/* Exit… */
-		text.exit()
-			.style("opacity", 0)
-			.remove();
-					
-		/*	Rotate the x axis text by 45 degrees so that it is legible */
-		d3.selectAll(".x text")
-			.attr("text-anchor", "left")
-			.attr("transform", function(d, i) {
-				return "translate(" + (xScale.rangeBand() / 2 ) + "," + 2 + "), rotate( 45 " + xScale(i) + " " + this.getBBox().y + ")";
-
-			})
-			.transition()
-			.delay(duration)
-			.duration(duration)
-			.style("opacity", 1)
 
 
 
