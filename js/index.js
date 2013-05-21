@@ -227,7 +227,6 @@ function draw(data) {
 	/*	Function called when a continent button is clicked to turn on and off groups of countries */
 	function updateContinent() {
 		var thisContinent = $(this).val();
-		//console.log($(this).prop("checked"))
 
 		/*	Loop through the countries if the data attribute for continent matches the
 			value of the continent check box then make its propenty "checked" match the 
@@ -377,8 +376,13 @@ function draw(data) {
 	function updateBars() {
 		yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
 
-		xScale.domain(d3.range(displayArray.length))
-			.rangeRoundBands([margin.left,(width + margin.right)], 0.1);			
+
+		/*	Make sure that the bars don't get too fat by keeping the xScale range above 5 */
+		if (displayArray.length > 5) {
+			xScale.domain(d3.range(displayArray.length));
+		} else {
+			xScale.domain(d3.range(5));
+		};		
 
 		/*	Select… */
 		var bars = blocks.selectAll("rect")
