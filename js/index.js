@@ -14,7 +14,8 @@ var displayYear = "2012";
 var displayArray = [];
 var yearArray = [];
 var checkArray = [];
-/*	Arrays used to build the continent checkboxes */
+/*	Arrays used to build the country and continent checkboxes */
+var countryArray = [];
 var continentArray = [];
 var uniqueContinentArray = [];
 /*	Global variables to control field and count text in axis label */
@@ -73,6 +74,12 @@ function draw(data) {
 	/* store this number to use to create a staggered transition */
 	var numberOfBars = data.year2008.length;
 
+	/*	Create an array containing each country and then sort it into alphabetical order */
+	for (var i = 0; i < numberOfBars; i++) {
+		countryArray.push(data.year2008[i].country);
+	};
+
+
 	/*	Create an array containing each continent and the use $.each and $.inArray
 		to remove all duplicates. The result will be stored in uniqueContinentArray */
 	for (var i = 0; i < numberOfBars; i++) {
@@ -88,24 +95,26 @@ function draw(data) {
 	/* Create checkboxes for each continent inside the continent-select form */
 	d3.selectAll(".continent-select")
 		.selectAll("label")
-		.data(uniqueContinentArray)
+		.data(uniqueContinentArray.sort())
 		.enter()
 		.append("label")
 		.attr("class", "checkbox")
 		.html(function (d) {
-    		return "<input type='checkbox' value='" + d + "' data-continent='" + d + "' checked>" + d;
+			var continentString = d.replace(/_/g, ' ');
+    		return "<input type='checkbox' value='" + d + "' data-continent='" + d + "' checked>" + continentString;
 		});
 
 
 	/* Create checkboxes for each country inside the country-select form */
 	d3.selectAll(".country-select")
 		.selectAll("label")
-		.data(data.year2012)
+		.data(countryArray.sort())
 		.enter()
 		.append("label")
 		.attr("class", "checkbox")
 		.html(function (d) {
-    		return "<input type='checkbox' value='" + d.country + "' data-continent='" + d.continent + "' checked>" + d.country;
+			var countryString = d.replace(/_/g, ' ');
+    		return "<input type='checkbox' value='" + d + "' data-continent='" + d + "' checked>" + countryString;
 		});
 
 	/* Add a span containing the svg circle to replace the checkbox icon */
@@ -453,6 +462,7 @@ function draw(data) {
 				
 				/*	Create a var to hold the tooltip text string */
 				var tooltipText = "";
+				var countryString = d.country.replace(/_/g, ' ');
 
 				/*	Find out if we are displaying the cc or the ac value
 					and add the correct text to the tooltipText var */
@@ -461,7 +471,7 @@ function draw(data) {
 				/* Update the tooltip text */
 				d3.select(".tooltip")
 					.select(".value")
-					.html(d.country + "<br /> " + tooltipText);
+					.html(countryString + "<br /> " + tooltipText);
 
 				/* Get this bar's x/y values, then augment for the tooltip */
 				var xPosition = parseInt(d3.select(this).attr("x")) - (parseInt($(".tooltip").css("width"))/2);

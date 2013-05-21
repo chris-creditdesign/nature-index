@@ -2,7 +2,7 @@
 	"year2008": [
 		{
 			"country":"USA",
-			"continent":"NAmerica",					
+			"continent":"North_America",					
 			"cc":1285.873383,	
 			"ac":1645,
 			"ccPhys":281.0309501,				
@@ -93,7 +93,7 @@
 			"acChem":5
 		},		{
 			"country":"Canada",
-			"continent":"NAmerica",					
+			"continent":"North_America",					
 			"cc":70.1354906,	
 			"ac":148,
 			"ccPhys":15.0594701,				
@@ -119,7 +119,7 @@
 			"acChem":3			
 		},		{
 			"country":"Australia",
-			"continent":"AustraliaContinent",				
+			"continent":"Australasia",				
 			"cc":35.7223883,	
 			"ac":94,
 			"ccPhys":6.6180864,					
@@ -327,7 +327,7 @@
 			"acChem":2
 		},		{
 			"country":"Brazil",
-			"continent":"SAmerica",					
+			"continent":"South_America",					
 			"cc":2.2173104,		
 			"ac":14,
 			"ccPhys":0.5627283,					
@@ -353,7 +353,7 @@
 			"acChem":1			
 		},		{
 			"country":"New_Zealand",
-			"continent":"AustraliaContinent",
+			"continent":"Australasia",
 			"cc":4.142605,		
 			"ac":10,
 			"ccPhys":0.161111,					
@@ -395,7 +395,7 @@
 	"year2009": [
 		{
 			"country":"USA",
-			"continent":"NAmerica",						
+			"continent":"North_America",						
 			"cc":1353.63151,		
 			"ac":1745,
 			"ccPhys":311.722364,		
@@ -486,7 +486,7 @@
 			"acChem":10			
 		},		{
 			"country":"Canada",
-			"continent":"NAmerica",						
+			"continent":"North_America",						
 			"cc":81.1440333,		
 			"ac":192,
 			"ccPhys":18.3688783,		
@@ -512,7 +512,7 @@
 			"acChem":7		
 		},		{
 			"country":"Australia",
-			"continent":"AustraliaContinent",					
+			"continent":"Australasia",					
 			"cc":42.5623116,		
 			"ac":106,
 			"ccPhys":9.533642,			
@@ -720,7 +720,7 @@
 			"acChem":2
 		},		{
 			"country":"Brazil",
-			"continent":"SAmerica",						
+			"continent":"South_America",						
 			"cc":2.8999466,			
 			"ac":16,
 			"ccPhys":1.7380949,			
@@ -746,7 +746,7 @@
 			"acChem":1
 		},		{
 			"country":"New_Zealand",
-			"continent":"AustraliaContinent",
+			"continent":"Australasia",
 			"cc":4.033374,			
 			"ac":14,
 			"ccPhys":0.729798,			
@@ -788,7 +788,7 @@
 	"year2010": [
 		{
 			"country":"USA",
-			"continent":"NAmerica",								
+			"continent":"North_America",								
 			"cc":1439.366796,				
 			"ac":1873,
 			"ccPhys":402.9653363,			
@@ -879,7 +879,7 @@
 			"acChem":24			
 		},		{
 			"country":"Canada",
-			"continent":"NAmerica",								
+			"continent":"North_America",								
 			"cc":97.12343473,				
 			"ac":224,
 			"ccPhys":20.3468628,			
@@ -905,7 +905,7 @@
 			"acChem":11		
 		},		{
 			"country":"Australia",
-			"continent":"AustraliaContinent",							
+			"continent":"Australasia",							
 			"cc":39.62557205,				
 			"ac":129,
 			"ccPhys":14.2882851,			
@@ -1113,7 +1113,7 @@
 			"acChem":6			
 		},		{
 			"country":"Brazil",
-			"continent":"SAmerica",								
+			"continent":"South_America",								
 			"cc":2.584821,					
 			"ac":16,
 			"ccPhys":1.3781,			
@@ -1139,7 +1139,7 @@
 			"acChem":0
 		},		{
 			"country":"New_Zealand",
-			"continent":"AustraliaContinent",
+			"continent":"Australasia",
 			"cc":7.3139014,					
 			"ac":27,
 			"ccPhys":2.800001,			
@@ -1181,7 +1181,7 @@
 	"year2011": [
 		{
 			"country":"USA",
-			"continent":"NAmerica",							
+			"continent":"North_America",							
 			"cc":1510.350031,				
 			"ac":2032,
 			"ccPhys":410.6802909,			
@@ -1272,7 +1272,7 @@
 			"acChem":22
 		},		{
 			"country":"Canada",
-			"continent":"NAmerica",							
+			"continent":"North_America",							
 			"cc":108.6627289,				
 			"ac":265,
 			"ccPhys":31.570818,				
@@ -1298,7 +1298,7 @@
 			"acChem":17
 		},		{
 			"country":"Australia",
-			"continent":"AustraliaContinent",						
+			"continent":"Australasia",						
 			"cc":64.62643532,				
 			"ac":172,
 			"ccPhys":17.237821,				
@@ -1506,7 +1506,7 @@
 			"acChem":1
 		},		{
 			"country":"Brazil",
-			"continent":"SAmerica",							
+			"continent":"South_America",							
 			"cc":3.7442175,					
 			"ac":28,
 			"ccPhys":2.366291,				
@@ -1532,7 +1532,7 @@
 			"acChem":0
 		},		{
 			"country":"New_Zealand",
-			"continent":"AustraliaContinent",
+			"continent":"Australasia",
 			"cc":5.303388,					
 			"ac":28,
 			"ccPhys":1.257367,				
@@ -1574,7 +1574,7 @@
 	"year2012": [
 		{
 			"country":"USA",
-			"continent":"NAmerica",
+			"continent":"North_America",
 			"cc":1638.92513629,
 			"ac":2236,
 			"ccPhys":471.5173651,			
@@ -1665,7 +1665,7 @@
 			"acChem":38
 		},		{
 			"country":"Canada",
-			"continent":"NAmerica",
+			"continent":"North_America",
 			"cc":82.37728621,
 			"ac":247,
 			"ccPhys":16.6262583,			
@@ -1691,7 +1691,7 @@
 			"acChem":27
 		},		{
 			"country":"Australia",
-			"continent":"AustraliaContinent",
+			"continent":"Australasia",
 			"cc":68.26359375,
 			"ac":223,
 			"ccPhys":18.3504863,			
@@ -1925,7 +1925,7 @@
 			"acChem":2
 		},		{
 			"country":"New_Zealand",
-			"continent":"AustraliaContinent",
+			"continent":"Australasia",
 			"cc":4.64025902,
 			"ac":24,
 			"ccPhys":0.1898506,				
