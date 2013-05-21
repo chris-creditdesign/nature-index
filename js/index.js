@@ -15,7 +15,6 @@ var displayArray = [];
 var yearArray = [];
 var checkArray = [];
 /*	Arrays used to build the country and continent checkboxes */
-var countryArray = [];
 var continentArray = [];
 var uniqueContinentArray = [];
 /*	Global variables to control field and count text in axis label */
@@ -48,7 +47,7 @@ function buildUIelements() {
 	// $( ".country-select" ).buttonset();
 };
 
-// Create custom checkboxes
+/* Create custom checkboxes */
 function setupLabel() {
 	var checkBox = ".checkbox";
 	var checkBoxInput = checkBox + " input[type='checkbox']";
@@ -64,6 +63,15 @@ function setupLabel() {
     };
 };
 
+/*	Function to sort data.year200X by country name */
+function compareCountry(a,b) {
+  if (a.country < b.country)
+     return -1;
+  if (a.country > b.country)
+    return 1;
+  return 0;
+}
+
 /*	Load in JSON data then call draw() */
 d3.json('data/ranking-country-global.json', draw);
 
@@ -73,12 +81,6 @@ function draw(data) {
 
 	/* store this number to use to create a staggered transition */
 	var numberOfBars = data.year2008.length;
-
-	/*	Create an array containing each country and then sort it into alphabetical order */
-	for (var i = 0; i < numberOfBars; i++) {
-		countryArray.push(data.year2008[i].country);
-	};
-
 
 	/*	Create an array containing each continent and the use $.each and $.inArray
 		to remove all duplicates. The result will be stored in uniqueContinentArray */
@@ -108,13 +110,13 @@ function draw(data) {
 	/* Create checkboxes for each country inside the country-select form */
 	d3.selectAll(".country-select")
 		.selectAll("label")
-		.data(countryArray.sort())
+		.data(data.year2008.sort(compareCountry))
 		.enter()
 		.append("label")
 		.attr("class", "checkbox")
 		.html(function (d) {
-			var countryString = d.replace(/_/g, ' ');
-    		return "<input type='checkbox' value='" + d + "' data-continent='" + d + "' checked>" + countryString;
+			var countryString = d.country.replace(/_/g, ' ');
+    		return "<input type='checkbox' value='" + d.country + "' data-continent='" + d.continent + "' checked>" + countryString;
 		});
 
 	/* Add a span containing the svg circle to replace the checkbox icon */
@@ -223,14 +225,16 @@ function draw(data) {
 		.rangeRoundBands([margin.left,(width + margin.right)], 0.1);
 
 	function updateContinent() {
-		console.log("updateContinent() is fireing!");
+		var thisContinent = $(this).val();
+		console.log(thisContinent);
 	}			
 
 	/*	function called copy the relevant year's data into the displayArray array
 		then add a property called choice that holds the relevant count and field value */
 	function updateDisplayArray() {
 
-		console.log("updateDisplayArray() is fireing!");
+		var thisContinent = $(this).data('continent');
+		console.log(thisContinent);
 
 		displayArray = [];
 		yearArray = [];
