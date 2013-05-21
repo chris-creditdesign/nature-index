@@ -3,7 +3,7 @@ var margin = {top: 20, right: 40, bottom: 70, left: 58};
 var width = 940  - margin.left - margin.right;
 var height = 400 - margin.top - margin.bottom;
 /*	Global variable to control the length of D3 transitons */
-var duration = 400;
+var duration = 250;
 /*	Global variable to hold the cc or ac choice */
 var count = "cc"
 /*	Global variable to hold the cc or ac choice */
@@ -393,7 +393,14 @@ function draw(data) {
 		/* Enter… */
 		bars.enter()
 			.append("rect")
+			.attr("x", function(d, i){
+				return xScale(i); 
+			})
+			.attr("width", xScale.rangeBand())
+			.attr("y", height + margin.top)
+			.attr("height", 0 )	
 			.transition()
+			.delay(duration)
 			.duration(duration)
 			.attr("x", function(d, i){
 				return xScale(i); 
@@ -412,6 +419,7 @@ function draw(data) {
 			})
 			.transition()
 			.duration(duration)
+			.delay(duration)
 			.attr("x", function(d, i){
 
 				return xScale(i); 
@@ -427,12 +435,26 @@ function draw(data) {
 		/*	Exit… */
 		bars.exit()
 			.transition()
-			.style("opacity", 0)
+			.duration(duration)
+			.attr("x", function(d, i){
+				return d3.select(this).attr("x"); 
+			})
+			.attr("width", function(d, i){
+				return d3.select(this).attr("width"); 
+			})
+			.attr("y", height + margin.top)
+			.attr("height", 0 )	
+			// .style("opacity", 0)
 			.remove();
+
+		/*	Possibly a good way to find out if bars are being added or subtracted
+			console.log(bars[0].length); */
 
 
 		var text = groups.selectAll("text")
-			.data(displayArray);
+				.data(displayArray, function(d, i) {
+					return d.country;
+				});
 
 		text.sort(function(a, b) {
 			return d3.descending(a.choice, b.choice);
@@ -440,7 +462,8 @@ function draw(data) {
 
 
 		/* Update…	*/
-		text.text(function(d) { return d.country; })
+		text.style("opacity", 0)
+			.text(function(d) { return d.country; })
 			.attr("y", 0)
 			.attr("x", function(d, i){
 				return xScale(i); 
@@ -453,12 +476,11 @@ function draw(data) {
 			.attr("y", 0)
 			.attr("x", function(d, i){
 				return xScale(i); 
-			});				
+			})
+			.style("opacity", 0);
 	
 		/* Exit… */
 		text.exit()
-			.transition()
-			.duration(duration)
 			.style("opacity", 0)
 			.remove();
 					
@@ -468,7 +490,11 @@ function draw(data) {
 			.attr("transform", function(d, i) {
 				return "translate(" + (xScale.rangeBand() / 2 ) + "," + 2 + "), rotate( 45 " + xScale(i) + " " + this.getBBox().y + ")";
 
-			});
+			})
+			.transition()
+			.delay(duration)
+			.duration(duration)
+			.style("opacity", 1)
 
 
 
