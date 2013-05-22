@@ -58,13 +58,13 @@
 .outer-wrapper form.country-select,
 .outer-wrapper form.continent-select {
 	float: left;
-	margin: 5px 0 10px 15px;
+	margin: 5px 0 10px 65px;
 }
 
 .outer-wrapper form.country-select label,
 .outer-wrapper form.continent-select label {
 	float: left; 
-	width: 85px; 
+	width: 120px; 
 	margin: 0 10px 0 0;
 	display: block;
 	cursor: pointer; 
@@ -86,7 +86,7 @@
 	}
 
 	.outer-wrapper .checkbox:hover {
-		color: #e67e22; 
+		color: #A0BEC5; 
 	}
 
 	.outer-wrapper .checkbox input[type="checkbox"] {
@@ -114,7 +114,7 @@
 	}
 
 	.outer-wrapper .checkbox.checked .icon .dots {
-		fill: #E67E22;
+		fill: #A0BEC5;
 	}
 
 	.outer-wrapper .checkbox .icon .dots {
@@ -187,7 +187,7 @@
     height: .8em;
 }
 .outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-handle {
-	background: #E67E22;
+	background: #A0BEC5;
     top: -.2em;
     margin-left: -.6em;
 	-moz-border-radius: 10px;
@@ -273,7 +273,7 @@
 
 
 .outer-wrapper .wrapper .ui-state-active {
-	background: #E67E22;
+	background: #A0BEC5;
 	color: #ECF0F1;
 }
 
@@ -332,7 +332,7 @@
 }
 
 .outer-wrapper .x.axis text {
-    font-size: 16px;	
+    font-size: 13px;	
 }
 
 .outer-wrapper .count-chart rect {

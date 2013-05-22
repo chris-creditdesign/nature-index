@@ -24,7 +24,7 @@ var addingBars = true;
 var displayCount = "Corrected count";
 var displayField = "All fields";
 /*	Colours for the bars */
-var allBars = "#E67E22";
+var allBars = "#A0BEC5";
 /*	A var to determine if the scale should be adjustedq */
 			
 /*	Create SVG element */
@@ -123,7 +123,7 @@ function draw(data) {
 		.attr("class", "checkbox")
 		.html(function (d) {
 			var countryString = d.country.replace(/_/g, ' ');
-    		return "<input type='checkbox' value='" + d.country + "' data-continent='" + d.continent + "' checked>" + countryString;
+    		return "<input type='checkbox' value='" + d.country + "' data-continent='" + d.continent + "' checked>" + countryString + " (" + d.countryCode + ")";
 		});
 
 	/* Add a span containing the svg circle to replace the checkbox icon */
