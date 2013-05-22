@@ -58,13 +58,13 @@
 .outer-wrapper form.country-select,
 .outer-wrapper form.continent-select {
 	float: left;
-	margin: 0 0 10px 0;
+	margin: 5px 0 10px 15px;
 }
 
 .outer-wrapper form.country-select label,
 .outer-wrapper form.continent-select label {
 	float: left; 
-	width: 90px; 
+	width: 85px; 
 	margin: 0 10px 0 0;
 	display: block;
 	cursor: pointer; 
