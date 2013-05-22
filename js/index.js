@@ -1,11 +1,11 @@
 /*	Margin, Width and height */
-var margin = {top: 20, right: 40, bottom: 70, left: 58};
+var margin = {top: 30, right: 40, bottom: 15, left: 58};
 var width = 940  - margin.left - margin.right;
-var height = 400 - margin.top - margin.bottom;
+var height = 350 - margin.top - margin.bottom;
 /*	Global variable to control the length of D3 transitons */
 var duration = 250;
 /*	Global variable to hold the cc or ac choice */
-var count = "cc"
+var count = "ac"
 /*	Global variable to hold the cc or ac choice */
 var field = "all"
 /*	Global variable to control which year to disylay */
@@ -287,6 +287,7 @@ function draw(data) {
 
 		for (var i = 0; i < checkArray.length; i++) {
 			checkArray[i].country = yearArray[i].country;
+			checkArray[i].countryCode = yearArray[i].countryCode;
 		};
 
 		if (count === "cc") {
@@ -412,19 +413,7 @@ function draw(data) {
 			})
 			.attr("width", xScale.rangeBand())
 			.attr("y", height + margin.top)
-			.attr("height", 0 )	
-			.transition()
-			.duration(duration)
-			.attr("x", function(d, i){
-				return xScale(i); 
-			})
-			.attr("width", xScale.rangeBand())
-			.attr("y", function(d){
-				return margin.top + yScale(d.choice); 
-			})
-			.attr("height", function(d){
-				return height - yScale(d.choice);
-			});			
+			.attr("height", 0 );	
 
 		/* 	Update… */
 		bars.sort(function(a, b) {
@@ -440,7 +429,6 @@ function draw(data) {
 				}
 			})
 			.attr("x", function(d, i){
-
 				return xScale(i); 
 			})
 			.attr("width", xScale.rangeBand())
@@ -468,11 +456,52 @@ function draw(data) {
 
 
 
-		// var text = groups.selectAll("text")
-		// 		.data(displayArray, function(d, i) {
-		// 			return d.country;
-		// 		});
+		var text = groups.selectAll("text")
+				.data(displayArray, function(d, i) {
+					return d.country;
+				});
 
+		/* Enter… */
+		text.enter()
+			.append("text")
+			.attr("x", function(d, i){
+				return xScale(i) + (xScale.rangeBand() / 2); 
+			})
+			.attr("y", function(d){
+				return height + margin.top;
+			})
+			.attr("text-anchor", "middle")
+			.text(function(d) { return d.countryCode; });
+
+		/* 	Update… */
+		text.sort(function(a, b) {
+			return d3.descending(a.choice, b.choice);
+			})
+			.transition()
+			.duration(duration)
+			.delay(function() {
+				if (!addingBars) {
+					return duration; 
+				} else {
+					return 0;
+				}
+			})
+			.attr("x", function(d, i){
+				return xScale(i) + (xScale.rangeBand() / 2); 
+			})
+			.attr("y", function(d){
+				return margin.top + yScale(d.choice) - 2; 
+			});
+
+		/*	Exit… */
+		text.exit()
+			.transition()
+			.duration(duration)
+			.attr("x", function(d, i){
+				return d3.select(this).attr("x"); 
+			})
+			.attr("y", height + margin.top)
+			.remove();
 
 
 

@@ -51,11 +51,11 @@
 <div class="wrapper field-wrapper">
 	<h2>Field</h2>
 	<form class="select-field">
+		<input type="radio" name="mode" id="all" value="all" checked><label for="all">All fields</label>
 		<input type="radio" name="mode" id="phys" value="phys"><label for="phys">Physics</label>
 		<input type="radio" name="mode" id="life" value="life"><label for="life">Life sciences</label>
 		<input type="radio" name="mode" id="earth" value="earth"><label for="earth">Earth sciences</label>
 		<input type="radio" name="mode" id="chem" value="chem"><label for="chem">Chemistry</label>
-		<input type="radio" name="mode" id="all" value="all" checked><label for="all">All fields</label>
 	</form>
 </div><!--class="field-wrapper"-->
 
@@ -82,8 +82,8 @@
 	<div class="wrapper count-wrapper">
 		<h2>Count</h2>
 		<form class="count-select">
-			<input type="radio" name="mode" id="cc" value="cc" checked><label for="cc"> Corrected count</label>
-			<input type="radio" name="mode" id="ac" value="ac"><label for="ac"> Article count</label>	
+			<input type="radio" name="mode" id="ac" value="ac" checked><label for="ac"> Article count</label>	
+			<input type="radio" name="mode" id="cc" value="cc"><label for="cc"> Corrected count</label>
 		</form>
 		<p>The corrected count is a score that takes into account the number of affiliated institutions per author and the percentage of authors per institution.</p>
 	</div><!--class="count-wrapper"-->

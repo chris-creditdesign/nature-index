@@ -27,7 +27,7 @@
 /* BARCHART */
 .outer-wrapper .count-chart {
     position: relative;
-	height: 400px;
+	height: 350px;
     width: 940px;
 }
 
@@ -329,6 +329,10 @@
     fill: #666;
     font-size: 13px;
     shape-rendering: crispEdges;
+}
+
+.outer-wrapper .x.axis text {
+    font-size: 16px;	
 }
 
 .outer-wrapper .count-chart rect {

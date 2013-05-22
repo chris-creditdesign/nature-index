@@ -1,7 +1,8 @@
 {
 	"year2008": [
 		{
-			"country":"USA",
+			"country":"United_States",
+			"countryCode":"US",
 			"continent":"North_America",					
 			"cc":1285.873383,	
 			"ac":1645,
@@ -14,7 +15,8 @@
 			"ccChem":68.1356452,		
 			"acChem":84
 		},		{
-			"country":"UK",
+			"country":"United_Kingdom",
+			"countryCode":"UK",
 			"continent":"Europe",						
 			"cc":221.2112013,	
 			"ac":451,
@@ -28,6 +30,7 @@
 			"acChem":20
 		},		{
 			"country":"Germany",
+			"countryCode":"DE",
 			"continent":"Europe",				
 			"cc":191.8621982,	
 			"ac":380,
@@ -41,6 +44,7 @@
 			"acChem":14
 		},		{
 			"country":"Japan",
+			"countryCode":"JP",
 			"continent":"Asia",					
 			"cc":156.5865389,	
 			"ac":242,
@@ -54,6 +58,7 @@
 			"acChem":8			
 		},		{
 			"country":"France",
+			"countryCode":"FR",
 			"continent":"Europe",					
 			"cc":107.2630804,	
 			"ac":224,
@@ -67,6 +72,7 @@
 			"acChem":12			
 		},		{
 			"country":"China",
+			"countryCode":"CN",
 			"continent":"Asia",					
 			"cc":37.3792416,	
 			"ac":89,
@@ -80,6 +86,7 @@
 			"acChem":8			
 		},		{
 			"country":"Switzerland",
+			"countryCode":"CH",
 			"continent":"Europe",			
 			"cc":57.70785971,	
 			"ac":137,
@@ -93,6 +100,7 @@
 			"acChem":5
 		},		{
 			"country":"Canada",
+			"countryCode":"CN",
 			"continent":"North_America",					
 			"cc":70.1354906,	
 			"ac":148,
@@ -106,6 +114,7 @@
 			"acChem":4			
 		},		{
 			"country":"Netherlands",
+			"countryCode":"NL",
 			"continent":"Europe",			
 			"cc":40.8232491,	
 			"ac":121,
@@ -119,6 +128,7 @@
 			"acChem":3			
 		},		{
 			"country":"Australia",
+			"countryCode":"AU",
 			"continent":"Australasia",				
 			"cc":35.7223883,	
 			"ac":94,
@@ -132,6 +142,7 @@
 			"acChem":4			
 		},		{
 			"country":"Spain",
+			"countryCode":"ES",
 			"continent":"Europe",					
 			"cc":27.2993689,	
 			"ac":77,
@@ -145,6 +156,7 @@
 			"acChem":3			
 		},		{
 			"country":"Italy",
+			"countryCode":"IT",
 			"continent":"Europe",					
 			"cc":41.5214699,	
 			"ac":115,
@@ -158,6 +170,7 @@
 			"acChem":8			
 		},		{
 			"country":"Korea",
+			"countryCode":"KR",
 			"continent":"Asia",					
 			"cc":16.0452811,	
 			"ac":36,
@@ -171,6 +184,7 @@
 			"acChem":4
 		},		{
 			"country":"Israel",
+			"countryCode":"IL",
 			"continent":"Asia",					
 			"cc":27.2436399,	
 			"ac":53,
@@ -184,6 +198,7 @@
 			"acChem":5
 		},		{
 			"country":"Belgium",
+			"countryCode":"BE",
 			"continent":"Europe",				
 			"cc":14.3786687,	
 			"ac":57,
@@ -197,6 +212,7 @@
 			"acChem":1			
 		},		{
 			"country":"Sweden",
+			"countryCode":"SE",
 			"continent":"Europe",					
 			"cc":25.0590731,	
 			"ac":94,
@@ -210,6 +226,7 @@
 			"acChem":3			
 		},		{
 			"country":"Austria",
+			"countryCode":"AT",
 			"continent":"Europe",				
 			"cc":21.6749691,	
 			"ac":48,
@@ -223,6 +240,7 @@
 			"acChem":1			
 		},		{
 			"country":"Denmark",
+			"countryCode":"DK",
 			"continent":"Europe",				
 			"cc":12.4245333,	
 			"ac":47,
@@ -236,6 +254,7 @@
 			"acChem":0			
 		},		{
 			"country":"Singapore",
+			"countryCode":"SG",
 			"continent":"Asia",				
 			"cc":8.8164016,		
 			"ac":21,
@@ -249,6 +268,7 @@
 			"acChem":1
 		},		{
 			"country":"Ireland",
+			"countryCode":"IE",
 			"continent":"Europe",				
 			"cc":2.5213226,		
 			"ac":15,
@@ -262,6 +282,7 @@
 			"acChem":0			
 		},		{
 			"country":"Taiwan",
+			"countryCode":"TW",
 			"continent":"Asia",					
 			"cc":6.0106435,		
 			"ac":16,
@@ -275,6 +296,7 @@
 			"acChem":1			
 		},		{
 			"country":"Norway",
+			"countryCode":"NO",
 			"continent":"Europe",					
 			"cc":5.2920367,		
 			"ac":19,
@@ -288,6 +310,7 @@
 			"acChem":2			
 		},		{
 			"country":"Finland",
+			"countryCode":"FI",
 			"continent":"Europe",				
 			"cc":7.38282397,	
 			"ac":32,
@@ -301,6 +324,7 @@
 			"acChem":1			
 		},		{
 			"country":"India",
+			"countryCode":"IN",
 			"continent":"Asia",					
 			"cc":5.1033496,		
 			"ac":13,
@@ -314,6 +338,7 @@
 			"acChem":1
 		},		{
 			"country":"Russia",
+			"countryCode":"RU",
 			"continent":"Asia",					
 			"cc":5.0073683,		
 			"ac":28,
@@ -327,6 +352,7 @@
 			"acChem":2
 		},		{
 			"country":"Brazil",
+			"countryCode":"BR",
 			"continent":"South_America",					
 			"cc":2.2173104,		
 			"ac":14,
@@ -340,6 +366,7 @@
 			"acChem":0		
 		},		{ 
 			"country":"Hungary",
+			"countryCode":"HU",
 			"continent":"Europe",				
 			"cc":2.3929951,		
 			"ac":16,
@@ -353,6 +380,7 @@
 			"acChem":1			
 		},		{
 			"country":"New_Zealand",
+			"countryCode":"NZ",
 			"continent":"Australasia",
 			"cc":4.142605,		
 			"ac":10,
@@ -366,6 +394,7 @@
 			"acChem":0		
 		},		{
 			"country":"Greece",
+			"countryCode":"GR",
 			"continent":"Europe",					
 			"cc":2.7680712,		
 			"ac":18,
@@ -379,6 +408,7 @@
 			"acChem":0		
 		},		{
 			"country":"Iceland",
+			"countryCode":"IS",
 			"continent":"Europe",				
 			"cc":7.87436538,	
 			"ac":15,
@@ -394,7 +424,8 @@
 		],
 	"year2009": [
 		{
-			"country":"USA",
+			"country":"United_States",
+			"countryCode":"US",
 			"continent":"North_America",						
 			"cc":1353.63151,		
 			"ac":1745,
@@ -407,7 +438,8 @@
 			"ccChem":104.6596238,				
 			"acChem":120
 		},		{
-			"country":"UK",
+			"country":"United_Kingdom",
+			"countryCode":"UK",
 			"continent":"Europe",							
 			"cc":207.1362461,		
 			"ac":430,
@@ -421,6 +453,7 @@
 			"acChem":30
 		},		{
 			"country":"Germany",
+			"countryCode":"DE",
 			"continent":"Europe",					
 			"cc":207.69633,			
 			"ac":431,
@@ -434,6 +467,7 @@
 			"acChem":22
 		},		{
 			"country":"Japan",
+			"countryCode":"JP",
 			"continent":"Asia",						
 			"cc":153.8270536,		
 			"ac":248,
@@ -447,6 +481,7 @@
 			"acChem":26			
 		},		{
 			"country":"France",
+			"countryCode":"FR",
 			"continent":"Europe",						
 			"cc":106.6963403,		
 			"ac":252,
@@ -460,6 +495,7 @@
 			"acChem":14			
 		},		{
 			"country":"China",
+			"countryCode":"CN",
 			"continent":"Asia",						
 			"cc":44.3037228,		
 			"ac":102,
@@ -473,6 +509,7 @@
 			"acChem":11			
 		},		{
 			"country":"Switzerland",
+			"countryCode":"CH",
 			"continent":"Europe",				
 			"cc":61.6505916,		
 			"ac":154,
@@ -486,6 +523,7 @@
 			"acChem":10			
 		},		{
 			"country":"Canada",
+			"countryCode":"CN",
 			"continent":"North_America",						
 			"cc":81.1440333,		
 			"ac":192,
@@ -499,6 +537,7 @@
 			"acChem":8			
 		},		{
 			"country":"Netherlands",
+			"countryCode":"NL",
 			"continent":"Europe",				
 			"cc":59.38428397,		
 			"ac":161,
@@ -512,6 +551,7 @@
 			"acChem":7		
 		},		{
 			"country":"Australia",
+			"countryCode":"AU",
 			"continent":"Australasia",					
 			"cc":42.5623116,		
 			"ac":106,
@@ -525,6 +565,7 @@
 			"acChem":3			
 		},		{
 			"country":"Spain",
+			"countryCode":"ES",
 			"continent":"Europe",						
 			"cc":35.37666096,		
 			"ac":108,
@@ -538,6 +579,7 @@
 			"acChem":8
 		},		{
 			"country":"Italy",
+			"countryCode":"IT",
 			"continent":"Europe",						
 			"cc":45.68908058,		
 			"ac":146,
@@ -551,6 +593,7 @@
 			"acChem":5			
 		},		{
 			"country":"Korea",
+			"countryCode":"KR",
 			"continent":"Asia",						
 			"cc":28.5604523,		
 			"ac":54,
@@ -564,6 +607,7 @@
 			"acChem":5			
 		},		{
 			"country":"Israel",
+			"countryCode":"IL",
 			"continent":"Asia",						
 			"cc":24.6901427,		
 			"ac":56,
@@ -577,6 +621,7 @@
 			"acChem":4
 		},		{
 			"country":"Belgium",
+			"countryCode":"BE",
 			"continent":"Europe",					
 			"cc":19.0126126,		
 			"ac":59,
@@ -590,6 +635,7 @@
 			"acChem":2			
 		},		{
 			"country":"Sweden",
+			"countryCode":"SE",
 			"continent":"Europe",						
 			"cc":22.81578641,		
 			"ac":87,
@@ -603,6 +649,7 @@
 			"acChem":3
 		},		{
 			"country":"Austria",
+			"countryCode":"AT",
 			"continent":"Europe",					
 			"cc":16.6875811,		
 			"ac":48,
@@ -616,6 +663,7 @@
 			"acChem":3
 		},		{
 			"country":"Denmark",
+			"countryCode":"DK",
 			"continent":"Europe",					
 			"cc":18.006068,			
 			"ac":53,
@@ -629,6 +677,7 @@
 			"acChem":4			
 		},		{
 			"country":"Singapore",
+			"countryCode":"SG",
 			"continent":"Asia",					
 			"cc":9.174614,			
 			"ac":29,
@@ -642,6 +691,7 @@
 			"acChem":4
 		},		{
 			"country":"Ireland",
+			"countryCode":"IE",
 			"continent":"Europe",					
 			"cc":3.76934205,		
 			"ac":24,
@@ -655,6 +705,7 @@
 			"acChem":0
 		},		{
 			"country":"Taiwan",
+			"countryCode":"TW",
 			"continent":"Asia",						
 			"cc":3.00191,			
 			"ac":16,
@@ -668,6 +719,7 @@
 			"acChem":1
 		},		{
 			"country":"Norway",
+			"countryCode":"NO",
 			"continent":"Europe",						
 			"cc":9.425463,			
 			"ac":30,
@@ -681,6 +733,7 @@
 			"acChem":0
 		},		{
 			"country":"Finland",
+			"countryCode":"FI",
 			"continent":"Europe",					
 			"cc":9.2152767,			
 			"ac":49,
@@ -694,6 +747,7 @@
 			"acChem":3
 		},		{
 			"country":"India",
+			"countryCode":"IN",
 			"continent":"Asia",
 			"cc":0,
 			"ac":0,
@@ -707,6 +761,7 @@
 			"acChem":2			
 		},		{
 			"country":"Russia",
+			"countryCode":"RU",
 			"continent":"Asia",						
 			"cc":4.3789831,			
 			"ac":31,
@@ -720,6 +775,7 @@
 			"acChem":2
 		},		{
 			"country":"Brazil",
+			"countryCode":"BR",
 			"continent":"South_America",						
 			"cc":2.8999466,			
 			"ac":16,
@@ -733,6 +789,7 @@
 			"acChem":0
 		},		{ 
 			"country":"Hungary",
+			"countryCode":"HU",
 			"continent":"Europe",					
 			"cc":2.6517171,			
 			"ac":15,
@@ -746,6 +803,7 @@
 			"acChem":1
 		},		{
 			"country":"New_Zealand",
+			"countryCode":"NZ",
 			"continent":"Australasia",
 			"cc":4.033374,			
 			"ac":14,
@@ -759,6 +817,7 @@
 			"acChem":0
 		},		{
 			"country":"Greece",
+			"countryCode":"GR",
 			"continent":"Europe",						
 			"cc":2.8772954,			
 			"ac":14,
@@ -772,6 +831,7 @@
 			"acChem":0
 		},		{
 			"country":"Iceland",
+			"countryCode":"IS",
 			"continent":"Europe",					
 			"cc":7.31796956,		
 			"ac":23,
@@ -787,7 +847,8 @@
 		],				
 	"year2010": [
 		{
-			"country":"USA",
+			"country":"United_States",
+			"countryCode":"US",
 			"continent":"North_America",								
 			"cc":1439.366796,				
 			"ac":1873,
@@ -800,7 +861,8 @@
 			"ccChem":182.91856,						
 			"acChem":216			
 		},		{
-			"country":"UK",
+			"country":"United_Kingdom",
+			"countryCode":"UK",
 			"continent":"Europe",									
 			"cc":240.3893865,				
 			"ac":506,		
@@ -814,6 +876,7 @@
 			"acChem":65
 		},		{
 			"country":"Germany",
+			"countryCode":"DE",
 			"continent":"Europe",							
 			"cc":234.9805097,				
 			"ac":494,
@@ -827,6 +890,7 @@
 			"acChem":65
 		},		{
 			"country":"Japan",
+			"countryCode":"JP",
 			"continent":"Asia",								
 			"cc":173.0053415,				
 			"ac":266,
@@ -840,6 +904,7 @@
 			"acChem":49			
 		},		{
 			"country":"France",
+			"countryCode":"FR",
 			"continent":"Europe",								
 			"cc":111.2185662,				
 			"ac":278,
@@ -853,6 +918,7 @@
 			"acChem":33			
 		},		{
 			"country":"China",
+			"countryCode":"CN",
 			"continent":"Asia",								
 			"cc":68.0822251,				
 			"ac":152,
@@ -866,6 +932,7 @@
 			"acChem":27			
 		},		{
 			"country":"Switzerland",
+			"countryCode":"CH",
 			"continent":"Europe",						
 			"cc":67.95784872,				
 			"ac":188,
@@ -879,6 +946,7 @@
 			"acChem":24			
 		},		{
 			"country":"Canada",
+			"countryCode":"CN",
 			"continent":"North_America",								
 			"cc":97.12343473,				
 			"ac":224,
@@ -892,6 +960,7 @@
 			"acChem":23			
 		},		{
 			"country":"Netherlands",
+			"countryCode":"NL",
 			"continent":"Europe",						
 			"cc":55.17997473,				
 			"ac":173,
@@ -905,6 +974,7 @@
 			"acChem":11		
 		},		{
 			"country":"Australia",
+			"countryCode":"AU",
 			"continent":"Australasia",							
 			"cc":39.62557205,				
 			"ac":129,
@@ -918,6 +988,7 @@
 			"acChem":12			
 		},		{
 			"country":"Spain",
+			"countryCode":"ES",
 			"continent":"Europe",								
 			"cc":40.16744672,				
 			"ac":141,
@@ -931,6 +1002,7 @@
 			"acChem":13			
 		},		{
 			"country":"Italy",
+			"countryCode":"IT",
 			"continent":"Europe",								
 			"cc":48.12317037,				
 			"ac":151,
@@ -944,6 +1016,7 @@
 			"acChem":11			
 		},		{
 			"country":"Korea",
+			"countryCode":"KR",
 			"continent":"Asia",								
 			"cc":24.80326409,				
 			"ac":69,
@@ -957,6 +1030,7 @@
 			"acChem":9
 		},		{
 			"country":"Israel",
+			"countryCode":"IL",
 			"continent":"Asia",								
 			"cc":25.3092474,				
 			"ac":65,
@@ -970,6 +1044,7 @@
 			"acChem":4			
 		},		{
 			"country":"Belgium",
+			"countryCode":"BE",
 			"continent":"Europe",							
 			"cc":18.5620893,				
 			"ac":66,
@@ -983,6 +1058,7 @@
 			"acChem":5
 		},		{
 			"country":"Sweden",
+			"countryCode":"SE",
 			"continent":"Europe",								
 			"cc":23.79005261,				
 			"ac":90,
@@ -996,6 +1072,7 @@
 			"acChem":5			
 		},		{
 			"country":"Austria",
+			"countryCode":"AT",
 			"continent":"Europe",							
 			"cc":19.62623795,				
 			"ac":69,
@@ -1009,6 +1086,7 @@
 			"acChem":4			
 		},		{
 			"country":"Denmark",
+			"countryCode":"DK",
 			"continent":"Europe",							
 			"cc":20.68735699,				
 			"ac":82,
@@ -1022,6 +1100,7 @@
 			"acChem":4			
 		},		{
 			"country":"Singapore",
+			"countryCode":"SG",
 			"continent":"Asia",							
 			"cc":11.2626457,				
 			"ac":44,
@@ -1035,6 +1114,7 @@
 			"acChem":4
 		},		{
 			"country":"Ireland",
+			"countryCode":"IE",
 			"continent":"Europe",							
 			"cc":7.28617099,				
 			"ac":28,
@@ -1048,6 +1128,7 @@
 			"acChem":2			
 		},		{
 			"country":"Taiwan",
+			"countryCode":"TW",
 			"continent":"Asia",								
 			"cc":2.934963,					
 			"ac":17,
@@ -1061,6 +1142,7 @@
 			"acChem":2			
 		},		{
 			"country":"Norway",
+			"countryCode":"NO",
 			"continent":"Europe",								
 			"cc":6.41524985,				
 			"ac":29,
@@ -1074,6 +1156,7 @@
 			"acChem":3			
 		},		{
 			"country":"Finland",
+			"countryCode":"FI",
 			"continent":"Europe",							
 			"cc":9.413501928,				
 			"ac":60,
@@ -1087,6 +1170,7 @@
 			"acChem":3			
 		},		{
 			"country":"India",
+			"countryCode":"IN",
 			"continent":"Asia",								
 			"cc":1.22214367,				
 			"ac":10,
@@ -1100,6 +1184,7 @@
 			"acChem":2
 		},		{
 			"country":"Russia",
+			"countryCode":"RU",
 			"continent":"Asia",								
 			"cc":5.399872,					
 			"ac":27,
@@ -1113,6 +1198,7 @@
 			"acChem":6			
 		},		{
 			"country":"Brazil",
+			"countryCode":"BR",
 			"continent":"South_America",								
 			"cc":2.584821,					
 			"ac":16,
@@ -1126,6 +1212,7 @@
 			"acChem":0
 		},		{ 
 			"country":"Hungary",
+			"countryCode":"HU",
 			"continent":"Europe",							
 			"cc":2.0527205,					
 			"ac":16,
@@ -1139,6 +1226,7 @@
 			"acChem":0
 		},		{
 			"country":"New_Zealand",
+			"countryCode":"NZ",
 			"continent":"Australasia",
 			"cc":7.3139014,					
 			"ac":27,
@@ -1152,6 +1240,7 @@
 			"acChem":1
 		},		{
 			"country":"Greece",
+			"countryCode":"GR",
 			"continent":"Europe",								
 			"cc":0.514621,					
 			"ac":13,
@@ -1165,6 +1254,7 @@
 			"acChem":0
 		},		{
 			"country":"Iceland",
+			"countryCode":"IS",
 			"continent":"Europe",							
 			"cc":5.10276168,				
 			"ac":27,
@@ -1180,7 +1270,8 @@
 		],				
 	"year2011": [
 		{
-			"country":"USA",
+			"country":"United_States",
+			"countryCode":"US",
 			"continent":"North_America",							
 			"cc":1510.350031,				
 			"ac":2032,
@@ -1193,7 +1284,8 @@
 			"ccChem":219.070207,		
 			"acChem":279
 		},		{
-			"country":"UK",
+			"country":"United_Kingdom",
+			"countryCode":"UK",
 			"continent":"Europe",								
 			"cc":284.2192034,				
 			"ac":576,
@@ -1207,6 +1299,7 @@
 			"acChem":79
 		},		{
 			"country":"Germany",
+			"countryCode":"DE",
 			"continent":"Europe",						
 			"cc":252.3012712,				
 			"ac":539,
@@ -1220,6 +1313,7 @@
 			"acChem":67
 		},		{
 			"country":"Japan",
+			"countryCode":"JP",
 			"continent":"Asia",							
 			"cc":216.59796,					
 			"ac":362,
@@ -1233,6 +1327,7 @@
 			"acChem":68
 		},		{
 			"country":"France",
+			"countryCode":"FR",
 			"continent":"Europe",							
 			"cc":128.3729659,				
 			"ac":308,
@@ -1246,6 +1341,7 @@
 			"acChem":29
 		},		{
 			"country":"China",
+			"countryCode":"CN",
 			"continent":"Asia",							
 			"cc":110.0374706,				
 			"ac":225,
@@ -1259,6 +1355,7 @@
 			"acChem":47
 		},		{
 			"country":"Switzerland",
+			"countryCode":"CH",
 			"continent":"Europe",					
 			"cc":84.3094725,				
 			"ac":203,
@@ -1272,6 +1369,7 @@
 			"acChem":22
 		},		{
 			"country":"Canada",
+			"countryCode":"CN",
 			"continent":"North_America",							
 			"cc":108.6627289,				
 			"ac":265,
@@ -1285,6 +1383,7 @@
 			"acChem":28
 		},		{
 			"country":"Netherlands",
+			"countryCode":"NL",
 			"continent":"Europe",					
 			"cc":63.89200396,				
 			"ac":190,
@@ -1298,6 +1397,7 @@
 			"acChem":17
 		},		{
 			"country":"Australia",
+			"countryCode":"AU",
 			"continent":"Australasia",						
 			"cc":64.62643532,				
 			"ac":172,
@@ -1311,6 +1411,7 @@
 			"acChem":16
 		},		{
 			"country":"Spain",
+			"countryCode":"ES",
 			"continent":"Europe",							
 			"cc":54.61603402,				
 			"ac":170,
@@ -1324,6 +1425,7 @@
 			"acChem":19
 		},		{
 			"country":"Italy",
+			"countryCode":"IT",
 			"continent":"Europe",							
 			"cc":51.33750017,				
 			"ac":171,
@@ -1337,6 +1439,7 @@
 			"acChem":10
 		},		{
 			"country":"Korea",
+			"countryCode":"KR",
 			"continent":"Asia",							
 			"cc":41.005119,					
 			"ac":92,
@@ -1350,6 +1453,7 @@
 			"acChem":20
 		},		{
 			"country":"Israel",
+			"countryCode":"IL",
 			"continent":"Asia",							
 			"cc":29.59600202,				
 			"ac":75,
@@ -1363,6 +1467,7 @@
 			"acChem":7
 		},		{
 			"country":"Belgium",
+			"countryCode":"BE",
 			"continent":"Europe",						
 			"cc":23.66445005,				
 			"ac":92,
@@ -1376,6 +1481,7 @@
 			"acChem":8
 		},		{
 			"country":"Sweden",
+			"countryCode":"SE",
 			"continent":"Europe",							
 			"cc":23.85587884,				
 			"ac":102,
@@ -1389,6 +1495,7 @@
 			"acChem":10
 		},		{
 			"country":"Austria",
+			"countryCode":"AT",
 			"continent":"Europe",						
 			"cc":27.29111801,				
 			"ac":86,
@@ -1402,6 +1509,7 @@
 			"acChem":12
 		},		{
 			"country":"Denmark",
+			"countryCode":"DK",
 			"continent":"Europe",						
 			"cc":20.79774993,				
 			"ac":80,
@@ -1415,6 +1523,7 @@
 			"acChem":8
 		},		{
 			"country":"Singapore",
+			"countryCode":"SG",
 			"continent":"Asia",						
 			"cc":13.48785303,				
 			"ac":53,
@@ -1428,6 +1537,7 @@
 			"acChem":3
 		},		{
 			"country":"Ireland",
+			"countryCode":"IE",
 			"continent":"Europe",						
 			"cc":3.149395,					
 			"ac":26,
@@ -1441,6 +1551,7 @@
 			"acChem":4
 		},		{
 			"country":"Taiwan",
+			"countryCode":"TW",
 			"continent":"Asia",							
 			"cc":9.6843193,					
 			"ac":26,
@@ -1454,6 +1565,7 @@
 			"acChem":5
 		},		{
 			"country":"Norway",
+			"countryCode":"NO",
 			"continent":"Europe",							
 			"cc":9.266718,					
 			"ac":46,
@@ -1467,6 +1579,7 @@
 			"acChem":2
 		},		{
 			"country":"Finland",
+			"countryCode":"FI",
 			"continent":"Europe",						
 			"cc":10.98450604,				
 			"ac":54,
@@ -1480,6 +1593,7 @@
 			"acChem":4
 		},		{
 			"country":"India",
+			"countryCode":"IN",
 			"continent":"Asia",							
 			"cc":8.534637,					
 			"ac":30,
@@ -1493,6 +1607,7 @@
 			"acChem":6
 		},		{
 			"country":"Russia",
+			"countryCode":"RU",
 			"continent":"Asia",							
 			"cc":4.118015,					
 			"ac":30,
@@ -1506,6 +1621,7 @@
 			"acChem":1
 		},		{
 			"country":"Brazil",
+			"countryCode":"BR",
 			"continent":"South_America",							
 			"cc":3.7442175,					
 			"ac":28,
@@ -1519,6 +1635,7 @@
 			"acChem":0
 		},		{ 
 			"country":"Hungary",
+			"countryCode":"HU",
 			"continent":"Europe",						
 			"cc":1.238781,					
 			"ac":14,
@@ -1532,6 +1649,7 @@
 			"acChem":0
 		},		{
 			"country":"New_Zealand",
+			"countryCode":"NZ",
 			"continent":"Australasia",
 			"cc":5.303388,					
 			"ac":28,
@@ -1545,6 +1663,7 @@
 			"acChem":1
 		},		{
 			"country":"Greece",
+			"countryCode":"GR",
 			"continent":"Europe",							
 			"cc":3.01147906,				
 			"ac":23,
@@ -1558,6 +1677,7 @@
 			"acChem":2
 		},		{
 			"country":"Iceland",
+			"countryCode":"IS",
 			"continent":"Europe",						
 			"cc":4.42700274,				
 			"ac":20,
@@ -1573,7 +1693,8 @@
 		],				
 	"year2012": [
 		{
-			"country":"USA",
+			"country":"United_States",
+			"countryCode":"US",
 			"continent":"North_America",
 			"cc":1638.92513629,
 			"ac":2236,
@@ -1586,7 +1707,8 @@
 			"ccChem":262.0092947,				
 			"acChem":336
 		},		{
-			"country":"UK",
+			"country":"United_Kingdom",
+			"countryCode":"UK",
 			"continent":"Europe",
 			"cc":303.34250477,
 			"ac":677,
@@ -1600,6 +1722,7 @@
 			"acChem":83
 		},		{
 			"country":"Germany",
+			"countryCode":"DE",
 			"continent":"Europe",
 			"cc":277.812351221,
 			"ac":594,
@@ -1613,6 +1736,7 @@
 			"acChem":81
 		},		{
 			"country":"Japan",
+			"countryCode":"JP",
 			"continent":"Asia",
 			"cc":234.39538755,
 			"ac":398,
@@ -1626,6 +1750,7 @@
 			"acChem":80
 		},		{
 			"country":"France",
+			"countryCode":"FR",
 			"continent":"Europe",
 			"cc":151.65295873,
 			"ac":383,
@@ -1639,6 +1764,7 @@
 			"acChem":46
 		},		{
 			"country":"China",
+			"countryCode":"CN",
 			"continent":"Asia",
 			"cc":150.02839994,
 			"ac":303,
@@ -1652,6 +1778,7 @@
 			"acChem":52
 		},		{
 			"country":"Switzerland",
+			"countryCode":"CH",
 			"continent":"Europe",
 			"cc":109.12767945,
 			"ac":259,
@@ -1665,6 +1792,7 @@
 			"acChem":38
 		},		{
 			"country":"Canada",
+			"countryCode":"CN",
 			"continent":"North_America",
 			"cc":82.37728621,
 			"ac":247,
@@ -1678,6 +1806,7 @@
 			"acChem":24
 		},		{
 			"country":"Netherlands",
+			"countryCode":"NL",
 			"continent":"Europe",
 			"cc":74.0740374,
 			"ac":230,
@@ -1691,6 +1820,7 @@
 			"acChem":27
 		},		{
 			"country":"Australia",
+			"countryCode":"AU",
 			"continent":"Australasia",
 			"cc":68.26359375,
 			"ac":223,
@@ -1704,6 +1834,7 @@
 			"acChem":19
 		},		{
 			"country":"Spain",
+			"countryCode":"ES",
 			"continent":"Europe",
 			"cc":57.20728376,
 			"ac":175,
@@ -1717,6 +1848,7 @@
 			"acChem":18
 		},		{
 			"country":"Italy",
+			"countryCode":"IT",
 			"continent":"Europe",
 			"cc":56.82360206,
 			"ac":195,
@@ -1730,6 +1862,7 @@
 			"acChem":20
 		},		{
 			"country":"Korea",
+			"countryCode":"KR",
 			"continent":"Asia",
 			"cc":40.82214958,
 			"ac":112,
@@ -1743,6 +1876,7 @@
 			"acChem":33
 		},		{
 			"country":"Israel",
+			"countryCode":"IL",
 			"continent":"Asia",
 			"cc":38.07505731,
 			"ac":81,
@@ -1756,6 +1890,7 @@
 			"acChem":9
 		},		{
 			"country":"Belgium",
+			"countryCode":"BE",
 			"continent":"Europe",
 			"cc":32.47625951,
 			"ac":113,
@@ -1769,6 +1904,7 @@
 			"acChem":10
 		},		{
 			"country":"Sweden",
+			"countryCode":"SE",
 			"continent":"Europe",
 			"cc":30.77088456,
 			"ac":125,
@@ -1782,6 +1918,7 @@
 			"acChem":17
 		},		{
 			"country":"Austria",
+			"countryCode":"AT",
 			"continent":"Europe",
 			"cc":29.02784469,
 			"ac":85,
@@ -1795,6 +1932,7 @@
 			"acChem":6
 		},		{
 			"country":"Denmark",
+			"countryCode":"DK",
 			"continent":"Europe",
 			"cc":26.58846474,
 			"ac":99,
@@ -1808,6 +1946,7 @@
 			"acChem":6
 		},		{
 			"country":"Singapore",
+			"countryCode":"SG",
 			"continent":"Asia",
 			"cc":21.19009274,
 			"ac":71,
@@ -1821,6 +1960,7 @@
 			"acChem":7			
 		},		{
 			"country":"Ireland",
+			"countryCode":"IE",
 			"continent":"Europe",
 			"cc":14.04646183,
 			"ac":45,
@@ -1834,6 +1974,7 @@
 			"acChem":7
 		},		{
 			"country":"Taiwan",
+			"countryCode":"TW",
 			"continent":"Asia",
 			"cc":11.68194267,
 			"ac":38,
@@ -1847,6 +1988,7 @@
 			"acChem":10
 		},		{
 			"country":"Norway",
+			"countryCode":"NO",
 			"continent":"Europe",
 			"cc":10.36429083,
 			"ac":50,
@@ -1860,6 +2002,7 @@
 			"acChem":5
 		},		{
 			"country":"Finland",
+			"countryCode":"FI",
 			"continent":"Europe",
 			"cc":10.11790618,
 			"ac":51,
@@ -1873,6 +2016,7 @@
 			"acChem":4
 		},		{
 			"country":"India",
+			"countryCode":"IN",
 			"continent":"Asia",
 			"cc":8.2401518,
 			"ac":25,
@@ -1886,6 +2030,7 @@
 			"acChem":2
 		},		{
 			"country":"Russia",
+			"countryCode":"RU",
 			"continent":"Asia",
 			"cc":6.92811773,
 			"ac":41,
@@ -1899,6 +2044,7 @@
 			"acChem":7
 		},		{
 			"country":"Brazil",
+			"countryCode":"BR",
 			"continent":"SAmerica",
 			"cc":5.71450036,
 			"ac":39,
@@ -1912,6 +2058,7 @@
 			"acChem":1
 		},		{ 
 			"country":"Hungary",
+			"countryCode":"HU",
 			"continent":"Europe",
 			"cc":5.6498777,
 			"ac":18,
@@ -1925,6 +2072,7 @@
 			"acChem":2
 		},		{
 			"country":"New_Zealand",
+			"countryCode":"NZ",
 			"continent":"Australasia",
 			"cc":4.64025902,
 			"ac":24,
@@ -1938,6 +2086,7 @@
 			"acChem":2
 		},		{
 			"country":"Greece",
+			"countryCode":"GR",
 			"continent":"Europe",
 			"cc":4.21568594,
 			"ac":25,
@@ -1951,6 +2100,7 @@
 			"acChem":2
 		},		{
 			"country":"Iceland",
+			"countryCode":"IS",
 			"continent":"Europe",
 			"cc":4.1452498,
 			"ac":25,
