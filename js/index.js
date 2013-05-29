@@ -16,7 +16,7 @@ var yearArray = [];
 var checkArray = [];
 /*	Arrays used to build the country and continent checkboxes */
 var continentArray = [];
-var uniqueContinentArray = [];
+var uniqueContinentArray = ["All"];
 
 var totalBarArray = [];
 var addingBars = true;
@@ -40,14 +40,12 @@ var blocks = svg.append("g")
 /* Add a group for each row the text */
 var groups = svg.append("g")
 	.attr("class", "x axis")
-	// .attr("transform", "translate(" + 0 + "," + (height + margin.top + 15) + ")");
 
 /* Create JqueryUI buttons */
 function buildUIelements() {
 	$( "#check" ).button();
 	$( ".count-select" ).buttonset();
 	$( ".select-field" ).buttonset();
-	// $( ".country-select" ).buttonset();
 };
 
 /* Create custom checkboxes */
@@ -129,10 +127,6 @@ function draw(data) {
 	/* Add a span containing the svg circle to replace the checkbox icon */
 	$(".checkbox").prepend("<span class='icon'>	<svg height='20' width='20'><circle cx='10' cy='10' r='10' class='dots'></circle><polygon fill='#ECF0F1' points='8.163,11.837 6.062,9.737 3.963,11.837 6.062,13.938 8.163,16.037 16.037,8.162 13.938,6.062'/></svg></span>");
 
-	$(".checkbox").click(function(){
-		setupLabel();
-	});
-
 	/* Two jqueryUI functions to build the year and field sliders */
 	function makeYearSlider () {
 		var select = $( ".select-year" );
@@ -188,7 +182,7 @@ function draw(data) {
 	/*	Call updateDisplayArray() when one of the country checkboxes is clicked */
 	d3.selectAll(".country-select input").on("change", updateDisplayArray);
 
-	/*	Call updateContinent() when one of the checkboxes is clicked */
+	/*	Call updateContinent() when one of the continent checkboxes is clicked */
 	d3.selectAll(".continent-select input").on("change", updateContinent);	
 
 	/*	Set up bars - one for each country in the chosen year */
@@ -248,7 +242,6 @@ function draw(data) {
 		};
 
 		updateDisplayArray();
-		setupLabel();
 	}			
 
 	/*	function called copy the relevant year's data into the displayArray array
@@ -368,6 +361,7 @@ function draw(data) {
 
 		updateBars();
 		updateHeader();
+		setupLabel();
 	}
 
 
