@@ -229,17 +229,23 @@ function draw(data) {
 	function updateContinent() {
 		var thisContinent = $(this).val();
 
-		/*	Loop through the countries if the data attribute for continent matches the
-			value of the continent check box then make its propenty "checked" match the 
-			continent checkbox calling the function i.e. turn it on or off */
-		for (var i = 0; i < $(".country-select input").length; i++) {
-			var checkBoxes = $(".country-select input").eq(i);
+		if ( thisContinent === "All" ) {
+			$(".continent-select input").prop("checked", $(this).prop("checked"));
+			$(".country-select input").prop("checked", $(this).prop("checked"));
+		} else {
+			/*	Loop through the countries if the data attribute for continent matches the
+				value of the continent check box then make its propenty "checked" match the 
+				continent checkbox calling the function i.e. turn it on or off */
+			for (var i = 0; i < $(".country-select input").length; i++) {
+				var checkBoxes = $(".country-select input").eq(i);
 
-			if (thisContinent === checkBoxes.data('continent') ) {
-				checkBoxes.prop("checked", $(this).prop("checked"));
-			}
-			
-		};
+				if (thisContinent === checkBoxes.data('continent') ) {
+					checkBoxes.prop("checked", $(this).prop("checked"));
+				}
+				
+			};
+		}
+
 
 		updateDisplayArray();
 	}			
