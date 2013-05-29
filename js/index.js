@@ -127,7 +127,7 @@ function draw(data) {
 		});
 
 	/* Add a span containing the svg circle to replace the checkbox icon */
-	$(".checkbox").prepend("<span class='icon'>	<svg height='20' width='20'><circle cx='10' cy='10' r='10' class='dots'></circle></svg></span>");
+	$(".checkbox").prepend("<span class='icon'>	<svg height='20' width='20'><circle cx='10' cy='10' r='10' class='dots'></circle><polygon fill='#ECF0F1' points='8.163,11.837 6.062,9.737 3.963,11.837 6.062,13.938 8.163,16.037 16.037,8.162 13.938,6.062'/></svg></span>");
 
 	$(".checkbox").click(function(){
 		setupLabel();
