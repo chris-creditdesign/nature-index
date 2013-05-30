@@ -113,10 +113,6 @@ function draw(data) {
 	d3.selectAll(".country-select")
 		.selectAll("label")
 		.data(data.year2008.slice(0).sort(compareCountry))
-		// .data(function() {
-		// 	var countryArray = data.year2008.slice(0);
-		// 	return countryArray.sort(compareCountry);
-		// })
 		.enter()
 		.append("label")
 		.attr("class", "checkbox")
@@ -366,6 +362,11 @@ function draw(data) {
 			}
 		};
 
+		/* The sort function */
+		displayArray.sort(function(a, b) {
+			return d3.descending(a.choice, b.choice);
+			})
+
 		updateBars();
 		updateHeader();
 		setupLabel();
@@ -375,14 +376,7 @@ function draw(data) {
 	/* Transition the height of the bars to the ac or the cc value */
 	function updateBars() {
 
-		console.log(data);
-
 		yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
-
-		// The sort function
-		// .sort(function(a, b) {
-		// 	return d3.descending(a.choice, b.choice);
-		// 	})
 
 		/*	Make sure that the bars don't get too fat by keeping the xScale range above 5 */
 		if (displayArray.length > 5) {
