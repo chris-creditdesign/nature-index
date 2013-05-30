@@ -3,7 +3,7 @@ var margin = {top: 30, right: 40, bottom: 15, left: 58};
 var width = 940  - margin.left - margin.right;
 var height = 350 - margin.top - margin.bottom;
 /*	Global variable to control the length of D3 transitons */
-var duration = 250;
+var duration = 500;
 /*	Global variable to hold the cc or ac choice */
 var count = "ac"
 /*	Global variable to hold the cc or ac choice */
@@ -362,7 +362,7 @@ function draw(data) {
 			}
 		};
 
-		/* The sort function */
+		/* Sort displayArray into the descending order */
 		displayArray.sort(function(a, b) {
 			return d3.descending(a.choice, b.choice);
 			})
@@ -412,7 +412,8 @@ function draw(data) {
 			})
 			.attr("width", xScale.rangeBand())
 			.attr("y", height + margin.top)
-			.attr("height", 0 );	
+			.attr("height", 0 )
+			.attr("opacity",0.8);
 
 		/* 	Update… */
 		bars.transition()
@@ -533,14 +534,14 @@ function draw(data) {
 				d3.select(".tooltip")
 					.classed("hidden", false)
 					.transition()
-					.duration(duration)
+					.duration(duration/2)
 					.style("opacity", 1);
 			})
 			.on("mouseout", function() {
 				/* Hide the tooltip */
 				d3.select(".tooltip")
 					.transition()
-					.duration(duration)
+					.duration(duration/2)
 					.style("opacity", 0)
 					.each("end", function() {
 						d3.select(".tooltip").classed("hidden", true);
