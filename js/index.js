@@ -3,7 +3,7 @@ var margin = {top: 30, right: 40, bottom: 15, left: 58};
 var width = 940  - margin.left - margin.right;
 var height = 350 - margin.top - margin.bottom;
 /*	Global variable to control the length of D3 transitons */
-var duration = 1000;
+var duration = 250;
 /*	Global variable to hold the cc or ac choice */
 var count = "ac"
 /*	Global variable to hold the cc or ac choice */
@@ -86,7 +86,6 @@ function draw(data) {
 
 	totalBarArray.push(numberOfBars);
 
-
 	/*	Create an array containing each continent and the use $.each and $.inArray
 		to remove all duplicates. The result will be stored in uniqueContinentArray */
 	continentArray = data.year2008.map(function(d) { return d.continent; });
@@ -113,7 +112,11 @@ function draw(data) {
 	/* Create checkboxes for each country inside the country-select form */
 	d3.selectAll(".country-select")
 		.selectAll("label")
-		.data(data.year2008.sort(compareCountry))
+		.data(data.year2008.slice(0).sort(compareCountry))
+		// .data(function() {
+		// 	var countryArray = data.year2008.slice(0);
+		// 	return countryArray.sort(compareCountry);
+		// })
 		.enter()
 		.append("label")
 		.attr("class", "checkbox")
@@ -372,10 +375,14 @@ function draw(data) {
 	/* Transition the height of the bars to the ac or the cc value */
 	function updateBars() {
 
-
+		console.log(data);
 
 		yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
 
+		// The sort function
+		// .sort(function(a, b) {
+		// 	return d3.descending(a.choice, b.choice);
+		// 	})
 
 		/*	Make sure that the bars don't get too fat by keeping the xScale range above 5 */
 		if (displayArray.length > 5) {
@@ -406,9 +413,6 @@ function draw(data) {
 		/* Enter… */
 		bars.enter()
 			.append("rect")
-			// .sort(function(a, b) {
-			// 	return d3.descending(a.choice, b.choice);
-			// })
 			.attr("x", function(d, i){
 				return xScale(i); 
 			})
@@ -417,10 +421,7 @@ function draw(data) {
 			.attr("height", 0 );	
 
 		/* 	Update… */
-		bars.sort(function(a, b) {
-				return d3.descending(a.choice, b.choice);
-			})
-			.transition()
+		bars.transition()
 			.duration(duration)
 			.delay(function() {
 				if (!addingBars) {
@@ -465,9 +466,6 @@ function draw(data) {
 		/* Enter… */
 		text.enter()
 			.append("text")
-			// .sort(function(a, b) {
-			// 	return d3.descending(a.choice, b.choice);
-			// })
 			.attr("x", function(d, i){
 				return xScale(i) + (xScale.rangeBand() / 2); 
 			})
@@ -478,10 +476,7 @@ function draw(data) {
 			.text(function(d) { return d.countryCode; });
 
 		/* 	Update… */
-		text.sort(function(a, b) {
-			return d3.descending(a.choice, b.choice);
-			})
-			.transition()
+		text.transition()
 			.duration(duration)
 			.delay(function() {
 				if (!addingBars) {
