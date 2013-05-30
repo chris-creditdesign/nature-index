@@ -3,7 +3,7 @@ var margin = {top: 30, right: 40, bottom: 15, left: 58};
 var width = 940  - margin.left - margin.right;
 var height = 350 - margin.top - margin.bottom;
 /*	Global variable to control the length of D3 transitons */
-var duration = 250;
+var duration = 1000;
 /*	Global variable to hold the cc or ac choice */
 var count = "ac"
 /*	Global variable to hold the cc or ac choice */
@@ -89,9 +89,7 @@ function draw(data) {
 
 	/*	Create an array containing each continent and the use $.each and $.inArray
 		to remove all duplicates. The result will be stored in uniqueContinentArray */
-	for (var i = 0; i < numberOfBars; i++) {
-		continentArray.push(data.year2008[i].continent);
-	};
+	continentArray = data.year2008.map(function(d) { return d.continent; });
 
 	$.each(continentArray, function(i, el){
 		if($.inArray(el, uniqueContinentArray) === -1) {
@@ -408,6 +406,9 @@ function draw(data) {
 		/* Enter… */
 		bars.enter()
 			.append("rect")
+			// .sort(function(a, b) {
+			// 	return d3.descending(a.choice, b.choice);
+			// })
 			.attr("x", function(d, i){
 				return xScale(i); 
 			})
@@ -417,7 +418,7 @@ function draw(data) {
 
 		/* 	Update… */
 		bars.sort(function(a, b) {
-			return d3.descending(a.choice, b.choice);
+				return d3.descending(a.choice, b.choice);
 			})
 			.transition()
 			.duration(duration)
@@ -464,6 +465,9 @@ function draw(data) {
 		/* Enter… */
 		text.enter()
 			.append("text")
+			// .sort(function(a, b) {
+			// 	return d3.descending(a.choice, b.choice);
+			// })
 			.attr("x", function(d, i){
 				return xScale(i) + (xScale.rangeBand() / 2); 
 			})
