@@ -25,7 +25,8 @@ var addingBars = true;
 var displayCount = "Corrected count";
 var displayField = "All fields";
 /*	Colours for the bars */
-var allBars = ["#f1c40f","#e67e22","#e74c3c","#2980b9","#8e44ad"];
+// var allBars = ["#f1c40f","#e67e22","#e74c3c","#2980b9","#8e44ad"];
+var allBars = ["#1abc9c","#27ae60","#3498db","#5959b7","#34495e"];
 			
 /*	Create SVG element */
 var svg = d3.select(".count-chart")

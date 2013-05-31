@@ -5,7 +5,7 @@
 }
 
 .outer-wrapper {
-	height: 900px;
+	height: 1000px;
 	display: none;
 }
 
@@ -124,27 +124,27 @@
 	}
 
 	.outer-wrapper .checkbox.checked .icon .dots.Australasia {
-		fill: #f1c40f;
+		fill: #1abc9c;
 		opacity: 0.8;
 	}
 
 	.outer-wrapper .checkbox.checked .icon .dots.North_America {
-		fill: #e67e22;
+		fill: #27ae60;
 		opacity: 0.8;
 	}
 
 	.outer-wrapper .checkbox.checked .icon .dots.Asia {
-		fill: #e74c3c;
+		fill: #3498db;
 		opacity: 0.8;
 	}
 
 	.outer-wrapper .checkbox.checked .icon .dots.Europe {
-		fill: #2980b9;
+		fill: #5959b7;
 		opacity: 0.8;
 	}	
 
 	.outer-wrapper .checkbox.checked .icon .dots.South_America {
-		fill: #8e44ad;
+		fill: #34495e;
 		opacity: 0.8;
 	}
 
