@@ -100,7 +100,7 @@
 			"acChem":5
 		},		{
 			"country":"Canada",
-			"countryCode":"CN",
+			"countryCode":"CA",
 			"continent":"North_America",					
 			"cc":70.1354906,	
 			"ac":148,
@@ -523,7 +523,7 @@
 			"acChem":10			
 		},		{
 			"country":"Canada",
-			"countryCode":"CN",
+			"countryCode":"CA",
 			"continent":"North_America",						
 			"cc":81.1440333,		
 			"ac":192,
@@ -946,7 +946,7 @@
 			"acChem":24			
 		},		{
 			"country":"Canada",
-			"countryCode":"CN",
+			"countryCode":"CA",
 			"continent":"North_America",								
 			"cc":97.12343473,				
 			"ac":224,
@@ -1369,7 +1369,7 @@
 			"acChem":22
 		},		{
 			"country":"Canada",
-			"countryCode":"CN",
+			"countryCode":"CA",
 			"continent":"North_America",							
 			"cc":108.6627289,				
 			"ac":265,
@@ -1792,7 +1792,7 @@
 			"acChem":38
 		},		{
 			"country":"Canada",
-			"countryCode":"CN",
+			"countryCode":"CA",
 			"continent":"North_America",
 			"cc":82.37728621,
 			"ac":247,
