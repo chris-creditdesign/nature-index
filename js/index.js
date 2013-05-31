@@ -79,9 +79,13 @@ d3.json('data/ranking-country-global.json', draw);
 	and is responsible for building the barchart */
 function draw(data) {
 
+	/*	We know that javascript is enabled that we are not in IE 6-8
+		so hide the error message and show outer-wrapper */
+	$(".outer-wrapper").css({"display":"block"});
+	$(".status-message").css({"display":"none"});
+
 	/* store this number to use to create a staggered transition */
 	var numberOfBars = data.year2008.length;
-
 
 	totalBarArray.push(numberOfBars);
 

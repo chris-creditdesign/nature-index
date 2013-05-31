@@ -1,6 +1,12 @@
-.outer-wrapper {
+.status-message {
+	border: 1px solid #c00;
+	background: #fac7c7;
+	padding: 10px;
+}
 
-	height: 1100px;
+.outer-wrapper {
+	height: 900px;
+	display: none;
 }
 
 .outer-wrapper h1 {
