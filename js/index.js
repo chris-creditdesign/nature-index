@@ -3,7 +3,7 @@ var margin = {top: 30, right: 40, bottom: 15, left: 58};
 var width = 940  - margin.left - margin.right;
 var height = 350 - margin.top - margin.bottom;
 /*	Global variable to control the length of D3 transitons */
-var duration = 500;
+var duration = 450;
 /*	Global variable to hold the cc or ac choice */
 var count = "ac"
 /*	Global variable to hold the cc or ac choice */
@@ -12,6 +12,7 @@ var field = "all"
 var displayYear = "2012";
 /*	Global Array to hold all the data we currently want to display */
 var displayArray = [];
+var sortArray = [];
 var yearArray = [];
 var checkArray = [];
 /*	Arrays used to build the country and continent checkboxes */
@@ -251,9 +252,26 @@ function draw(data) {
 		then add a property called choice that holds the relevant count and field value */
 	function updateDisplayArray() {
 
-		displayArray = [];
-		yearArray = [];
-		checkArray = [];
+		/* First remove the existing data from the arrays */
+		while (displayArray.length > 0) {
+			displayArray.shift();
+			} 
+
+		while (yearArray.length > 0) {
+			yearArray.shift();
+			} 
+
+		while (checkArray.length > 0) {
+			checkArray.shift();
+			} 
+
+		while (sortArray.length > 0) {
+			sortArray.shift();
+			} 
+
+		while (sortArray.length > 0) {
+			sortArray.shift();
+			} 
 
 		switch (displayYear) { 
 			case "2008":
@@ -362,15 +380,8 @@ function draw(data) {
 			}
 		};
 
-		/* Sort displayArray into the descending order */
-		// displayArray.sort(function(a, b) {
-			// return d3.descending(a.choice, b.choice);
-			// })
-
-		// displayArray.sort(function(a, b) {
-		// 	  return b.choice < a.choice ? -1 : b.choice > a.choice ? 1 : 0;
-		// 	})
-
+		/*	Sort displayArray into the descending order 
+			If the contries happen to have the same value for choice then they are sorted into alphabetical order */
 		displayArray.sort(function(a, b) {
 				if (b.choice < a.choice) {
 					return -1;
@@ -378,13 +389,9 @@ function draw(data) {
 				else if (b.choice > a.choice) {
 					return 1;
 				} else if (b.choice === a.choice) {
-					return 0;
+					return a.country < b.country ? -1 : a.country > b.country ? 1 : 0;
 				}
 			})
-
-		// displayArray.sort(function(a, b) {
-		// 		return b.choice - a.choice
-		// 	})
 
 		updateBars();
 		updateHeader();
