@@ -363,9 +363,28 @@ function draw(data) {
 		};
 
 		/* Sort displayArray into the descending order */
+		// displayArray.sort(function(a, b) {
+			// return d3.descending(a.choice, b.choice);
+			// })
+
+		// displayArray.sort(function(a, b) {
+		// 	  return b.choice < a.choice ? -1 : b.choice > a.choice ? 1 : 0;
+		// 	})
+
 		displayArray.sort(function(a, b) {
-			return d3.descending(a.choice, b.choice);
+				if (b.choice < a.choice) {
+					return -1;
+				}
+				else if (b.choice > a.choice) {
+					return 1;
+				} else if (b.choice === a.choice) {
+					return 0;
+				}
 			})
+
+		// displayArray.sort(function(a, b) {
+		// 		return b.choice - a.choice
+		// 	})
 
 		updateBars();
 		updateHeader();
@@ -523,7 +542,7 @@ function draw(data) {
 
 				/* Get this bar's x/y values, then augment for the tooltip */
 				var xPosition = parseInt(d3.select(this).attr("x")) - (parseInt($(".tooltip").css("width"))/2);
-				var yPosition = parseInt(d3.select(this).attr("y") ) - (parseInt($(".tooltip").css("height"))) - 30;
+				var yPosition = parseInt(d3.select(this).attr("y") ) - (parseInt($(".tooltip").css("height"))) - 43;
 
 				/* Update the tooltip position and value */
 				d3.select(".tooltip")
