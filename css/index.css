@@ -118,27 +118,27 @@
 	}
 
 	.outer-wrapper .checkbox.checked .icon .dots.Australasia {
-		fill: #CCBEB7;
+		fill: #f1c40f;
 		opacity: 0.8;
 	}
 
 	.outer-wrapper .checkbox.checked .icon .dots.North_America {
-		fill: #BBD52D;
+		fill: #e67e22;
 		opacity: 0.8;
 	}
 
 	.outer-wrapper .checkbox.checked .icon .dots.Asia {
-		fill: #E9691B;
+		fill: #e74c3c;
 		opacity: 0.8;
 	}
 
 	.outer-wrapper .checkbox.checked .icon .dots.Europe {
-		fill: #61AA6C;
+		fill: #2980b9;
 		opacity: 0.8;
 	}	
 
 	.outer-wrapper .checkbox.checked .icon .dots.South_America {
-		fill: #956939;
+		fill: #8e44ad;
 		opacity: 0.8;
 	}
 

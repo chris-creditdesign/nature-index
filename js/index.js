@@ -25,7 +25,7 @@ var addingBars = true;
 var displayCount = "Corrected count";
 var displayField = "All fields";
 /*	Colours for the bars */
-var allBars = ["#CCBEB7","#BBD52D","#E9691B","#61AA6C","#956939"];
+var allBars = ["#f1c40f","#e67e22","#e74c3c","#2980b9","#8e44ad"];
 /*	A var to determine if the scale should be adjustedq */
 			
 /*	Create SVG element */
@@ -36,7 +36,6 @@ var svg = d3.select(".count-chart")
 
 /* Add a group for each row the text */
 var blocks = svg.append("g");
-	// .style("fill", allBars);
 
 /* Add a group for each row the text */
 var groups = svg.append("g")
