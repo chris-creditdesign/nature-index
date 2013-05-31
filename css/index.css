@@ -117,6 +117,31 @@
 		fill: #A0BEC5;
 	}
 
+	.outer-wrapper .checkbox.checked .icon .dots.Australasia {
+		fill: #CCBEB7;
+		opacity: 0.8;
+	}
+
+	.outer-wrapper .checkbox.checked .icon .dots.North_America {
+		fill: #BBD52D;
+		opacity: 0.8;
+	}
+
+	.outer-wrapper .checkbox.checked .icon .dots.Asia {
+		fill: #E9691B;
+		opacity: 0.8;
+	}
+
+	.outer-wrapper .checkbox.checked .icon .dots.Europe {
+		fill: #61AA6C;
+		opacity: 0.8;
+	}	
+
+	.outer-wrapper .checkbox.checked .icon .dots.South_America {
+		fill: #956939;
+		opacity: 0.8;
+	}
+
 	.outer-wrapper .checkbox .icon .dots {
 		fill: #ecf0f1;
 	}

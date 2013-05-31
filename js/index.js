@@ -25,7 +25,7 @@ var addingBars = true;
 var displayCount = "Corrected count";
 var displayField = "All fields";
 /*	Colours for the bars */
-var allBars = "#A0BEC5";
+var allBars = ["#CCBEB7","#BBD52D","#E9691B","#61AA6C","#956939"];
 /*	A var to determine if the scale should be adjustedq */
 			
 /*	Create SVG element */
@@ -35,8 +35,8 @@ var svg = d3.select(".count-chart")
 		.attr("height", height + margin.top + margin.bottom);
 
 /* Add a group for each row the text */
-var blocks = svg.append("g")
-	.style("fill", allBars);
+var blocks = svg.append("g");
+	// .style("fill", allBars);
 
 /* Add a group for each row the text */
 var groups = svg.append("g")
@@ -106,7 +106,8 @@ function draw(data) {
 		.attr("class", "checkbox")
 		.html(function (d) {
 			var continentString = d.replace(/_/g, ' ');
-    		return "<input type='checkbox' value='" + d + "' data-continent='" + d + "' checked>" + continentString;
+			console.log(d)
+    		return "<span class='icon'>	<svg height='20' width='20'><circle cx='10' cy='10' r='10' class='dots " + d +  "'></circle><polygon fill='#ECF0F1' points='8.163,11.837 6.062,9.737 3.963,11.837 6.062,13.938 8.163,16.037 16.037,8.162 13.938,6.062'/></svg></span><input type='checkbox' value='" + d + "' data-continent='" + d + "' checked>" + continentString;
 		});
 
 
@@ -119,11 +120,11 @@ function draw(data) {
 		.attr("class", "checkbox")
 		.html(function (d) {
 			var countryString = d.country.replace(/_/g, ' ');
-    		return "<input type='checkbox' value='" + d.country + "' data-continent='" + d.continent + "' checked>" + countryString + " (" + d.countryCode + ")";
+    		return "<span class='icon'>	<svg height='20' width='20'><circle cx='10' cy='10' r='10' class='dots'></circle><polygon fill='#ECF0F1' points='8.163,11.837 6.062,9.737 3.963,11.837 6.062,13.938 8.163,16.037 16.037,8.162 13.938,6.062'/></svg></span><input type='checkbox' value='" + d.country + "' data-continent='" + d.continent + "' checked>" + countryString + " (" + d.countryCode + ")";
 		});
 
 	/* Add a span containing the svg circle to replace the checkbox icon */
-	$(".checkbox").prepend("<span class='icon'>	<svg height='20' width='20'><circle cx='10' cy='10' r='10' class='dots'></circle><polygon fill='#ECF0F1' points='8.163,11.837 6.062,9.737 3.963,11.837 6.062,13.938 8.163,16.037 16.037,8.162 13.938,6.062'/></svg></span>");
+	// $(".checkbox").prepend("<span class='icon'>	<svg height='20' width='20'><circle cx='10' cy='10' r='10' class='dots'></circle><polygon fill='#ECF0F1' points='8.163,11.837 6.062,9.737 3.963,11.837 6.062,13.938 8.163,16.037 16.037,8.162 13.938,6.062'/></svg></span>");
 
 	/* Two jqueryUI functions to build the year and field sliders */
 	function makeYearSlider () {
@@ -302,6 +303,7 @@ function draw(data) {
 		for (var i = 0; i < checkArray.length; i++) {
 			checkArray[i].country = yearArray[i].country;
 			checkArray[i].countryCode = yearArray[i].countryCode;
+			checkArray[i].continent = yearArray[i].continent;
 		};
 
 		if (count === "cc") {
@@ -439,7 +441,28 @@ function draw(data) {
 			.attr("width", xScale.rangeBand())
 			.attr("y", height + margin.top)
 			.attr("height", 0 )
-			.attr("opacity",0.8);
+			.attr("opacity",0.8)
+			.attr("fill", function(d, i){
+				switch (d.continent) {
+					case "Australasia" :
+						return allBars[0];
+						break;
+					case "North_America" :
+						return allBars[1];
+						break;							 
+					case "Asia" :
+						return allBars[2];
+						break;	
+					case "Europe" :
+						return allBars[3];
+						break;
+					case "SAmerica" :
+						return allBars[4];
+						break;
+					default:
+						return allBars[0];
+				}
+			});
 
 		/* 	Update… */
 		bars.transition()
