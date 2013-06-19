@@ -169,7 +169,7 @@
 			"ccChem":2.7509593,			
 			"acChem":8			
 		},		{
-			"country":"Korea",
+			"country":"South_Korea",
 			"countryCode":"KR",
 			"continent":"Asia",					
 			"cc":16.0452811,	
@@ -592,7 +592,7 @@
 			"ccChem":1.752778,					
 			"acChem":5			
 		},		{
-			"country":"Korea",
+			"country":"South_Korea",
 			"countryCode":"KR",
 			"continent":"Asia",						
 			"cc":28.5604523,		
@@ -1015,7 +1015,7 @@
 			"ccChem":4.407481,						
 			"acChem":11			
 		},		{
-			"country":"Korea",
+			"country":"South_Korea",
 			"countryCode":"KR",
 			"continent":"Asia",								
 			"cc":24.80326409,				
@@ -1438,7 +1438,7 @@
 			"ccChem":4.765593,			
 			"acChem":10
 		},		{
-			"country":"Korea",
+			"country":"South_Korea",
 			"countryCode":"KR",
 			"continent":"Asia",							
 			"cc":41.005119,					
@@ -1861,7 +1861,7 @@
 			"ccChem":7.1598317,					
 			"acChem":20
 		},		{
-			"country":"Korea",
+			"country":"South_Korea",
 			"countryCode":"KR",
 			"continent":"Asia",
 			"cc":40.82214958,
