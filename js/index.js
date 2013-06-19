@@ -80,7 +80,7 @@ d3.json('data/ranking-country-global.json', draw);
 	and is responsible for building the barchart */
 function draw(data) {
 
-	/*	We know that javascript is enabled that we are not in IE 6-8
+	/*	We know that javascript is enabled and that we are not in IE 6-8
 		so hide the error message and show outer-wrapper */
 	$(".outer-wrapper").css({"display":"block"});
 	$(".status-message").css({"display":"none"});
@@ -231,7 +231,7 @@ function draw(data) {
 			$(".continent-select input").prop("checked", $(this).prop("checked"));
 			$(".country-select input").prop("checked", $(this).prop("checked"));
 		} else {
-			/*	Loop through the countries if the data attribute for continent matches the
+			/*	Loop through the countries, if the data attribute for continent matches the
 				value of the continent check box then make its propenty "checked" match the 
 				continent checkbox calling the function i.e. turn it on or off */
 			for (var i = 0; i < $(".country-select input").length; i++) {
@@ -244,11 +244,10 @@ function draw(data) {
 			};
 		}
 
-
 		updateDisplayArray();
 	}			
 
-	/*	function called copy the relevant year's data into the displayArray array
+	/*	function called to copy the relevant year's data into the displayArray array
 		then add a property called choice that holds the relevant count and field value */
 	function updateDisplayArray() {
 
@@ -371,8 +370,8 @@ function draw(data) {
 			}
 		};
 
-
-
+		/*	Find out if each country is checked and if so copy their
+			object from checkArray into displayArray */
 		for (var i = 0; i < checkArray.length; i++) {
 			var countryName = checkArray[i].country;
 
@@ -403,6 +402,7 @@ function draw(data) {
 	/* Transition the height of the bars to the ac or the cc value */
 	function updateBars() {
 
+		/*	Update the yScale domain the current highest value */
 		yScale.domain([0, d3.max(displayArray, function(d) { return d.choice;} )]);
 
 		/*	Make sure that the bars don't get too fat by keeping the xScale range above 5 */
@@ -412,14 +412,14 @@ function draw(data) {
 			xScale.domain(d3.range(5));
 		};		
 
-		/*	Select… */
+		/*	Pass the new display array data to bars */
 		var bars = blocks.selectAll("rect")
 				.data(displayArray, function(d, i) {
 					return d.country;
 				});
 
 
-		/*	Find out if bars are beingin taken away if so  addingBars = false; 
+		/*	Find out if bars are being taken away if so  addingBars = false; 
 			in order to alter the delay of the exiting bars	*/
 		totalBarArray.push(bars[0].length);
 
@@ -499,8 +499,7 @@ function draw(data) {
 			.remove();
 
 
-
-
+		/*	Repeat the bars Enter, Update and Exit for the text lables */
 		var text = groups.selectAll("text")
 				.data(displayArray, function(d, i) {
 					return d.country;
@@ -544,8 +543,6 @@ function draw(data) {
 			})
 			.attr("y", height + margin.top)
 			.remove();
-
-
 
 		/* Call the Y axis to adjust it to the new scale */
 		svg.select(".outer-wrapper .y")
