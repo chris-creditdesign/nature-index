@@ -559,7 +559,7 @@ function draw(data) {
 
 				/*	Find out if we are displaying the cc or the ac value
 					and add the correct text to the tooltipText var */
-				count === "cc" ? tooltipText =  "cc: " +  d.choice : tooltipText =  "ac: " +  d.choice;;
+				count === "cc" ? tooltipText =  "cc: " +  d.choice.toFixed(2) : tooltipText =  "ac: " +  d.choice;
 
 				/* Update the tooltip text */
 				d3.select(".tooltip")
