@@ -369,8 +369,3 @@
 .outer-wrapper .count-chart rect {
 	shape-rendering: crispEdges;
 }
-
-.outer-wrapper .count-chart rect:hover {
-	fill: #f1c40f;
-}
-

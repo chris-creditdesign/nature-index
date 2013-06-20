@@ -1,3 +1,4 @@
+(function($) {
 /*	Margin, Width and height */
 var margin = {top: 30, right: 40, bottom: 15, left: 58};
 var width = 940  - margin.left - margin.right;
@@ -25,7 +26,6 @@ var addingBars = true;
 var displayCount = "Corrected count";
 var displayField = "All fields";
 /*	Colours for the bars */
-// var allBars = ["#f1c40f","#e67e22","#e74c3c","#2980b9","#8e44ad"];
 var allBars = ["#1abc9c","#27ae60","#3498db","#5959b7","#34495e"];
 			
 /*	Create SVG element */
@@ -550,49 +550,134 @@ function draw(data) {
 			.duration(duration)
 			.call(yAxis);
 			
-		/* Colour the bars and apply the tooltip function */
+		/*	Extract the info needed to build the tooltip
+			and send it to the makeTooltip function */
 		bars.on("mouseover", function(d) {
 				
-				/*	Create a var to hold the tooltip text string */
-				var tooltipText = "";
-				var countryString = d.country.replace(/_/g, ' ');
+				var country = d.country;
+				var choice = d.choice;
+				var x = d3.select(this).attr("x");
+				var y = d3.select(this).attr("y");
 
-				/*	Find out if we are displaying the cc or the ac value
-					and add the correct text to the tooltipText var */
-				count === "cc" ? tooltipText =  "cc: " +  d.choice.toFixed(2) : tooltipText =  "ac: " +  d.choice;
+				/*	Hover colour applied with javascript rather than CSS
+					so that it can be trigged by the text too */
+				d3.select(this)
+					.attr("fill","#f1c40f");
 
-				/* Update the tooltip text */
-				d3.select(".tooltip")
-					.select(".value")
-					.html(countryString + "<br /> " + tooltipText);
-
-				/* Get this bar's x/y values, then augment for the tooltip */
-				var xPosition = parseInt(d3.select(this).attr("x")) - (parseInt($(".tooltip").css("width"))/2);
-				var yPosition = parseInt(d3.select(this).attr("y") ) - (parseInt($(".tooltip").css("height"))) - 43;
-
-				/* Update the tooltip position and value */
-				d3.select(".tooltip")
-					.style("left", xPosition + "px")
-					.style("top", yPosition + "px");
-
-				/* Show the tooltip */
-				d3.select(".tooltip")
-					.classed("hidden", false)
-					.transition()
-					.duration(duration/2)
-					.style("opacity", 1);
+				makeTooltip(country,choice,x,y);
 			})
-			.on("mouseout", function() {
+			.on("mouseout", function(d,i) {
+				/* Return the bar to it's continent colour */
+				d3.select(this).attr("fill", function(d, i){
+					switch (d.continent) {
+						case "Australasia" :
+							return allBars[0];
+							break;
+						case "North_America" :
+							return allBars[1];
+							break;							 
+						case "Asia" :
+							return allBars[2];
+							break;	
+						case "Europe" :
+							return allBars[3];
+							break;
+						case "SAmerica" :
+							return allBars[4];
+							break;
+						default:
+							return allBars[0];
+					}
+				});
+
 				/* Hide the tooltip */
-				d3.select(".tooltip")
-					.transition()
-					.duration(duration/2)
-					.style("opacity", 0)
-					.each("end", function() {
-						d3.select(".tooltip").classed("hidden", true);
-					});
+				hideTooltip()
 			});
 
+		/* Add the mouseover behaviour to the text to increase the target area */
+		text.on("mouseover", function(d, i) {
+
+				var country = d.country;
+				var choice = d.choice;
+				var x = d3.select(bars[0][i]).attr("x");
+				var y = d3.select(bars[0][i]).attr("y");
+
+				d3.select(bars[0][i])
+					.attr("fill","#f1c40f");
+
+				makeTooltip(country,choice,x,y);
+			})
+			.on("mouseout", function(d,i) {
+
+				d3.select(bars[0][i]).attr("fill", function(d, i){
+					switch (d.continent) {
+						case "Australasia" :
+							return allBars[0];
+							break;
+						case "North_America" :
+							return allBars[1];
+							break;							 
+						case "Asia" :
+							return allBars[2];
+							break;	
+						case "Europe" :
+							return allBars[3];
+							break;
+						case "SAmerica" :
+							return allBars[4];
+							break;
+						default:
+							return allBars[0];
+					}
+				});
+
+				/* Hide the tooltip */
+				hideTooltip()
+			});
+
+	}
+
+	function makeTooltip(country,choice,x,y) {
+
+		/*	Create a var to hold the tooltip text string */
+		var tooltipText = "";
+		var countryString = country.replace(/_/g, ' ');
+
+		/*	Find out if we are displaying the cc or the ac value
+			and add the correct text to the tooltipText var */
+		count === "cc" ? tooltipText =  "cc: " +  choice.toFixed(2) : tooltipText =  "ac: " +  choice;
+
+		/* Update the tooltip text */
+		d3.select(".tooltip")
+			.select(".value")
+			.html(countryString + "<br /> " + tooltipText);
+
+		/* Get this bar's x/y values, then augment for the tooltip */
+		var xPosition = parseInt(x) - (parseInt($(".tooltip").css("width"))/2);
+		var yPosition = parseInt(y) - (parseInt($(".tooltip").css("height"))) - 43;
+
+		/* Update the tooltip position and value */
+		d3.select(".tooltip")
+			.style("left", xPosition + "px")
+			.style("top", yPosition + "px");
+
+		/* Show the tooltip */
+		d3.select(".tooltip")
+			.classed("hidden", false)
+			.transition()
+			.duration(duration/2)
+			.style("opacity", 1);
+
+	}
+
+	function hideTooltip() {
+		d3.select(".tooltip")
+			.transition()
+			.duration(duration/2)
+			.style("opacity", 0)
+			.each("end", function() {
+				d3.select(".tooltip").classed("hidden", true);
+			});
 	}
 
 	function updateHeader() {
@@ -658,7 +743,7 @@ function draw(data) {
 	setupLabel();
 
 }
-
+})(jQuery);
 
 
 
