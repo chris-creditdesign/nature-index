@@ -217,14 +217,23 @@
 	background: #ECF0F1;
     height: .8em;
 }
-.outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-handle {
+
+.outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-handle  {
 	background: #A0BEC5;
+	color: #A0BEC5;
     top: -.2em;
     margin-left: -.6em;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 }
+
+.outer-wrapper a.ui-slider-handle:hover {
+	background: #A0BEC5;
+	color: #A0BEC5;
+	border-bottom: none;
+}
+
 .outer-wrapper .year-wrapper .ui-slider-horizontal .ui-slider-range {
     top: 0;
     height: 100%;
