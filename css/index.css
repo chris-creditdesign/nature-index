@@ -321,6 +321,7 @@
     pointer-events: none;
     opacity: 0;
     z-index: 100;
+    max-height: 40px;
 }
 
 .outer-wrapper .count-chart .tooltip:before {
